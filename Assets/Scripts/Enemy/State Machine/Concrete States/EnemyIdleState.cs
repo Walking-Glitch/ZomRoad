@@ -22,6 +22,11 @@ public class EnemyIdleState : EnemyState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
+
+        if (enemy.IsInDetectionArea)
+        {
+            enemy.StateMachine.ChangeState(enemy.ChaseState);
+        }
     }
 
     public override void PhysicsUpdate()
