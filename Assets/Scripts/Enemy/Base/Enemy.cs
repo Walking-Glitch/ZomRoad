@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IDamageable
+public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
 {
     [SerializeField] public float MaxHealth { get; set; }
     public float CurrentHealth { get; set; }
+    public bool IsInDetectionArea { get; set; }
+    public bool IsInAttackArea { get; set; }
 
     #region State Machine Variables
 
@@ -54,5 +56,15 @@ public class Enemy : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
+
    
+    public void SetIsInDetectionArea(bool isInDetectionArea)
+    {
+        IsInDetectionArea = isInDetectionArea;
+    }
+
+    public void SetIsInAttackArea(bool isInAttackArea)
+    {
+        IsInAttackArea = isInAttackArea;
+    }
 }
