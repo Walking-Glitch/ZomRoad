@@ -7,9 +7,37 @@ public class Enemy : MonoBehaviour, IDamageable
     [SerializeField] public float MaxHealth { get; set; }
     public float CurrentHealth { get; set; }
 
-    void Start()
+    #region State Machine Variables
+
+    public EnemyStateMachine StateMachine { get; set; }
+    public EnemyIdleState IdleState { get; set; }
+    public EnemyChaseState ChaseState { get; set; }
+    public EnemyAttackState AttackState { get; set; }
+    #endregion
+
+    private void Awake()
+    {
+        StateMachine = new EnemyStateMachine();
+
+        IdleState = new EnemyIdleState(this, StateMachine);
+        ChaseState = new EnemyChaseState(this, StateMachine);
+        AttackState = new EnemyAttackState(this, StateMachine);
+    }
+    private void Start()
     {
         CurrentHealth = MaxHealth;
+
+        StateMachine.Initialize(IdleState);
+    }
+
+    private void Update()
+    {
+        StateMachine.currentEnemyState.FrameUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        StateMachine.currentEnemyState.PhysicsUpdate();
     }
     public void Damage(float damage)
     {
