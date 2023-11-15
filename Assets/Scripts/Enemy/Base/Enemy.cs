@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,6 +10,15 @@ public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
     public float CurrentHealth { get; set; }
     public bool IsInDetectionArea { get; set; }
     public bool IsInAttackArea { get; set; }
+
+    public Animator animator;
+
+    public AIPath aIPathScript;
+
+    public AIDestinationSetter aIDestinationSetterScript;
+
+    public Transform targetObject;
+     
 
     #region State Machine Variables
     public EnemyStateMachine StateMachine { get; set; }

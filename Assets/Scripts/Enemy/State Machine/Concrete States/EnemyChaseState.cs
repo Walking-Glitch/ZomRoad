@@ -13,22 +13,28 @@ public class EnemyChaseState : EnemyState
     {
         base.EnterState();
         Debug.Log("Hi from chase state");
+        enemy.EnemyChaseBaseInstance.DoEnterLogic();
     }
 
     public override void ExitState()
     {
         base.ExitState();
+
+        enemy.EnemyChaseBaseInstance.DoExitLogic();
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
+        enemy.EnemyChaseBaseInstance.DoFrameUpdateLogic();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        enemy.EnemyChaseBaseInstance.DoPhysicsUpdateLogic();
     }
 
 }
