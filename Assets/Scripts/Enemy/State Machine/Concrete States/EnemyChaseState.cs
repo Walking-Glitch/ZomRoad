@@ -24,10 +24,6 @@ public class EnemyChaseState : EnemyState
     {
         base.FrameUpdate();
 
-        if (enemy.IsInAttackArea)
-        {
-            enemy.StateMachine.ChangeState(enemy.AttackState);
-        }
     }
 
     public override void PhysicsUpdate()

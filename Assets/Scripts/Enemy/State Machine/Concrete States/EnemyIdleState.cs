@@ -12,26 +12,29 @@ public class EnemyIdleState : EnemyState
     public override void EnterState()
     {
         base.EnterState();
+
+        enemy.EnemyIdleBaseInstance.DoEnterLogic();
     }
 
     public override void ExitState()
     {
         base.ExitState();
+
+        enemy.EnemyIdleBaseInstance.DoExitLogic();
     }
 
     public override void FrameUpdate()
     {
         base.FrameUpdate();
 
-        if (enemy.IsInDetectionArea)
-        {
-            enemy.StateMachine.ChangeState(enemy.ChaseState);
-        }
+        enemy.EnemyIdleBaseInstance.DoFrameUpdateLogic();
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+
+        enemy.EnemyIdleBaseInstance.DoPhysicsUpdateLogic();
     }
 
 }
