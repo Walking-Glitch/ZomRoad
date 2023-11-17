@@ -31,5 +31,8 @@ public class EnemyIdleSOBase : ScriptableObject
     }
     public virtual void DoPhysicsUpdateLogic() {}
 
+    public virtual void DoAnimationEventTriggerLogic(Enemy.AnimationTriggerType triggerType){}
     public virtual void ResetValues(){}
+
+
 }

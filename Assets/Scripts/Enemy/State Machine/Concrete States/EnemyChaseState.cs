@@ -12,7 +12,6 @@ public class EnemyChaseState : EnemyState
     public override void EnterState()
     {
         base.EnterState();
-        Debug.Log("Hi from chase state");
         enemy.EnemyChaseBaseInstance.DoEnterLogic();
     }
 
@@ -35,6 +34,13 @@ public class EnemyChaseState : EnemyState
         base.PhysicsUpdate();
 
         enemy.EnemyChaseBaseInstance.DoPhysicsUpdateLogic();
+    }
+
+    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    {
+        base.AnimationTriggerEvent(triggerType);
+
+        enemy.EnemyIdleBaseInstance.DoAnimationEventTriggerLogic(triggerType);
     }
 
 }

@@ -15,9 +15,9 @@ public class EnemyDirectChase : EnemyChaseSOBase
     {
         base.DoEnterLogic();
         enemy.aIDestinationSetterScript.target = playerTransform;
-
-        enemy.animator.SetBool("isChasing", true);
-
+        Shout();
+        
+       
     }
 
     public override void DoFrameUpdateLogic()
@@ -32,6 +32,37 @@ public class EnemyDirectChase : EnemyChaseSOBase
         base.DoPhysicsUpdateLogic();
     }
 
+    public void Shout()
+    {
+        enemy.aIPathScript.canMove = false;
+
+        enemy.animator.SetBool("isSpotted", true);
+        enemy.animator.SetBool("isChasing", false);
+    }
+
+    public void Chase()
+    {
+        enemy.aIPathScript.canMove = true;
+        Debug.Log("WE ADASD  CHECKING");
+        enemy.animator.SetBool("isChasing", true);
+        enemy.animator.SetBool("isSpotted", false);
+
+        
+
+        enemy.aIPathScript.canMove = true;
+    }
+
+    public override void DoAnimationEventTriggerLogic(Enemy.AnimationTriggerType triggerType)
+    {
+        base.DoAnimationEventTriggerLogic(triggerType);
+
+        if (triggerType == Enemy.AnimationTriggerType.TriggerChase1)
+        {
+            Chase();
+        }
+       
+    }
+
     public override void DoExitLogic()
     {
         base.DoExitLogic();
@@ -42,6 +73,7 @@ public class EnemyDirectChase : EnemyChaseSOBase
         base.ResetValues();
 
         enemy.animator.SetBool("isChasing", false);
+        enemy.animator.SetBool("isSpotted", false);
     }
 
      
