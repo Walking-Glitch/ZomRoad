@@ -86,7 +86,16 @@ public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
         Destroy(gameObject);
     }
 
+    private void AnimationTriggerEvent(AnimationTriggerType triggerType)
+    {
+        StateMachine.currentEnemyState.AnimationTriggerEvent(triggerType);
+    }
 
+    public enum AnimationTriggerType
+    {
+         TriggerIdle1, TriggerIdle2,
+         TriggerChase1, TriggerChase2,
+    }
    
     public void SetIsInDetectionArea(bool isInDetectionArea)
     {

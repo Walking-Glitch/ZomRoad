@@ -36,4 +36,11 @@ public class EnemyAttackState : EnemyState
 
         enemy.EnemyAttackBaseInstance.DoPhysicsUpdateLogic();
     }
+
+    public override void AnimationTriggerEvent(Enemy.AnimationTriggerType triggerType)
+    {
+        base.AnimationTriggerEvent(triggerType);
+
+        enemy.EnemyIdleBaseInstance.DoAnimationEventTriggerLogic(triggerType);
+    }
 }

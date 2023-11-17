@@ -14,9 +14,8 @@ public class EnemyRandomPatrol : EnemyIdleSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
-        RandomPoint();
-
-        enemy.animator.SetBool("isIdle", true);
+        Stop();
+       
     }
 
     public override void DoFrameUpdateLogic()
@@ -25,7 +24,7 @@ public class EnemyRandomPatrol : EnemyIdleSOBase
 
         if (enemy.aIPathScript.reachedDestination)
         {
-            RandomPoint();
+            Stop();
         }
     }
 
@@ -34,20 +33,9 @@ public class EnemyRandomPatrol : EnemyIdleSOBase
         base.DoPhysicsUpdateLogic();
     }
 
-    public override void DoExitLogic()
-    {
-        base.DoExitLogic();
-    }
-
-    public override void ResetValues()
-    {
-        base.ResetValues();
-        enemy.animator.SetBool("isIdle", false);
-    }
-
     private void RandomPoint()
     {
-        int theGScoreToStopAt = 50000;
+        int theGScoreToStopAt = 10000;
 
         // Create a path object
         RandomPath path = RandomPath.Construct(transform.position, theGScoreToStopAt);
@@ -59,6 +47,47 @@ public class EnemyRandomPatrol : EnemyIdleSOBase
 
         // Start the path and return the result to MyCompleteFunction (which is a function you have to define, the name can of course be changed)
         seeker.StartPath(path);
-       
     }
+
+    public void Stop()
+    {
+        enemy.aIPathScript.canMove = false;
+        enemy.animator.SetBool("isPatrolling", false);
+        enemy.animator.SetBool("isIdle", true);
+    }
+
+    public void Move()
+    {
+        enemy.animator.SetBool("isIdle", false);
+        enemy.animator.SetBool("isPatrolling", true);
+
+        enemy.aIPathScript.canMove = true;
+
+        RandomPoint();
+    }
+
+    public override void DoAnimationEventTriggerLogic(Enemy.AnimationTriggerType triggerType)
+    {
+        base.DoAnimationEventTriggerLogic(triggerType);
+        if (triggerType == Enemy.AnimationTriggerType.TriggerIdle1)
+        {
+            Move();
+        }
+       
+
+    }
+
+    public override void ResetValues()
+    {
+        base.ResetValues();
+        enemy.animator.SetBool("isIdle", false);
+        enemy.animator.SetBool("isPatrolling", false);
+    }
+
+    public override void DoExitLogic()
+    {
+        base.DoExitLogic();
+    }
+
+
 }
