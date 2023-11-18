@@ -21,6 +21,7 @@ public class EnemyAttackMelee : EnemyAttackSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
+        Debug.Log("we are attack state");
 
     }
 

@@ -24,6 +24,10 @@ public class EnemyAttackSOBase : ScriptableObject
 
     public virtual void DoFrameUpdateLogic()
     {
+        if (!enemy.IsInAttackArea)
+        {
+            enemy.StateMachine.ChangeState(enemy.ChaseState);
+        }
     }
     public virtual void DoPhysicsUpdateLogic() { }
 
