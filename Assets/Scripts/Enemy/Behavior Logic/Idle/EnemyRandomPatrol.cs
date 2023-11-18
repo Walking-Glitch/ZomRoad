@@ -14,6 +14,7 @@ public class EnemyRandomPatrol : EnemyIdleSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+        enemy.aIPathScript.maxSpeed = 1;
         Stop();
        
     }
@@ -21,6 +22,8 @@ public class EnemyRandomPatrol : EnemyIdleSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
+
+        Debug.Log("we are patrol state");
 
         if (enemy.aIPathScript.reachedDestination)
         {

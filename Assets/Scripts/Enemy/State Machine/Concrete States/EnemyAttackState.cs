@@ -41,6 +41,6 @@ public class EnemyAttackState : EnemyState
     {
         base.AnimationTriggerEvent(triggerType);
 
-        enemy.EnemyIdleBaseInstance.DoAnimationEventTriggerLogic(triggerType);
+        enemy.EnemyAttackBaseInstance.DoAnimationEventTriggerLogic(triggerType);
     }
 }

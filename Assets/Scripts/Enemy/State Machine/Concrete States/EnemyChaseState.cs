@@ -40,7 +40,7 @@ public class EnemyChaseState : EnemyState
     {
         base.AnimationTriggerEvent(triggerType);
 
-        enemy.EnemyIdleBaseInstance.DoAnimationEventTriggerLogic(triggerType);
+        enemy.EnemyChaseBaseInstance.DoAnimationEventTriggerLogic(triggerType);
     }
 
 }

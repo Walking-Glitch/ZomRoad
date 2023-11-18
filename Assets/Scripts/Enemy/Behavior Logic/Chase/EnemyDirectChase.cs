@@ -14,6 +14,7 @@ public class EnemyDirectChase : EnemyChaseSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+        enemy.aIPathScript.maxSpeed = 5;
         enemy.aIDestinationSetterScript.target = playerTransform;
         Shout();
         
@@ -24,7 +25,8 @@ public class EnemyDirectChase : EnemyChaseSOBase
     {
         base.DoFrameUpdateLogic();
 
-        
+        Debug.Log("we are chase state");
+
     }
 
     public override void DoPhysicsUpdateLogic()
@@ -34,6 +36,8 @@ public class EnemyDirectChase : EnemyChaseSOBase
 
     public void Shout()
     {
+        transform.LookAt(playerTransform);
+
         enemy.aIPathScript.canMove = false;
 
         enemy.animator.SetBool("isSpotted", true);
@@ -43,21 +47,22 @@ public class EnemyDirectChase : EnemyChaseSOBase
     public void Chase()
     {
         enemy.aIPathScript.canMove = true;
-        Debug.Log("WE ADASD  CHECKING");
+       
         enemy.animator.SetBool("isChasing", true);
         enemy.animator.SetBool("isSpotted", false);
 
-        
 
         enemy.aIPathScript.canMove = true;
     }
-
+    
     public override void DoAnimationEventTriggerLogic(Enemy.AnimationTriggerType triggerType)
     {
         base.DoAnimationEventTriggerLogic(triggerType);
 
+       
         if (triggerType == Enemy.AnimationTriggerType.TriggerChase1)
         {
+            Debug.Log("we are inside the enum trigger");
             Chase();
         }
        
