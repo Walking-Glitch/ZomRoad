@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Stalker : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+     
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    //public void DealDamage()
+    //{
+    //    if ( currentTarget != null)
+    //    {
+    //        currentTarget.GetComponent<Survivor>().Damage(25);
+    //    }
+
+    //}
 }

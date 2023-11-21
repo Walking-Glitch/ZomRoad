@@ -16,7 +16,8 @@ public class EnemyIdleSOBase : ScriptableObject
         transform = gameObject.transform;
         this.enemy = enemy;
 
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        //survivorTransform = GameObject.FindGameObjectWithTag("Survivor").transform;
+        //survivorTransform = enemy.CurrentTarget.transform; NOT NEEDED NOW FOR PATROLLING
     }
 
     public virtual void DoEnterLogic() {}
@@ -24,7 +25,7 @@ public class EnemyIdleSOBase : ScriptableObject
 
     public virtual void DoFrameUpdateLogic()
     {
-        if (enemy.IsInDetectionArea)
+        if (enemy.IsInDetectionArea && enemy.currentTarget != null)
         {
             enemy.StateMachine.ChangeState(enemy.ChaseState);
         }

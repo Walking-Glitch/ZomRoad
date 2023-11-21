@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
     public float CurrentHealth { get; set; }
     public bool IsInDetectionArea { get; set; }
     public bool IsInAttackArea { get; set; }
+    
+    public GameObject currentTarget; //{ get; set; }
 
     public Animator animator;
 
@@ -18,6 +20,8 @@ public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
     public AIDestinationSetter aIDestinationSetterScript;
 
     public Transform targetObject;
+
+    public bool isDead;
      
 
     #region State Machine Variables
@@ -83,6 +87,7 @@ public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
 
     public void Die()
     {
+        isDead = true;
         Destroy(gameObject);
     }
 
@@ -95,6 +100,13 @@ public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
     {
          TriggerIdle1, TriggerIdle2,
          TriggerChase1, TriggerChase2,
+         TriggerAttack1, TriggerAttack2
+
+    }
+
+    public void SetCurrentTarget(GameObject currTarget)
+    {
+        currentTarget = currTarget;
     }
    
     public void SetIsInDetectionArea(bool isInDetectionArea)

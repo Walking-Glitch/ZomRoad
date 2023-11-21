@@ -62,7 +62,7 @@ public class EnemyDirectChase : EnemyChaseSOBase
        
         if (triggerType == Enemy.AnimationTriggerType.TriggerChase1)
         {
-            Debug.Log("we are inside the enum trigger");
+           // Debug.Log("we are inside the enum trigger");
             Chase();
         }
        

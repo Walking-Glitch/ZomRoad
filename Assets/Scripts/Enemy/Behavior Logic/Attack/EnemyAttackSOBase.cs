@@ -8,7 +8,8 @@ public class EnemyAttackSOBase : ScriptableObject
     protected Transform transform;
     protected GameObject gameObject;
 
-    protected Transform playerTransform;
+    protected Transform survivorTransform;
+    protected Survivor survivor;
 
     public virtual void Initialize(GameObject gameObject, Enemy enemy)
     {
@@ -16,17 +17,31 @@ public class EnemyAttackSOBase : ScriptableObject
         transform = gameObject.transform;
         this.enemy = enemy;
 
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        //survivorTransform = GameObject.FindGameObjectWithTag("Survivor").transform;
+        
     }
 
-    public virtual void DoEnterLogic() { }
+    public virtual void DoEnterLogic()
+    {
+        if (enemy.currentTarget != null)
+        {
+            survivorTransform = enemy.currentTarget.transform;
+            survivor = enemy.currentTarget.GetComponent<Survivor>();
+        }
+        
+    }
     public virtual void DoExitLogic() { ResetValues(); }
 
     public virtual void DoFrameUpdateLogic()
     {
-        if (!enemy.IsInAttackArea)
+        if (!enemy.IsInAttackArea && enemy.currentTarget != null)
         {
             enemy.StateMachine.ChangeState(enemy.ChaseState);
+        }
+
+        else if (enemy.currentTarget == null)
+        {
+            enemy.StateMachine.ChangeState(enemy.IdleState);
         }
     }
     public virtual void DoPhysicsUpdateLogic() { }

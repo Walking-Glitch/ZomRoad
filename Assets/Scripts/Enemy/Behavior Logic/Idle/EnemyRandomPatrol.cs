@@ -23,7 +23,7 @@ public class EnemyRandomPatrol : EnemyIdleSOBase
     {
         base.DoFrameUpdateLogic();
 
-        //Debug.Log("we are enemy patrol state");
+        Debug.Log("we are enemy patrol state");
 
         if (enemy.aIPathScript.reachedDestination)
         {
@@ -43,7 +43,7 @@ public class EnemyRandomPatrol : EnemyIdleSOBase
         // Create a path object
         RandomPath path = RandomPath.Construct(transform.position, theGScoreToStopAt);
         // Determines the variation in path length that is allowed
-        path.spread = 5000;
+        path.spread = 8000;
 
         // Get the Seeker component which must be attached to this GameObject
         Seeker seeker = gameObject.GetComponent<Seeker>();

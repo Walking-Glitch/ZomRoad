@@ -18,6 +18,9 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
 
     public Transform targetObject;
 
+    public bool isDead;
+
+
     #region State Machine Variables
     public SurvivorStateMachine StateMachine { get; set; }
     public SurvivorIdleState IdleState { get; set; }
@@ -48,6 +51,8 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
         IdleState = new SurvivorIdleState(this, StateMachine);
         ChaseState = new SurvivorChaseState(this, StateMachine);
         AttackState = new SurvivorAttackState(this, StateMachine);
+
+        MaxHealth = 100f;
     }
     void Start()
     {
@@ -64,6 +69,7 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
     void Update()
     {
         StateMachine.currentSurvivorState.FrameUpdate();
+        Debug.Log(CurrentHealth);
     }
 
     private void FixedUpdate()
@@ -83,6 +89,7 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
 
     public void Die()
     {
+        isDead = true;
         Destroy(gameObject);
     }
 
