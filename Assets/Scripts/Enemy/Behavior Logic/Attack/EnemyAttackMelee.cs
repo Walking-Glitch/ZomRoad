@@ -16,6 +16,8 @@ public class EnemyAttackMelee : EnemyAttackSOBase
         base.DoEnterLogic();
         
         enemy.animator.SetBool("isAttacking", true);
+
+        enemy.aIPathScript.canMove = false;
     }
 
     public override void DoFrameUpdateLogic()
@@ -39,7 +41,30 @@ public class EnemyAttackMelee : EnemyAttackSOBase
     {
         base.ResetValues();
         enemy.animator.SetBool("isAttacking", false);
+        enemy.aIPathScript.canMove = true;
     }
 
-    
+    public void DealDamage(float damage)
+    {
+        if (enemy.currentTarget != null)
+        {
+            survivor.Damage(damage);
+        }
+        
+    }
+
+    public override void DoAnimationEventTriggerLogic(Enemy.AnimationTriggerType triggerType)
+    {
+        base.DoAnimationEventTriggerLogic(triggerType);
+
+        if (triggerType == Enemy.AnimationTriggerType.TriggerAttack1)
+        {
+            if (enemy.IsInAttackArea)
+            {
+                DealDamage(25);
+                Debug.Log("ANIM EVENT HAS BEEN CALLED");
+            }
+
+        }
+    }
 }

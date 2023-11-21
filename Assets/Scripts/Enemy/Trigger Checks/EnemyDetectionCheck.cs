@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class EnemyDetectionCheck : MonoBehaviour
 {
-    public GameObject PlayerTarget { get; set; }
+   // public GameObject PlayerTarget { get; set; }
     private Enemy _enemy;
 
     private void Awake()
     {
-        PlayerTarget = GameObject.FindGameObjectWithTag("Player");
+       // PlayerTarget = GameObject.FindGameObjectWithTag("Survivor");
 
         _enemy = GetComponentInParent<Enemy>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == PlayerTarget)
+        if (other.CompareTag("Survivor"))
         {
             _enemy.SetIsInDetectionArea(true);
+            _enemy.SetCurrentTarget(other.gameObject);
 
-            Debug.Log("PLAYER DETECTED");
+            Debug.Log("SURVIVOR DETECTED");
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _enemy.SetIsInDetectionArea(false);
+        if (other.CompareTag("Survivor"))
+        {
+            _enemy.SetIsInDetectionArea(false);
+            _enemy.SetCurrentTarget(null);
+        }
     }
 }

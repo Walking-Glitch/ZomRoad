@@ -23,7 +23,7 @@ public class SurvivorRandomPatrol : SurvivorIdleSOBase
     {
         base.DoFrameUpdateLogic();
 
-        Debug.Log("we are survivor patrol state");
+       // Debug.Log("we are survivor patrol state");
 
         if (survivor.aIPathScript.reachedDestination)
         {
@@ -43,7 +43,7 @@ public class SurvivorRandomPatrol : SurvivorIdleSOBase
         // Create a path object
         RandomPath path = RandomPath.Construct(transform.position, theGScoreToStopAt);
         // Determines the variation in path length that is allowed
-        path.spread = 5000;
+        path.spread = 8000;
 
         // Get the Seeker component which must be attached to this GameObject
         Seeker seeker = gameObject.GetComponent<Seeker>();

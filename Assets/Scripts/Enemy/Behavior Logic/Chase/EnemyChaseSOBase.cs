@@ -16,22 +16,34 @@ public class EnemyChaseSOBase : ScriptableObject
         transform = gameObject.transform;
         this.enemy = enemy;
 
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        //survivorTransform = GameObject.FindGameObjectWithTag("Survivor").transform;
+        
     }
 
-    public virtual void DoEnterLogic() { }
+    public virtual void DoEnterLogic() {
+        if (enemy.currentTarget != null)
+            playerTransform = enemy.currentTarget.transform; }
     public virtual void DoExitLogic() { ResetValues(); }
 
     public virtual void DoFrameUpdateLogic()
     {
-        if (enemy.IsInAttackArea)
+        if (enemy.IsInAttackArea && enemy.currentTarget != null)
         {
             enemy.StateMachine.ChangeState(enemy.AttackState);
         }
+
+        else if (enemy.currentTarget == null)
+        {
+            enemy.StateMachine.ChangeState(enemy.IdleState);
+        }
+
+
     }
     public virtual void DoPhysicsUpdateLogic() { }
 
     public virtual void DoAnimationEventTriggerLogic(Enemy.AnimationTriggerType triggerType) { }
 
     public virtual void ResetValues() { }
+
+
 }
