@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
     public Transform targetObject;
 
     public bool isDead;
+
+    public List<Survivor> survivorList;
      
 
     #region State Machine Variables

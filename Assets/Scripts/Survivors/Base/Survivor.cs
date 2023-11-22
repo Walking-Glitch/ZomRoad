@@ -69,7 +69,7 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
     void Update()
     {
         StateMachine.currentSurvivorState.FrameUpdate();
-        Debug.Log(CurrentHealth);
+        //Debug.Log(CurrentHealth);
     }
 
     private void FixedUpdate()
