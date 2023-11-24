@@ -15,6 +15,7 @@ public class SurvivorDirectChase : SurvivorChaseSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+        Chase();
     }
 
     public override void DoFrameUpdateLogic()
@@ -27,6 +28,14 @@ public class SurvivorDirectChase : SurvivorChaseSOBase
         base.DoPhysicsUpdateLogic();
     }
 
+    public void Chase()
+    {
+        survivor.animator.SetBool("isChasing", true);
+        survivor.aIPathScript.canMove = true;
+        survivor.aIPathScript.maxSpeed = 5;
+        survivor.aIDestinationSetterScript.target = enemyTransform;
+
+    }
     public override void DoAnimationEventTriggerLogic(Survivor.AnimationTriggerType triggerType)
     {
         base.DoAnimationEventTriggerLogic(triggerType);
@@ -35,6 +44,7 @@ public class SurvivorDirectChase : SurvivorChaseSOBase
     public override void ResetValues()
     {
         base.ResetValues();
+        survivor.animator.SetBool("isChasing", false);
     }
 
     public override void DoExitLogic()

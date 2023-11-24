@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
 {
-    [SerializeField] public float MaxHealth { get; set; }
+    public float MaxHealth { get; set; }
     public float CurrentHealth { get; set; }
     public bool IsInDetectionArea { get; set; }
     public bool IsInAttackArea { get; set; }
@@ -47,6 +47,8 @@ public class Enemy : MonoBehaviour, IDamageable, ITriggerCheckable
 
     private void Awake()
     {
+        MaxHealth = 100f;
+
         EnemyIdleBaseInstance = Instantiate(EnemyIdleBase);
         EnemyChaseBaseInstance = Instantiate(EnemyChaseBase);
         EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);

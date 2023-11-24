@@ -23,7 +23,7 @@ public class EnemyRandomPatrol : EnemyIdleSOBase
     {
         base.DoFrameUpdateLogic();
 
-        Debug.Log("we are enemy patrol state");
+        //Debug.Log("we are enemy patrol state");
 
         if (enemy.aIPathScript.reachedDestination)
         {

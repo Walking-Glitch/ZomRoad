@@ -25,7 +25,7 @@ public class EnemyDirectChase : EnemyChaseSOBase
     {
         base.DoFrameUpdateLogic();
 
-        Debug.Log("we are chase state");
+        //Debug.Log("we are chase state");
 
     }
 

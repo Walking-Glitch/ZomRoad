@@ -23,8 +23,6 @@ public class SurvivorRandomPatrol : SurvivorIdleSOBase
     {
         base.DoFrameUpdateLogic();
 
-       // Debug.Log("we are survivor patrol state");
-
         if (survivor.aIPathScript.reachedDestination)
         {
             Stop();

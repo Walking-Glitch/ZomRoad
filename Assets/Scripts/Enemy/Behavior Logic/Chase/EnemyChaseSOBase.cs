@@ -32,7 +32,7 @@ public class EnemyChaseSOBase : ScriptableObject
             enemy.StateMachine.ChangeState(enemy.AttackState);
         }
 
-        else if (enemy.currentTarget == null)
+        else if (enemy.currentTarget == null && enemy.survivorList.Count == 0)
         {
             enemy.StateMachine.ChangeState(enemy.IdleState);
         }
