@@ -14,11 +14,16 @@ public class SurvivorRangedAttack : SurvivorAttackSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+
+        survivor.animator.SetBool("isAttacking", true);
+        survivor.aIPathScript.canMove = false;
+        
     }
 
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
+        transform.LookAt(enemyTransform);
     }
 
     public override void DoPhysicsUpdateLogic()
@@ -34,6 +39,8 @@ public class SurvivorRangedAttack : SurvivorAttackSOBase
     public override void ResetValues()
     {
         base.ResetValues();
+        survivor.animator.SetBool("isAttacking", false);
+        survivor.aIPathScript.canMove = true;
     }
 
     public override void DoExitLogic()

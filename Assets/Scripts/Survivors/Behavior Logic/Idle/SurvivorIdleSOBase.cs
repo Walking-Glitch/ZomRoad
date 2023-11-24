@@ -16,7 +16,7 @@ public class SurvivorIdleSOBase : ScriptableObject
         transform = gameObject.transform;
         this.survivor = survivor;
 
-        enemyTransform = GameObject.FindGameObjectWithTag("Enemy").transform;
+        //enemyTransform = GameObject.FindGameObjectWithTag("Enemy").transform;
     }
 
     public virtual void DoEnterLogic() { }
@@ -24,6 +24,8 @@ public class SurvivorIdleSOBase : ScriptableObject
 
     public virtual void DoFrameUpdateLogic()
     {
+         Debug.Log("we are survivor patrol state");
+
         if (survivor.IsInDetectionArea)
         {
             survivor.StateMachine.ChangeState(survivor.ChaseState);

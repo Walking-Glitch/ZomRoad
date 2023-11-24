@@ -10,6 +10,8 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
     public bool IsInDetectionArea { get; set; }
     public bool IsInAttackArea { get; set; }
 
+    public GameObject currentTarget;
+
     public Animator animator;
 
     public AIPath aIPathScript;
@@ -19,6 +21,8 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
     public Transform targetObject;
 
     public bool isDead;
+
+    public List<Enemy> enemyList;
 
 
     #region State Machine Variables
@@ -42,6 +46,8 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
 
     private void Awake()
     {
+        MaxHealth = 100f;
+
         SurvivorIdleBaseInstance = Instantiate(SurvivorIdleBase);
         SurvivorChaseBaseInstance = Instantiate(SurvivorChaseBase);
         SurvivorAttackBaseInstance = Instantiate(SurvivorAttackBase);
@@ -52,7 +58,7 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
         ChaseState = new SurvivorChaseState(this, StateMachine);
         AttackState = new SurvivorAttackState(this, StateMachine);
 
-        MaxHealth = 100f;
+        
     }
     void Start()
     {
@@ -103,8 +109,13 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
     {
         TriggerIdle1, TriggerIdle2,
         TriggerChase1, TriggerChase2,
+        TriggerAttack1, TriggerAttack2
     }
 
+    public void SetCurrentTarget(GameObject currTarget)
+    {
+        currentTarget = currTarget;
+    }
     public void SetIsInDetectionArea(bool isInDetectionArea)
     {
         IsInDetectionArea = isInDetectionArea;

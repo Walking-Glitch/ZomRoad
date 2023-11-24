@@ -23,7 +23,7 @@ public class EnemyDetectionCheck : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_enemy.survivorList.Count);
+        //Debug.Log(_enemy.survivorList.Count);
         DetectSurvivors();
         AddSurvivors();
         RemoveSurvivors();
@@ -88,7 +88,7 @@ public class EnemyDetectionCheck : MonoBehaviour
         }
         else
         {
-            Gizmos.color = Color.white;
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, detectionRange);
         }
 
