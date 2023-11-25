@@ -12,6 +12,8 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
 
     public GameObject currentTarget;
 
+    public GameObject gunBarrel;
+
     public Animator animator;
 
     public AIPath aIPathScript;
@@ -86,6 +88,9 @@ public class Survivor : MonoBehaviour, IDamageable, ITriggerCheckable
     public void Damage(float damage)
     {
         CurrentHealth -= damage;
+
+        animator.SetTrigger("isHit");
+        animator.SetInteger("hitIndex", Random.Range(0,2));
 
         if (CurrentHealth <= 0)
         {
