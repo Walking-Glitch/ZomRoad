@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAttackCheck : MonoBehaviour
 {
-    public GameObject PlayerTarget { get; set; }
+    //public GameObject PlayerTarget { get; set; }
     private Enemy _enemy;
 
     
@@ -29,7 +29,7 @@ public class EnemyAttackCheck : MonoBehaviour
         {
             _enemy.SetIsInAttackArea(true);
             _enemy.SetCurrentTarget(other.gameObject);
-            Debug.Log("Survivor in ATTACK area coll");
+            //Debug.Log("Survivor in ATTACK area coll");
         }
          
     }

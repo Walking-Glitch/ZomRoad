@@ -4,26 +4,42 @@ using UnityEngine;
 
 public class SurvivorAttackCheck : MonoBehaviour
 {
-    public GameObject EnemyTarget { get; set; }
+    //public GameObject EnemyTarget { get; set; }
     private Survivor _survivor;
 
     private void Awake()
     {
-        EnemyTarget = GameObject.FindGameObjectWithTag("Enemy");
+       // EnemyTarget = GameObject.FindGameObjectWithTag("Enemy");
 
         _survivor = GetComponentInParent<Survivor>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (other.gameObject == EnemyTarget)
+        if (_survivor.currentTarget == null)
+        {
+            _survivor.SetIsInAttackArea(false);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
         {
             _survivor.SetIsInAttackArea(true);
+            _survivor.SetCurrentTarget(other.gameObject);
+            //Debug.Log("Survivor in ATTACK area coll");
         }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _survivor.SetIsInAttackArea(false);
+        if (other.CompareTag("Enemy"))
+        {
+            _survivor.SetIsInAttackArea(false);
+            Debug.Log("Enemy LEFT ATTACK area coll");
+            //_enemy.SetCurrentTarget(null);
+        }
     }
 }
