@@ -762,12 +762,12 @@ GameObject:
   - component: {fileID: 3043942577852513682}
   - component: {fileID: 3043942577851383634}
   - component: {fileID: 3043942577846309458}
-  - component: {fileID: 3043942577846309456}
   - component: {fileID: 3043942577846309457}
   - component: {fileID: 3043942577846309471}
+  - component: {fileID: 8829727961404680857}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -779,7 +779,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3043942577853571474}
-  m_LocalRotation: {x: -0.000000026692542, y: 0.7071067, z: 0.000000026692536, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -3.6346998, y: 0.72, z: 14.998581}
   m_LocalScale: {x: 0.025399989, y: 0.0254, z: 0.025399989}
   m_ConstrainProportionsScale: 0
@@ -790,7 +790,7 @@ Transform:
   - {fileID: 5816187165969283163}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &3043942577852513682
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -861,19 +861,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!65 &3043942577846309456
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3043942577853571474}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 72.43852, y: 72.41866, z: 136.40768}
-  m_Center: {x: 0.000061035156, y: 42.275272, z: 2.7861934}
 --- !u!54 &3043942577846309457
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -910,9 +897,23 @@ MonoBehaviour:
   frontLeftTransform: {fileID: 3043942577853283774}
   backRightTransform: {fileID: 3043942577853283754}
   backLeftTransform: {fileID: 3043942577853283772}
-  acceleration: 300
+  acceleration: 700
   brakingForce: 300
   maxTurnAngle: 15
+--- !u!64 &8829727961404680857
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043942577853571474}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 65a090704015245488740a1e2357c69c, type: 3}
 --- !u!1 &3043942577853571476
 GameObject:
   m_ObjectHideFlags: 0
