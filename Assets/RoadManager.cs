@@ -32,7 +32,7 @@ public class RoadManager : MonoBehaviour
 
             if (streetEndPoint != null)
             {
-                GameObject tempStreetPrefab = Instantiate(streets[Random.Range(0,streets.Length)], streetEndPoint.position + new Vector3(0, 0, 30), Quaternion.identity);
+                GameObject tempStreetPrefab = Instantiate(streets[Random.Range(0,streets.Length)], streetEndPoint.position + new Vector3(0, 0, 29.5f), Quaternion.identity);
                 prevStreet = currStreet;
                 currStreet = tempStreetPrefab;
                 
