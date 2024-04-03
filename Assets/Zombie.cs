@@ -19,9 +19,12 @@ public class Zombie : MonoBehaviour
     private Collider[] ragdollColliders;
 
     private Rigidbody[] ragdollRigidbodies;
+
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.Instance;
         zombie = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
@@ -35,6 +38,11 @@ public class Zombie : MonoBehaviour
         if (player != null)
         {
             zombie.destination = player.position;
+        }
+
+        if (!IsAgentOnNavMesh(zombie))
+        {
+            CleanerDestroyZombie();
         }
         
     }
@@ -59,7 +67,7 @@ public class Zombie : MonoBehaviour
 
         zombie.isStopped = true;
 
-        DestroyZombie();
+        PlayerDestroyZombie();
     }
 
     private void RagdollModeOff()
@@ -91,16 +99,44 @@ public class Zombie : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EnemyCleaner"))
+        {
+            CleanerDestroyZombie();
+        }
+    }
+
     private void GetRagdollBits()
     {
         ragdollColliders = rig.GetComponentsInChildren<Collider>();
         ragdollRigidbodies = rig.GetComponentsInChildren<Rigidbody>();
     }
 
-    private void DestroyZombie()
+    private void PlayerDestroyZombie()
     {
+        gameManager.enemyManager.DecreaseEnemyCtr();
         Destroy(gameObject, 3.0f);
+    }
 
+    private void CleanerDestroyZombie()
+    {
+        gameManager.enemyManager.DecreaseEnemyCtr();
+        Destroy(gameObject);
+    }
+
+    bool IsAgentOnNavMesh(NavMeshAgent agent)
+    {
+        
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(agent.transform.position, out hit, 0.15f, NavMesh.AllAreas))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

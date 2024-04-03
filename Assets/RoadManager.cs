@@ -37,8 +37,7 @@ public class RoadManager : MonoBehaviour
                 currStreet = tempStreetPrefab;
                 
             }
-           
-
+            
         }
 
         if (other.gameObject.CompareTag("DeleteTrigger"))

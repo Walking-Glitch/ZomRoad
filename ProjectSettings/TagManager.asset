@@ -9,6 +9,7 @@ TagManager:
   - Survivor
   - RoadTrigger
   - DeleteTrigger
+  - EnemyCleaner
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy
   - Survivor
   - RayHit
-  - 
+  - Test
   - 
   - 
   - 
