@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
+    [SerializeField] private Transform player;
+
     public Collider mainCollider;
 
     public Animator anim;
 
     public GameObject rig;
+
+    private NavMeshAgent zombie;
 
     private Collider[] ragdollColliders;
 
@@ -17,6 +22,9 @@ public class Zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        zombie = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
         GetRagdollBits();
         RagdollModeOff();
     }
@@ -24,6 +32,10 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player != null)
+        {
+            zombie.destination = player.position;
+        }
         
     }
 
@@ -44,6 +56,10 @@ public class Zombie : MonoBehaviour
         mainCollider.enabled = false;
 
         GetComponent<Rigidbody>().isKinematic = true;
+
+        zombie.isStopped = true;
+
+        DestroyZombie();
     }
 
     private void RagdollModeOff()
@@ -63,6 +79,8 @@ public class Zombie : MonoBehaviour
         mainCollider.enabled = true;
 
         GetComponent<Rigidbody>().isKinematic = false;
+
+        zombie.isStopped = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -79,5 +97,10 @@ public class Zombie : MonoBehaviour
         ragdollRigidbodies = rig.GetComponentsInChildren<Rigidbody>();
     }
 
+    private void DestroyZombie()
+    {
+        Destroy(gameObject, 3.0f);
+
+    }
 
 }
