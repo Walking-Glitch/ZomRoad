@@ -294,6 +294,68 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4883766, y: 0.77374476, z: 3.6344175}
   m_Center: {x: 0.0000007152556, y: -0.0000039488077, z: 1.9695289}
+--- !u!1 &668329488134477216
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153421503842072311}
+  m_Layer: 0
+  m_Name: B (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1153421503842072311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668329488134477216}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 161.29, y: 0.4, z: 135.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6722732611105093168}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &731941827912970456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8800595716674067138}
+  m_Layer: 0
+  m_Name: A (10)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8800595716674067138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731941827912970456}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 161.29, y: 0.4, z: 134.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6722732611105093168}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &736043431681681600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1091,7 @@ GameObject:
   - component: {fileID: 2598326437800310451}
   - component: {fileID: 7695569097793493446}
   - component: {fileID: 1064716157974801585}
+  - component: {fileID: 4488076861826873466}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -1114,6 +1177,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &4488076861826873466
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574064480898172335}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &1735629307807958875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,6 +1781,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4883766, y: 0.77374476, z: 3.6344175}
   m_Center: {x: 0.0000054836273, y: -0.00000013411048, z: 1.9695289}
+--- !u!1 &2206912443137953997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111052567558614384}
+  m_Layer: 0
+  m_Name: A (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111052567558614384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2206912443137953997}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 167.6, y: 0.4, z: 134.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6722732611105093168}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2385346458164392617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,6 +2572,7 @@ GameObject:
   - component: {fileID: 6818608859301388997}
   - component: {fileID: 5466581653187636039}
   - component: {fileID: 4581580032213482622}
+  - component: {fileID: 6645012995759616776}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -2547,6 +2658,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.000004053116, z: 0.877341}
+--- !u!208 &6645012995759616776
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2988124785153384962}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3377328679654323428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,6 +2686,7 @@ GameObject:
   - component: {fileID: 2619567115948162514}
   - component: {fileID: 8114098935483490847}
   - component: {fileID: 2407010822158753412}
+  - component: {fileID: 847483695300816965}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -2644,6 +2772,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &847483695300816965
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3377328679654323428}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3487715485564745843
 GameObject:
   m_ObjectHideFlags: 0
@@ -4774,6 +4918,7 @@ GameObject:
   - component: {fileID: 3693851275498213285}
   - component: {fileID: 3693851275497082341}
   - component: {fileID: 3693851275501288357}
+  - component: {fileID: 7196780628848650388}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -4859,6 +5004,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.000004053116, z: 0.877341}
+--- !u!208 &7196780628848650388
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084961}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4871,6 +5032,7 @@ GameObject:
   - component: {fileID: 3693851275498213287}
   - component: {fileID: 3693851275497082343}
   - component: {fileID: 3693851275501288359}
+  - component: {fileID: 888898214386880365}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -4956,6 +5118,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000076293945, z: 0.877341}
+--- !u!208 &888898214386880365
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084963}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4968,6 +5146,7 @@ GameObject:
   - component: {fileID: 3693851275498213305}
   - component: {fileID: 3693851275497082361}
   - component: {fileID: 3693851275501288377}
+  - component: {fileID: 1981885517900935197}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -5053,6 +5232,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000076293945, z: 0.877341}
+--- !u!208 &1981885517900935197
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084965}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084967
 GameObject:
   m_ObjectHideFlags: 0
@@ -5065,6 +5260,7 @@ GameObject:
   - component: {fileID: 3693851275498213307}
   - component: {fileID: 3693851275497082363}
   - component: {fileID: 3693851275501288379}
+  - component: {fileID: 2615157814556823167}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -5150,6 +5346,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.000004053116, z: 0.877341}
+--- !u!208 &2615157814556823167
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084967}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084969
 GameObject:
   m_ObjectHideFlags: 0
@@ -5162,6 +5374,7 @@ GameObject:
   - component: {fileID: 3693851275498213293}
   - component: {fileID: 3693851275497082349}
   - component: {fileID: 3693851275501288365}
+  - component: {fileID: 4592715247816771499}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -5247,6 +5460,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &4592715247816771499
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084969}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084971
 GameObject:
   m_ObjectHideFlags: 0
@@ -5259,6 +5488,7 @@ GameObject:
   - component: {fileID: 3693851275498213295}
   - component: {fileID: 3693851275497082351}
   - component: {fileID: 3693851275501288367}
+  - component: {fileID: 8801917165680789191}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -5344,6 +5574,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000038146973, z: 0.877341}
+--- !u!208 &8801917165680789191
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084971}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5356,6 +5602,7 @@ GameObject:
   - component: {fileID: 3693851275498213281}
   - component: {fileID: 3693851275497082337}
   - component: {fileID: 3693851275501288353}
+  - component: {fileID: 5371085482762413551}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -5441,6 +5688,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &5371085482762413551
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084973}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084975
 GameObject:
   m_ObjectHideFlags: 0
@@ -5453,6 +5716,7 @@ GameObject:
   - component: {fileID: 3693851275498213283}
   - component: {fileID: 3693851275497082339}
   - component: {fileID: 3693851275501288355}
+  - component: {fileID: 847425158359506992}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -5538,6 +5802,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000007152557, z: 0.877341}
+--- !u!208 &847425158359506992
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084975}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084977
 GameObject:
   m_ObjectHideFlags: 0
@@ -5942,6 +6222,7 @@ GameObject:
   - component: {fileID: 3693851275498213309}
   - component: {fileID: 3693851275497082365}
   - component: {fileID: 3693851275501288381}
+  - component: {fileID: 7461551601086217297}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -6027,6 +6308,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000007152557, z: 0.877341}
+--- !u!208 &7461551601086217297
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084985}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084987
 GameObject:
   m_ObjectHideFlags: 0
@@ -6039,6 +6336,7 @@ GameObject:
   - component: {fileID: 3693851275498213311}
   - component: {fileID: 3693851275497082367}
   - component: {fileID: 3693851275501288383}
+  - component: {fileID: 3747385560005467974}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -6124,6 +6422,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &3747385560005467974
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084987}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6136,6 +6450,7 @@ GameObject:
   - component: {fileID: 3693851275498213297}
   - component: {fileID: 3693851275497082353}
   - component: {fileID: 3693851275501288369}
+  - component: {fileID: 5419029106243760193}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -6221,6 +6536,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000038146973, z: 0.877341}
+--- !u!208 &5419029106243760193
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084989}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084991
 GameObject:
   m_ObjectHideFlags: 0
@@ -6233,6 +6564,7 @@ GameObject:
   - component: {fileID: 3693851275498213299}
   - component: {fileID: 3693851275497082355}
   - component: {fileID: 3693851275501288371}
+  - component: {fileID: 5825865689339274056}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -6318,6 +6650,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &5825865689339274056
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693851275495084991}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &3693851275495084993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8607,6 +8955,91 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4883766, y: 0.77374476, z: 3.6344175}
   m_Center: {x: 0.0000054836273, y: -0.00000013411048, z: 1.9695289}
+--- !u!1 &4889950460595096826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4047038721474112375}
+  - component: {fileID: 4661543595164276034}
+  - component: {fileID: 1768459335452743783}
+  - component: {fileID: 1194389317788154900}
+  m_Layer: 0
+  m_Name: 'NavMesh Link '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4047038721474112375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889950460595096826}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 164.94, y: 0, z: 135.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6722732611105093168}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!191 &4661543595164276034
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889950460595096826}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 0
+  m_AgentTypeID: 0
+  m_Start: {fileID: 3299707122887248788}
+  m_End: {fileID: 3276307937102851940}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
+--- !u!191 &1768459335452743783
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889950460595096826}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 0
+  m_AgentTypeID: 0
+  m_Start: {fileID: 8800595716674067138}
+  m_End: {fileID: 1153421503842072311}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
+--- !u!191 &1194389317788154900
+OffMeshLink:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4889950460595096826}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_AreaIndex: 0
+  m_AgentTypeID: 0
+  m_Start: {fileID: 111052567558614384}
+  m_End: {fileID: 2059773542177727888}
+  m_CostOverride: -1
+  m_BiDirectional: 1
+  m_Activated: 1
+  m_AutoUpdatePositions: 0
 --- !u!1 &4899020810951719540
 GameObject:
   m_ObjectHideFlags: 0
@@ -9011,6 +9444,7 @@ GameObject:
   - component: {fileID: 2869001144420221255}
   - component: {fileID: 590458238916724857}
   - component: {fileID: 8308487108194966358}
+  - component: {fileID: 347913876711547362}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -9096,6 +9530,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000038146973, z: 0.877341}
+--- !u!208 &347913876711547362
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101485679563269431}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &5143568163426185734
 GameObject:
   m_ObjectHideFlags: 0
@@ -9486,6 +9936,7 @@ GameObject:
   - component: {fileID: 285837213130820980}
   - component: {fileID: 850402457132893515}
   - component: {fileID: 5562658687401138149}
+  - component: {fileID: 6116678770874620248}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -9571,6 +10022,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &6116678770874620248
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5591876208235316978}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &5634274243962670301
 GameObject:
   m_ObjectHideFlags: 0
@@ -9767,6 +10234,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4883766, y: 0.77374476, z: 3.6344175}
   m_Center: {x: 0.00000035762775, y: -0.00000013411048, z: 1.9695289}
+--- !u!1 &5925200732331921118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059773542177727888}
+  m_Layer: 0
+  m_Name: B (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2059773542177727888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5925200732331921118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 167.6, y: 0.4, z: 135.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6722732611105093168}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6024975675450525100
 GameObject:
   m_ObjectHideFlags: 0
@@ -9975,6 +10473,7 @@ GameObject:
   - component: {fileID: 5399754479763170040}
   - component: {fileID: 3796324032385842638}
   - component: {fileID: 5636604565658847904}
+  - component: {fileID: 939530188}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -10060,6 +10559,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &939530188
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142044537927368183}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.20500001, y: 4.5800004, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6145626246568181636
 GameObject:
   m_ObjectHideFlags: 0
@@ -10170,6 +10685,7 @@ GameObject:
   - component: {fileID: 518718398691390101}
   - component: {fileID: 2342858550560942578}
   - component: {fileID: 4671859808553219115}
+  - component: {fileID: 2865680650388526650}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -10255,6 +10771,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &2865680650388526650
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193822277034474956}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6228102040734188825
 GameObject:
   m_ObjectHideFlags: 0
@@ -12376,6 +12908,7 @@ GameObject:
   - component: {fileID: 6722732609751185092}
   - component: {fileID: 6722732609752151172}
   - component: {fileID: 6722732609756332740}
+  - component: {fileID: 4029456686980418867}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -12461,6 +12994,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000038146973, z: 0.877341}
+--- !u!208 &4029456686980418867
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953224}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953226
 GameObject:
   m_ObjectHideFlags: 0
@@ -12473,6 +13022,7 @@ GameObject:
   - component: {fileID: 6722732609751185094}
   - component: {fileID: 6722732609752151174}
   - component: {fileID: 6722732609756332742}
+  - component: {fileID: 5821627484082561294}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -12558,6 +13108,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &5821627484082561294
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953226}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953228
 GameObject:
   m_ObjectHideFlags: 0
@@ -12570,6 +13136,7 @@ GameObject:
   - component: {fileID: 6722732609751185096}
   - component: {fileID: 6722732609752151176}
   - component: {fileID: 6722732609756332744}
+  - component: {fileID: 7936736746190794346}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -12655,6 +13222,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000007152557, z: 0.877341}
+--- !u!208 &7936736746190794346
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953228}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953230
 GameObject:
   m_ObjectHideFlags: 0
@@ -12667,6 +13250,7 @@ GameObject:
   - component: {fileID: 6722732609751185098}
   - component: {fileID: 6722732609752151178}
   - component: {fileID: 6722732609756332746}
+  - component: {fileID: 3938191736244786449}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -12752,6 +13336,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &3938191736244786449
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953230}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953232
 GameObject:
   m_ObjectHideFlags: 0
@@ -12764,6 +13364,7 @@ GameObject:
   - component: {fileID: 6722732609751185100}
   - component: {fileID: 6722732609752151180}
   - component: {fileID: 6722732609756332748}
+  - component: {fileID: 5402704364863925728}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -12849,6 +13450,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000076293945, z: 0.877341}
+--- !u!208 &5402704364863925728
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953232}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953234
 GameObject:
   m_ObjectHideFlags: 0
@@ -12861,6 +13478,7 @@ GameObject:
   - component: {fileID: 6722732609751185102}
   - component: {fileID: 6722732609752151182}
   - component: {fileID: 6722732609756332750}
+  - component: {fileID: 8169295917404090800}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -12946,6 +13564,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.000004053116, z: 0.877341}
+--- !u!208 &8169295917404090800
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953234}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953236
 GameObject:
   m_ObjectHideFlags: 0
@@ -12958,6 +13592,7 @@ GameObject:
   - component: {fileID: 6722732609751185104}
   - component: {fileID: 6722732609752151184}
   - component: {fileID: 6722732609756332752}
+  - component: {fileID: 2640337729753095182}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -13043,6 +13678,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.000004053116, z: 0.877341}
+--- !u!208 &2640337729753095182
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953236}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953238
 GameObject:
   m_ObjectHideFlags: 0
@@ -13055,6 +13706,7 @@ GameObject:
   - component: {fileID: 6722732609751185106}
   - component: {fileID: 6722732609752151186}
   - component: {fileID: 6722732609756332754}
+  - component: {fileID: 801230553338410700}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -13140,6 +13792,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000076293945, z: 0.877341}
+--- !u!208 &801230553338410700
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953238}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953240
 GameObject:
   m_ObjectHideFlags: 0
@@ -13152,6 +13820,7 @@ GameObject:
   - component: {fileID: 6722732609751185108}
   - component: {fileID: 6722732609752151188}
   - component: {fileID: 6722732609756332756}
+  - component: {fileID: 7063477134401105688}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -13237,6 +13906,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &7063477134401105688
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953240}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953242
 GameObject:
   m_ObjectHideFlags: 0
@@ -13249,6 +13934,7 @@ GameObject:
   - component: {fileID: 6722732609751185110}
   - component: {fileID: 6722732609752151190}
   - component: {fileID: 6722732609756332758}
+  - component: {fileID: 6417107605448730168}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -13334,6 +14020,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000007152557, z: 0.877341}
+--- !u!208 &6417107605448730168
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953242}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953244
 GameObject:
   m_ObjectHideFlags: 0
@@ -13346,6 +14048,7 @@ GameObject:
   - component: {fileID: 6722732609751185112}
   - component: {fileID: 6722732609752151192}
   - component: {fileID: 6722732609756332760}
+  - component: {fileID: 7378306769417561450}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -13431,6 +14134,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &7378306769417561450
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953244}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953246
 GameObject:
   m_ObjectHideFlags: 0
@@ -13443,6 +14162,7 @@ GameObject:
   - component: {fileID: 6722732609751185114}
   - component: {fileID: 6722732609752151194}
   - component: {fileID: 6722732609756332762}
+  - component: {fileID: 6410431748471896462}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -13528,6 +14248,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000038146973, z: 0.877341}
+--- !u!208 &6410431748471896462
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732609749953246}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732609749953248
 GameObject:
   m_ObjectHideFlags: 0
@@ -15768,6 +16504,7 @@ GameObject:
   - component: {fileID: 6722732611065787423}
   - component: {fileID: 6722732611066918879}
   - component: {fileID: 6722732611071098909}
+  - component: {fileID: 3854003570439291937}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -15853,6 +16590,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &3854003570439291937
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848155}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848157
 GameObject:
   m_ObjectHideFlags: 0
@@ -15865,6 +16618,7 @@ GameObject:
   - component: {fileID: 6722732611065787425}
   - component: {fileID: 6722732611066918881}
   - component: {fileID: 6722732611071098919}
+  - component: {fileID: 404864386137207727}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -15950,6 +16704,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.000004053116, z: 0.877341}
+--- !u!208 &404864386137207727
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848157}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848159
 GameObject:
   m_ObjectHideFlags: 0
@@ -16060,6 +16830,7 @@ GameObject:
   - component: {fileID: 6722732611065787429}
   - component: {fileID: 6722732611066918885}
   - component: {fileID: 6722732611071098923}
+  - component: {fileID: 3490217580379675205}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -16145,6 +16916,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &3490217580379675205
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848161}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848163
 GameObject:
   m_ObjectHideFlags: 0
@@ -16157,6 +16944,7 @@ GameObject:
   - component: {fileID: 6722732611065787431}
   - component: {fileID: 6722732611066918887}
   - component: {fileID: 6722732611071098917}
+  - component: {fileID: 3816885563340966953}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -16242,6 +17030,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &3816885563340966953
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848163}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848165
 GameObject:
   m_ObjectHideFlags: 0
@@ -16254,6 +17058,7 @@ GameObject:
   - component: {fileID: 6722732611065787433}
   - component: {fileID: 6722732611066918889}
   - component: {fileID: 6722732611071098927}
+  - component: {fileID: 2687844013411495374}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -16339,6 +17144,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &2687844013411495374
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848165}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848167
 GameObject:
   m_ObjectHideFlags: 0
@@ -18115,6 +18936,7 @@ GameObject:
   - component: {fileID: 6722732611065787791}
   - component: {fileID: 6722732611066918735}
   - component: {fileID: 6722732611071099277}
+  - component: {fileID: 7505660677861541192}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -18200,6 +19022,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &7505660677861541192
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848523}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848525
 GameObject:
   m_ObjectHideFlags: 0
@@ -18408,6 +19246,7 @@ GameObject:
   - component: {fileID: 6722732611065787797}
   - component: {fileID: 6722732611066918741}
   - component: {fileID: 6722732611071099285}
+  - component: {fileID: 1456702189888079517}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -18493,6 +19332,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &1456702189888079517
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848529}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848531
 GameObject:
   m_ObjectHideFlags: 0
@@ -19292,6 +20147,7 @@ GameObject:
   - component: {fileID: 6722732611065787845}
   - component: {fileID: 6722732611066918789}
   - component: {fileID: 6722732611071099339}
+  - component: {fileID: 7766692176406713409}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -19377,6 +20233,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &7766692176406713409
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848577}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848579
 GameObject:
   m_ObjectHideFlags: 0
@@ -19487,6 +20359,7 @@ GameObject:
   - component: {fileID: 6722732611065787849}
   - component: {fileID: 6722732611066918793}
   - component: {fileID: 6722732611071099341}
+  - component: {fileID: 8416866169740734259}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -19572,6 +20445,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &8416866169740734259
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848581}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848583
 GameObject:
   m_ObjectHideFlags: 0
@@ -19584,6 +20473,7 @@ GameObject:
   - component: {fileID: 6722732611065787851}
   - component: {fileID: 6722732611066918795}
   - component: {fileID: 6722732611071099337}
+  - component: {fileID: 8704441622415449714}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -19669,6 +20559,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000007152557, z: 0.877341}
+--- !u!208 &8704441622415449714
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848583}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848585
 GameObject:
   m_ObjectHideFlags: 0
@@ -19779,6 +20685,7 @@ GameObject:
   - component: {fileID: 6722732611065787855}
   - component: {fileID: 6722732611066918799}
   - component: {fileID: 6722732611071099343}
+  - component: {fileID: 7553910831022945158}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -19864,6 +20771,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000038146973, z: 0.877341}
+--- !u!208 &7553910831022945158
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848587}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848589
 GameObject:
   m_ObjectHideFlags: 0
@@ -20661,6 +21584,7 @@ GameObject:
   - component: {fileID: 6722732611065787873}
   - component: {fileID: 6722732611066918817}
   - component: {fileID: 6722732611071099365}
+  - component: {fileID: 6443020216752872384}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -20746,6 +21670,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.000004053116, z: 0.877341}
+--- !u!208 &6443020216752872384
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848605}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848607
 GameObject:
   m_ObjectHideFlags: 0
@@ -20856,6 +21796,7 @@ GameObject:
   - component: {fileID: 6722732611065787877}
   - component: {fileID: 6722732611066918821}
   - component: {fileID: 6722732611071099371}
+  - component: {fileID: 5913088648960844905}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -20941,6 +21882,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000007152557, z: 0.877341}
+--- !u!208 &5913088648960844905
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848609}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848611
 GameObject:
   m_ObjectHideFlags: 0
@@ -20953,6 +21910,7 @@ GameObject:
   - component: {fileID: 6722732611065787879}
   - component: {fileID: 6722732611066918823}
   - component: {fileID: 6722732611071099367}
+  - component: {fileID: 8531601109164670507}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -21038,6 +21996,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &8531601109164670507
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848611}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848613
 GameObject:
   m_ObjectHideFlags: 0
@@ -21050,6 +22024,7 @@ GameObject:
   - component: {fileID: 6722732611065787881}
   - component: {fileID: 6722732611066918825}
   - component: {fileID: 6722732611071099369}
+  - component: {fileID: 7270735171744866308}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -21135,6 +22110,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000038146973, z: 0.877341}
+--- !u!208 &7270735171744866308
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848613}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848615
 GameObject:
   m_ObjectHideFlags: 0
@@ -21147,6 +22138,7 @@ GameObject:
   - component: {fileID: 6722732611065787883}
   - component: {fileID: 6722732611066918827}
   - component: {fileID: 6722732611071099375}
+  - component: {fileID: 6531960952060982649}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -21232,6 +22224,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &6531960952060982649
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6722732611068848615}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &6722732611068848617
 GameObject:
   m_ObjectHideFlags: 0
@@ -22444,6 +23452,13 @@ Transform:
   - {fileID: 9182145299726160342}
   - {fileID: 3077814681637018200}
   - {fileID: 1047227888007585405}
+  - {fileID: 4047038721474112375}
+  - {fileID: 3299707122887248788}
+  - {fileID: 3276307937102851940}
+  - {fileID: 8800595716674067138}
+  - {fileID: 1153421503842072311}
+  - {fileID: 111052567558614384}
+  - {fileID: 2059773542177727888}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22459,7 +23474,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 15, y: 10, z: 1}
-  m_Center: {x: 0, y: 5, z: 0}
+  m_Center: {x: 0, y: 5, z: 43.99}
 --- !u!1 &6742142185815607765
 GameObject:
   m_ObjectHideFlags: 0
@@ -22656,6 +23671,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.4883766, y: 0.77374476, z: 3.6344175}
   m_Center: {x: 0.0000054836273, y: -0.00000013411048, z: 1.9695289}
+--- !u!1 &6760851220599315376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3276307937102851940}
+  m_Layer: 0
+  m_Name: B (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3276307937102851940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6760851220599315376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 165, y: 0.4, z: 135.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6722732611105093168}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6793368520927781270
 GameObject:
   m_ObjectHideFlags: 0
@@ -22975,7 +24021,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7667362262742539493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 30.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23007,6 +24053,7 @@ GameObject:
   - component: {fileID: 7557372219614434685}
   - component: {fileID: 6961829140543989698}
   - component: {fileID: 3204642376263792716}
+  - component: {fileID: 8888953834275505020}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -23092,6 +24139,53 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &8888953834275505020
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7799487284623897356}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
+--- !u!1 &7831616558446522710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3299707122887248788}
+  m_Layer: 0
+  m_Name: A (9)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3299707122887248788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831616558446522710}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 165, y: 0.4, z: 134.06}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6722732611105093168}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7889627336916675812
 GameObject:
   m_ObjectHideFlags: 0
@@ -23104,6 +24198,7 @@ GameObject:
   - component: {fileID: 1370553270220711544}
   - component: {fileID: 3919806859070703860}
   - component: {fileID: 4991197076272219965}
+  - component: {fileID: 1591471102217469002}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -23189,6 +24284,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &1591471102217469002
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889627336916675812}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &8005669076388925649
 GameObject:
   m_ObjectHideFlags: 0
@@ -23201,6 +24312,7 @@ GameObject:
   - component: {fileID: 2960154831184864137}
   - component: {fileID: 6670247639939708069}
   - component: {fileID: 6615302751132177494}
+  - component: {fileID: 3495996753235746524}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -23286,6 +24398,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.000004053116, z: 0.877341}
+--- !u!208 &3495996753235746524
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8005669076388925649}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &8036583218659281921
 GameObject:
   m_ObjectHideFlags: 0
@@ -23298,6 +24426,7 @@ GameObject:
   - component: {fileID: 8301876036243883878}
   - component: {fileID: 7769085618492467325}
   - component: {fileID: 7286895503216469295}
+  - component: {fileID: 5496315813082463963}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -23383,6 +24512,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000038146973, z: 0.877341}
+--- !u!208 &5496315813082463963
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8036583218659281921}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &8182933026143357843
 GameObject:
   m_ObjectHideFlags: 0
@@ -23493,6 +24638,7 @@ GameObject:
   - component: {fileID: 2169644852686721834}
   - component: {fileID: 3847449352672098808}
   - component: {fileID: 5382778975106768458}
+  - component: {fileID: 9166577947790590803}
   m_Layer: 0
   m_Name: StreetRail_A_A
   m_TagString: Untagged
@@ -23578,6 +24724,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: 0.0000009536743, z: 0.877341}
+--- !u!208 &9166577947790590803
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8204730654856739468}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &8454168021962310367
 GameObject:
   m_ObjectHideFlags: 0
@@ -23590,6 +24752,7 @@ GameObject:
   - component: {fileID: 4947723808260385766}
   - component: {fileID: 7035010104438568231}
   - component: {fileID: 3512569742488452920}
+  - component: {fileID: 5224551578925167958}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -23675,6 +24838,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &5224551578925167958
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8454168021962310367}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &8469499025289357127
 GameObject:
   m_ObjectHideFlags: 0
@@ -23687,6 +24866,7 @@ GameObject:
   - component: {fileID: 994140838968992434}
   - component: {fileID: 6166009021160006831}
   - component: {fileID: 9128578203164632535}
+  - component: {fileID: 4953003054867616700}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -23772,6 +24952,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000007152557, z: 0.877341}
+--- !u!208 &4953003054867616700
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8469499025289357127}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &8681938848600313273
 GameObject:
   m_ObjectHideFlags: 0
@@ -23784,6 +24980,7 @@ GameObject:
   - component: {fileID: 5025304330958727970}
   - component: {fileID: 8367221949718179329}
   - component: {fileID: 820663583320055963}
+  - component: {fileID: 4622821158440024386}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -23869,6 +25066,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.000007390976, z: 0.877341}
+--- !u!208 &4622821158440024386
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8681938848600313273}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 5.5, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
 --- !u!1 &8722617409467130364
 GameObject:
   m_ObjectHideFlags: 0
@@ -24181,6 +25394,7 @@ GameObject:
   - component: {fileID: 6647788340078180088}
   - component: {fileID: 8973015553444062597}
   - component: {fileID: 145518309419461295}
+  - component: {fileID: 6226484512856027992}
   m_Layer: 0
   m_Name: StreetRail_A_B
   m_TagString: Untagged
@@ -24266,3 +25480,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.41060537, y: 9.160164, z: 1.7546781}
   m_Center: {x: 0.00000008195639, y: -0.0000007152557, z: 0.877341}
+--- !u!208 &6226484512856027992
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151923365008590777}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 6, z: 0.87700003}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.5, y: 0, z: 0.87700003}
+  m_TimeToStationary: 0.5
