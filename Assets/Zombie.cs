@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -35,12 +36,12 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null)
+        if (player != null && IsAgentOnNavMesh(zombie))
         {
             zombie.destination = player.position;
         }
 
-        if (!IsAgentOnNavMesh(zombie))
+        if (!IsAgentOnNavMesh(zombie) && !IsAgentOnOffMeshLink(zombie))
         {
             CleanerDestroyZombie();
         }
@@ -139,4 +140,8 @@ public class Zombie : MonoBehaviour
         }
     }
 
+    bool IsAgentOnOffMeshLink(NavMeshAgent agent)
+    {
+        return agent.isOnOffMeshLink;
+    }
 }
