@@ -48,7 +48,7 @@ public class Zombie : MonoBehaviour
         
     }
 
-    private void RagdollModeOn()
+    public void RagdollModeOn()
     {
         foreach (Collider col in ragdollColliders)
         {
@@ -114,7 +114,7 @@ public class Zombie : MonoBehaviour
         ragdollRigidbodies = rig.GetComponentsInChildren<Rigidbody>();
     }
 
-    private void PlayerDestroyZombie()
+    public void PlayerDestroyZombie()
     {
         gameManager.enemyManager.DecreaseEnemyCtr();
         Destroy(gameObject, 3.0f);
