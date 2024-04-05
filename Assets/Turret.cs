@@ -6,6 +6,8 @@ public class Turret : MonoBehaviour
 {
     public float detectionRadius;
     public LayerMask enemyLayer;
+    public Animator anim;
+    public Transform transformT;
 
     [SerializeField] private List<Transform> enemies = new List<Transform>();
     [SerializeField] private Transform currentEnemy;
@@ -25,7 +27,7 @@ public class Turret : MonoBehaviour
     {
         enemies.Clear();
 
-        Collider[] colliders = Physics.OverlapSphere(transform.position, detectionRadius, enemyLayer);
+        Collider[] colliders = Physics.OverlapSphere(transformT.position, detectionRadius, enemyLayer);
 
         foreach (Collider col in colliders)
         {
@@ -42,9 +44,13 @@ public class Turret : MonoBehaviour
                 currentEnemy = enemies[0];
             }
 
-            Vector3 direction = currentEnemy.position - transform.position;
+            Vector3 direction = currentEnemy.position - transformT.position;
             Quaternion rotation = Quaternion.LookRotation(direction);
-            transform.rotation = rotation;
+            transformT.rotation = rotation;
+
+            anim.SetTrigger("Shoot");
+
+
         }
         else
         {
@@ -52,10 +58,20 @@ public class Turret : MonoBehaviour
         }
     }
 
+    public void FireTurret()
+    {
+       
+        if (currentEnemy != null)
+        {
+            currentEnemy.gameObject.GetComponent<Zombie>().RagdollModeOn();
+        }
+        
+    }
+
     private void OnDrawGizmosSelected()
     {
         // Draw a wire sphere in the editor to visualize the detection radius
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+        //Gizmos.DrawWireSphere(transformT.position, detectionRadius);
     }
 }
