@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public WheelController wheelController;
     public EnemyManager enemyManager;
     public RoadManager roadManager;
+    public StreetPool streetPool;
+    public EnemyPool enemyPool;
 
     #endregion
     #region Singleton

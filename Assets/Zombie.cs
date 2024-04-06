@@ -129,15 +129,18 @@ public class Zombie : MonoBehaviour
     {
 
         yield return new WaitForSeconds(delay);
-            
+        gameObject.SetActive(false);
+        RagdollModeOff();
         gameManager.enemyManager.DecreaseEnemyCtr();
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     private void CleanerDestroyZombie()
     {
         gameManager.enemyManager.DecreaseEnemyCtr();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        RagdollModeOff();
+        //Destroy(gameObject);
     }
 
     bool IsAgentOnNavMesh(NavMeshAgent agent)
