@@ -8,12 +8,13 @@ public class RoadManager : MonoBehaviour
 {
     public GameObject currStreet;
     private GameObject prevStreet;
-    [SerializeField] private GameObject[] streets;
+    //[SerializeField] private GameObject[] streets;
     [SerializeField] private Transform streetEndPoint;
+    private GameManager gameManager;
 
     void Start()
     {
-        
+        gameManager = GameManager.Instance;
     }
 
     // Update is called once per frame
@@ -32,17 +33,22 @@ public class RoadManager : MonoBehaviour
 
             if (streetEndPoint != null)
             {
-                GameObject tempStreetPrefab = Instantiate(streets[Random.Range(0,streets.Length)], streetEndPoint.position + new Vector3(0, 0, 29.5f), Quaternion.identity);
+                //GameObject tempStreetPrefab = Instantiate(streets[Random.Range(0,streets.Length)], streetEndPoint.position + new Vector3(0, 0, 29.5f), Quaternion.identity);
+                //prevStreet = currStreet;
+                //currStreet = tempStreetPrefab;
+                GameObject tempStreet = gameManager.streetPool.RequestStreet();
+                tempStreet.transform.position = streetEndPoint.position + new Vector3(0, 0, 29.5f);
                 prevStreet = currStreet;
-                currStreet = tempStreetPrefab;
-                
+                currStreet = tempStreet;
+
             }
-            
+
         }
 
         if (other.gameObject.CompareTag("DeleteTrigger"))
         {
-            Destroy(prevStreet);
+            //Destroy(prevStreet);
+            prevStreet.SetActive(false);
         }
     }
 

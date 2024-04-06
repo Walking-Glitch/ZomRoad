@@ -14,6 +14,12 @@ public class EnemyManager : MonoBehaviour
 
     private bool isSpawning;
 
+    private GameManager gameManager;
+
+    void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +36,11 @@ public class EnemyManager : MonoBehaviour
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
         {
-            Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
+            //Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
+            //enemyCtr++;
+            GameObject tempEnemy = gameManager.enemyPool.RequestEnemy();
+            tempEnemy.transform.position = spawnPoint[Random.Range(0, spawnPoint.Length)].position;
+            tempEnemy.transform.rotation = spawnPoint[Random.Range(0, spawnPoint.Length)].rotation;
             enemyCtr++;
         }
         yield return new WaitForSeconds(delay);
