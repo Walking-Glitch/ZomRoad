@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
@@ -89,7 +90,11 @@ public class Zombie : MonoBehaviour
 
         GetComponent<Rigidbody>().isKinematic = false;
 
-        zombie.isStopped = false;
+        if (IsAgentOnNavMesh(zombie))
+        {
+            zombie.isStopped = false;
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -116,8 +121,17 @@ public class Zombie : MonoBehaviour
 
     public void PlayerDestroyZombie()
     {
+        StartCoroutine(DelayAction(3f));
+        
+    }
+
+    private IEnumerator DelayAction(float delay)
+    {
+
+        yield return new WaitForSeconds(delay);
+            
         gameManager.enemyManager.DecreaseEnemyCtr();
-        Destroy(gameObject, 3.0f);
+        Destroy(gameObject);
     }
 
     private void CleanerDestroyZombie()

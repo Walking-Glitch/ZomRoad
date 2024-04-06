@@ -21,10 +21,14 @@ public class WheelController : MonoBehaviour
     private float currentAcceleration = 0f;
     private float currentBrakeForce = 0f;
     private float currentTurnAngle = 0f;
+
+    public AudioClip[] crashClips;
+
+    private AudioSource audioSource;
    
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -70,4 +74,20 @@ public class WheelController : MonoBehaviour
         transform.position = position;
         transform.rotation = rotation;
     }
+
+    void PlaySfx()
+    {
+        audioSource.clip = crashClips[Random.Range(0, crashClips.Length)];
+        audioSource.Play();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            PlaySfx();
+        }
+    }
+
+
 }
