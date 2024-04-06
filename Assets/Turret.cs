@@ -8,12 +8,15 @@ public class Turret : MonoBehaviour
     public LayerMask enemyLayer;
     public Animator anim;
     public Transform transformT;
+    public Transform carTransform;
+    public float transitionDuration;
+    private AudioSource audioSource;
 
     [SerializeField] private List<Transform> enemies = new List<Transform>();
     [SerializeField] private Transform currentEnemy;
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class Turret : MonoBehaviour
         }
     }
 
+    
     private void AimAtTarget()
     {
         if (enemies.Count > 0)
@@ -46,15 +50,30 @@ public class Turret : MonoBehaviour
 
             Vector3 direction = currentEnemy.position - transformT.position;
             Quaternion rotation = Quaternion.LookRotation(direction);
-            transformT.rotation = rotation;
+            //transformT.rotation = rotation;
 
-            anim.SetTrigger("Shoot");
+            // Calculate the interpolation factor based on the transition progress
+            float t = Time.deltaTime / transitionDuration;
+
+            // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
+            Quaternion newRotation = Quaternion.Lerp(transformT.rotation, rotation, t);
+
+            // Apply the new rotation to the turret's transform
+            transformT.rotation = newRotation;
+
+            if (Quaternion.Angle(transformT.rotation, rotation) < 1)
+            {
+                anim.SetTrigger("Shoot");
+            }
 
 
         }
         else
         {
-            transform.rotation = Quaternion.identity;
+            Quaternion targetRotation = Quaternion.LookRotation(carTransform.forward);
+            float t = Time.deltaTime / transitionDuration;
+            Quaternion newRotation = Quaternion.Lerp(transformT.rotation, targetRotation, t);
+            transformT.rotation = newRotation;
         }
     }
 
@@ -63,6 +82,7 @@ public class Turret : MonoBehaviour
        
         if (currentEnemy != null)
         {
+            audioSource.Play();
             currentEnemy.gameObject.GetComponent<Zombie>().RagdollModeOn();
         }
         
