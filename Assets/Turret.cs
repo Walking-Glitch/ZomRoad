@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     public Transform transformT;
     public Transform carTransform;
     public float transitionDuration;
+    public float resetDuration;
     private AudioSource audioSource;
 
     [SerializeField] private List<Transform> enemies = new List<Transform>();
@@ -63,15 +64,16 @@ public class Turret : MonoBehaviour
 
             if (Quaternion.Angle(transformT.rotation, rotation) < 1)
             {
-                anim.SetTrigger("Shoot");
+                anim.SetBool("Shoot", true);
             }
 
 
         }
         else
         {
+            currentEnemy = null;
             Quaternion targetRotation = Quaternion.LookRotation(carTransform.forward);
-            float t = Time.deltaTime / transitionDuration;
+            float t = Time.deltaTime / resetDuration;
             Quaternion newRotation = Quaternion.Lerp(transformT.rotation, targetRotation, t);
             transformT.rotation = newRotation;
         }
@@ -79,13 +81,14 @@ public class Turret : MonoBehaviour
 
     public void FireTurret()
     {
-       
+
         if (currentEnemy != null)
         {
             audioSource.Play();
+            anim.SetBool("Shoot", false);
             currentEnemy.gameObject.GetComponent<Zombie>().RagdollModeOn();
+
         }
-        
     }
 
     private void OnDrawGizmosSelected()

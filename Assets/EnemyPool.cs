@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyPool : MonoBehaviour
 {
@@ -29,11 +30,13 @@ public class EnemyPool : MonoBehaviour
 
     public GameObject RequestEnemy()
     {
-        for (int i = Random.Range(0, EnemyList.Count - 1); i < EnemyList.Count; i++)
+        //for (int i = Random.Range(0, EnemyList.Count - 1); i < EnemyList.Count; i++)
+        for (int i = 0; i < EnemyList.Count; i++)
         {
             if (!EnemyList[i].activeSelf)
             {
                 EnemyList[i].SetActive(true);
+                EnemyList[i].GetComponent<NavMeshAgent>().enabled = false;
                 return EnemyList[i];
             }
 
