@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject[] enemy;
     public Transform[] spawnPoint;
 
     public int enemyCtr = 0;
@@ -39,8 +39,9 @@ public class EnemyManager : MonoBehaviour
             //Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
             //enemyCtr++;
             GameObject tempEnemy = gameManager.enemyPool.RequestEnemy();
-            tempEnemy.transform.position = spawnPoint[Random.Range(0, spawnPoint.Length)].position;
-            tempEnemy.transform.rotation = spawnPoint[Random.Range(0, spawnPoint.Length)].rotation;
+            tempEnemy.transform.position = selectedSpawnPoint.position;
+            tempEnemy.transform.rotation = selectedSpawnPoint.rotation;
+            tempEnemy.GetComponent<NavMeshAgent>().enabled = true;
             enemyCtr++;
         }
         yield return new WaitForSeconds(delay);
@@ -51,16 +52,16 @@ public class EnemyManager : MonoBehaviour
     Transform GetValidSpawnPoint()
     {
 
-        foreach (Transform spawnP in spawnPoint)
-        {
-            Vector3 spawnPos = spawnP.position;
-            NavMeshHit hit;
+        int i = Random.Range(0, spawnPoint.Length);
+        Vector3 spawnPos = spawnPoint[i].position;
 
-            if (NavMesh.SamplePosition(spawnPos, out hit, 1.0f, NavMesh.AllAreas))
-            {
-                return spawnP;
-            }
+        NavMeshHit hit;
+
+        if (NavMesh.SamplePosition(spawnPos, out hit, 1.0f, NavMesh.AllAreas))
+        {
+            return spawnPoint[i];
         }
+        
 
         // If no valid spawn point is found, return null
         return null;

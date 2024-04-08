@@ -25,7 +25,10 @@ public class WheelController : MonoBehaviour
     public AudioClip[] crashClips;
 
     private AudioSource audioSource;
-   
+
+    public FixedJoystick joystick;
+    private Vector3 moveDirJoystick;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -35,6 +38,7 @@ public class WheelController : MonoBehaviour
     {
         // get forward and reverse acceleration
         currentAcceleration = acceleration * Input.GetAxis("Vertical");
+        //currentAcceleration = acceleration * joystick.Vertical;
 
         //
         if (Input.GetKey(KeyCode.Space))
@@ -55,6 +59,7 @@ public class WheelController : MonoBehaviour
 
         // steering
         currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
+        //currentTurnAngle = maxTurnAngle * joystick.Horizontal;
         frontRight.steerAngle = currentTurnAngle;
         frontLeft.steerAngle = currentTurnAngle;
 

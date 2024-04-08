@@ -277,8 +277,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_CollectObjects: 1
-  m_Size: {x: 10, y: 10, z: 189.0614}
-  m_Center: {x: 0, y: 2, z: -5.469303}
+  m_Size: {x: 10, y: 10, z: 180.177}
+  m_Center: {x: 0, y: 2, z: -5.8167076}
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295

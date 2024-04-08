@@ -23,6 +23,9 @@ public class Zombie : MonoBehaviour
     private Rigidbody[] ragdollRigidbodies;
 
     private GameManager gameManager;
+
+    private bool isAgentOnNavMesh; // Cache the result of IsAgentOnNavMesh
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,16 +40,27 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null && IsAgentOnNavMesh(zombie))
+        if (Time.frameCount % 10 == 0) // Update every 10 frames for example
         {
-            zombie.destination = player.position;
+            isAgentOnNavMesh = IsAgentOnNavMesh(zombie);
         }
+
+        if (player != null && isAgentOnNavMesh) // Use cached result
+        {
+            zombie.SetDestination(player.position);
+        }
+
+        //if (player != null && IsAgentOnNavMesh(zombie))
+        //{
+             
+        //    zombie.SetDestination(player.position);
+        //}
 
         if (!IsAgentOnNavMesh(zombie) && !IsAgentOnOffMeshLink(zombie))
         {
             CleanerDestroyZombie();
         }
-        
+
     }
 
     public void RagdollModeOn()
@@ -67,7 +81,10 @@ public class Zombie : MonoBehaviour
 
         GetComponent<Rigidbody>().isKinematic = true;
 
-        zombie.isStopped = true;
+        if (IsAgentOnNavMesh(zombie))
+        {
+            zombie.isStopped = true;
+        }
 
         PlayerDestroyZombie();
     }
@@ -94,7 +111,8 @@ public class Zombie : MonoBehaviour
         {
             zombie.isStopped = false;
         }
-        
+
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -129,17 +147,19 @@ public class Zombie : MonoBehaviour
     {
 
         yield return new WaitForSeconds(delay);
-        gameObject.SetActive(false);
         RagdollModeOff();
+        gameObject.SetActive(false);
         gameManager.enemyManager.DecreaseEnemyCtr();
         //Destroy(gameObject);
     }
 
     private void CleanerDestroyZombie()
     {
-        gameManager.enemyManager.DecreaseEnemyCtr();
+        //RagdollModeOff();
         gameObject.SetActive(false);
-        RagdollModeOff();
+        gameManager.enemyManager.DecreaseEnemyCtr();
+        
+        
         //Destroy(gameObject);
     }
 
@@ -147,7 +167,7 @@ public class Zombie : MonoBehaviour
     {
         
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(agent.transform.position, out hit, 0.15f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(agent.transform.position, out hit, 1f, NavMesh.AllAreas))
         {
             return true;
         }
