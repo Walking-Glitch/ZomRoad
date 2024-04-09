@@ -1267,6 +1267,9 @@ MonoBehaviour:
   mainCollider: {fileID: 8781542390164815735}
   anim: {fileID: 8781542390164815720}
   rig: {fileID: 2860308528451722483}
+  knockbackGameObjects:
+  - {fileID: 7423842629755287058}
+  - {fileID: 7164717240824972679}
 --- !u!195 &401694770
 NavMeshAgent:
   m_ObjectHideFlags: 0
