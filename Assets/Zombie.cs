@@ -5,6 +5,7 @@ using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Zombie : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Zombie : MonoBehaviour
     public Animator anim;
 
     public GameObject rig;
+
+    public Rigidbody [] knockbackGameObjects;
 
     private NavMeshAgent zombie;
 
@@ -85,8 +88,13 @@ public class Zombie : MonoBehaviour
         {
             zombie.isStopped = true;
         }
-
+ 
         PlayerDestroyZombie();
+    }
+
+    public void ApplyKnockbackForce()
+    {
+        knockbackGameObjects[Random.Range(0, knockbackGameObjects.Length)].AddForce(gameObject.transform.forward.normalized * -1000f, ForceMode.Impulse);
     }
 
     private void RagdollModeOff()

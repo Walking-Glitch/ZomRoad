@@ -51,26 +51,36 @@ public class Turret : MonoBehaviour
 
             Vector3 direction = currentEnemy.position - transformT.position;
             Quaternion rotation = Quaternion.LookRotation(direction);
-            //transformT.rotation = rotation;
 
-            // Calculate the interpolation factor based on the transition progress
-            float t = Time.deltaTime / transitionDuration;
 
-            // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
-            Quaternion newRotation = Quaternion.Lerp(transformT.rotation, rotation, t);
 
-            // Apply the new rotation to the turret's transform
-            transformT.rotation = newRotation;
+            // Calculate the angle between the turret's forward direction and the direction to the enemy
+            float angleToEnemy = Vector3.Angle(transformT.forward, direction);
 
-            if (Quaternion.Angle(transformT.rotation, rotation) < 1)
+            // Define the maximum allowed angle for the front field of view
+            float maxAngle = 45f; // Adjust this angle as needed
+
+            // Check if the angle to the enemy is within the front field of view
+            if (angleToEnemy <= maxAngle)
             {
+                // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
+                float t = Time.deltaTime / transitionDuration;
+                Quaternion newRotation = Quaternion.Lerp(transformT.rotation, rotation, t);
+                transformT.rotation = newRotation;
+
+                // Set the "Shoot" animation trigger
                 anim.SetBool("Shoot", true);
             }
-
-
+            else
+            {
+                // If the enemy is outside the front field of view, do not rotate the turret
+                anim.SetBool("Shoot", false);
+                currentEnemy = null;
+            }
         }
         else
         {
+            anim.SetBool("Shoot", false);
             currentEnemy = null;
             Quaternion targetRotation = Quaternion.LookRotation(carTransform.forward);
             float t = Time.deltaTime / resetDuration;
@@ -87,6 +97,8 @@ public class Turret : MonoBehaviour
             audioSource.Play();
             anim.SetBool("Shoot", false);
             currentEnemy.gameObject.GetComponent<Zombie>().RagdollModeOn();
+            currentEnemy.gameObject.GetComponent<Zombie>().ApplyKnockbackForce();
+            Debug.Log("turret fire");
 
         }
     }
