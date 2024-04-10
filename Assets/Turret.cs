@@ -12,12 +12,22 @@ public class Turret : MonoBehaviour
     public float transitionDuration;
     public float resetDuration;
     private AudioSource audioSource;
+    private ParticleSystem muzzleFlash;
+
+    private GameManager gameManager;
+
+    //public GameObject shellCasing;
+    //public Transform ejectionTransform;
+    //public float ejectForce;
+    //public float ejectTorque;
 
     [SerializeField] private List<Transform> enemies = new List<Transform>();
     [SerializeField] private Transform currentEnemy;
     void Start()
     {
+        gameManager = GameManager.Instance;
         audioSource = GetComponent<AudioSource>();
+        muzzleFlash = GetComponentInChildren<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -95,13 +105,22 @@ public class Turret : MonoBehaviour
         if (currentEnemy != null)
         {
             audioSource.Play();
+            muzzleFlash.Play();
+        //    EjectShellCasing();
+            gameManager.casingManager.SpawnCasing();
             anim.SetBool("Shoot", false);
             currentEnemy.gameObject.GetComponent<Zombie>().RagdollModeOn();
             currentEnemy.gameObject.GetComponent<Zombie>().ApplyKnockbackForce();
-            Debug.Log("turret fire");
-
         }
     }
+
+    //public void EjectShellCasing()
+    //{
+    //    GameObject Casing = Instantiate(shellCasing, ejectionTransform.position, Quaternion.identity);
+    //    Casing.GetComponent<Rigidbody>().AddForce((ejectionTransform.right + ejectionTransform.forward + ejectionTransform.up) * ejectForce);
+    //    Casing.GetComponent<Rigidbody>().AddTorque(Casing.transform.position * ejectTorque);
+    //    //Casing.GetComponent<Rigidbody>().AddTorque(Random.insideUnitSphere * ejectTorque);
+    //}
 
     private void OnDrawGizmosSelected()
     {

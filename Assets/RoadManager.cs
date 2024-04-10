@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RoadManager : MonoBehaviour
 {
@@ -33,11 +35,15 @@ public class RoadManager : MonoBehaviour
 
             if (streetEndPoint != null)
             {
-                //GameObject tempStreetPrefab = Instantiate(streets[Random.Range(0,streets.Length)], streetEndPoint.position + new Vector3(0, 0, 29.5f), Quaternion.identity);
-                //prevStreet = currStreet;
-                //currStreet = tempStreetPrefab;
                 GameObject tempStreet = gameManager.streetPool.RequestStreet();
                 tempStreet.transform.position = streetEndPoint.position + new Vector3(0, 0, 29.5f);
+                //tempStreet.GetComponentInChildren<OffMeshLink>().gameObject.SetActive(true);
+                OffMeshLink offMeshLink = tempStreet.GetComponentInChildren<OffMeshLink>();
+               // this was necessary for off mesh links to display on run time
+                    offMeshLink.gameObject.SetActive(false);
+                    offMeshLink.gameObject.SetActive(true);
+
+
                 prevStreet = currStreet;
                 currStreet = tempStreet;
 
@@ -48,7 +54,11 @@ public class RoadManager : MonoBehaviour
         if (other.gameObject.CompareTag("DeleteTrigger"))
         {
             //Destroy(prevStreet);
-            prevStreet.SetActive(false);
+            if (prevStreet != null)
+            {
+                prevStreet.SetActive(false);
+            }
+            
         }
     }
 
