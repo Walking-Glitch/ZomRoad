@@ -5,6 +5,7 @@ using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 using Random = UnityEngine.Random;
 
 public class Zombie : MonoBehaviour
@@ -29,12 +30,16 @@ public class Zombie : MonoBehaviour
 
     private bool isAgentOnNavMesh; // Cache the result of IsAgentOnNavMesh
 
+    private VisualEffect bloodVisualEffect;
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameManager.Instance;
         zombie = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        bloodVisualEffect = GetComponentInChildren<VisualEffect>();
+        bloodVisualEffect.Stop();
 
         GetRagdollBits();
         RagdollModeOff();
@@ -95,6 +100,7 @@ public class Zombie : MonoBehaviour
     public void ApplyKnockbackForce()
     {
         knockbackGameObjects[Random.Range(0, knockbackGameObjects.Length)].AddForce(gameObject.transform.forward.normalized * -1000f, ForceMode.Impulse);
+        bloodVisualEffect.Play();
     }
 
     private void RagdollModeOff()
@@ -163,7 +169,7 @@ public class Zombie : MonoBehaviour
 
     private void CleanerDestroyZombie()
     {
-        //RagdollModeOff();
+        RagdollModeOff();//sadad
         gameObject.SetActive(false);
         gameManager.enemyManager.DecreaseEnemyCtr();
         
