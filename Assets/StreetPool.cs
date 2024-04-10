@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class StreetPool : MonoBehaviour
 {
@@ -33,6 +35,7 @@ public class StreetPool : MonoBehaviour
             if (!streetList[i].activeSelf)
             {
                 streetList[i].SetActive(true);
+                //streetList[i].GetComponentInChildren<OffMeshLink>().gameObject.SetActive(false);
                 return streetList[i];
             }
 
