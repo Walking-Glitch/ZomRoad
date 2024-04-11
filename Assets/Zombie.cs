@@ -39,7 +39,8 @@ public class Zombie : MonoBehaviour
         zombie = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         bloodVisualEffect = GetComponentInChildren<VisualEffect>();
-        bloodVisualEffect.Stop();
+        bloodVisualEffect.enabled = false;
+        
 
         GetRagdollBits();
         RagdollModeOff();
@@ -93,14 +94,18 @@ public class Zombie : MonoBehaviour
         {
             zombie.isStopped = true;
         }
- 
+
+        ApplyKnockbackForce(-500f, new Vector3(25,5, -50));
+
+
         PlayerDestroyZombie();
     }
 
-    public void ApplyKnockbackForce()
+    public void ApplyKnockbackForce(float force, Vector3 bloodSpeed)
     {
-        knockbackGameObjects[Random.Range(0, knockbackGameObjects.Length)].AddForce(gameObject.transform.forward.normalized * -1000f, ForceMode.Impulse);
-        bloodVisualEffect.Play();
+        knockbackGameObjects[Random.Range(0, knockbackGameObjects.Length)].AddForce(gameObject.transform.forward.normalized * force, ForceMode.Impulse);
+        bloodVisualEffect.SetVector3("BloodVelocity", bloodSpeed);
+        bloodVisualEffect.enabled = true;
     }
 
     private void RagdollModeOff()
@@ -126,6 +131,7 @@ public class Zombie : MonoBehaviour
             zombie.isStopped = false;
         }
 
+        bloodVisualEffect.enabled = false;
 
     }
 
@@ -164,17 +170,16 @@ public class Zombie : MonoBehaviour
         RagdollModeOff();
         gameObject.SetActive(false);
         gameManager.enemyManager.DecreaseEnemyCtr();
-        //Destroy(gameObject);
+     
     }
 
     private void CleanerDestroyZombie()
     {
-        RagdollModeOff();//sadad
+        RagdollModeOff(); 
         gameObject.SetActive(false);
         gameManager.enemyManager.DecreaseEnemyCtr();
         
-        
-        //Destroy(gameObject);
+     
     }
 
     bool IsAgentOnNavMesh(NavMeshAgent agent)

@@ -110,7 +110,7 @@ public class Turret : MonoBehaviour
             gameManager.casingManager.SpawnCasing();
             anim.SetBool("Shoot", false);
             currentEnemy.gameObject.GetComponent<Zombie>().RagdollModeOn();
-            currentEnemy.gameObject.GetComponent<Zombie>().ApplyKnockbackForce();
+            currentEnemy.gameObject.GetComponent<Zombie>().ApplyKnockbackForce(-1000f, new Vector3(2,2,-20));
         }
     }
 
