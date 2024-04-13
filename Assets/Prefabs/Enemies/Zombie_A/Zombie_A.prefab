@@ -1271,6 +1271,8 @@ MonoBehaviour:
   knockbackGameObjects:
   - {fileID: 7423842629755287058}
   - {fileID: 7164717240824972679}
+  maxHealth: 50
+  health: 0
 --- !u!195 &401694770
 NavMeshAgent:
   m_ObjectHideFlags: 0
