@@ -10,7 +10,9 @@ using Random = UnityEngine.Random;
 
 public class Zombie : UndeadBase
 {
- 
+
+    public int expReward = 10;
+    public int giveDamage = 10;
     protected override void Start()
     {
        base.Start();
@@ -36,6 +38,7 @@ public class Zombie : UndeadBase
         if (health <= 0)
         {
             isDead = true;
+            gameManager.wheelController.GainExp(expReward);
             RagdollModeOn();
             ApplyKnockbackForce(-500f, new Vector3(25, 5, -50));
             PlayerDestroyZombie();
@@ -46,6 +49,7 @@ public class Zombie : UndeadBase
         if (collision.gameObject.CompareTag("Player"))
         {
            TakeDamage(100);
+           gameManager.wheelController.TakeDamage(giveDamage);
         }
     }
 

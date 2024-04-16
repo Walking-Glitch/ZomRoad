@@ -29,8 +29,19 @@ public class WheelController : MonoBehaviour
     public FixedJoystick joystick;
     private Vector3 moveDirJoystick;
 
+    public int maxHealth;
+    public int health;
+
+    public int maxExp;
+    public int exp;
+
+    private GameManager gameManager;
+
     void Start()
     {
+        gameManager = GameManager.Instance;
+        health = maxHealth;
+        exp = 0;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -88,6 +99,19 @@ public class WheelController : MonoBehaviour
         audioSource.Play();
     }
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        gameManager.uiManager.SetHealth(health);
+
+    }
+
+    public void GainExp(int expReceived)
+    {
+        exp += expReceived;
+        gameManager.uiManager.SetXp(exp);
+
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))

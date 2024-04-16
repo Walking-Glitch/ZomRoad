@@ -6,8 +6,9 @@ public class Mutant : UndeadBase
 {
     public bool IsInAttackArea { get; set; }
     public AudioClip swingSfx;
-    
 
+    public int expReward = 10;
+    public int giveDamage = 25;
     protected override void Start()
     {
         base.Start();
@@ -57,6 +58,7 @@ public class Mutant : UndeadBase
         {
             gameManager.wheelController.PlaySfx();
             player.gameObject.GetComponent<Rigidbody>().AddForce((undead.transform.forward.normalized + undead.transform.up.normalized) * 5000f, ForceMode.Impulse);
+            gameManager.wheelController.TakeDamage(giveDamage);
         }
 
         else
@@ -80,6 +82,7 @@ public class Mutant : UndeadBase
         if (health <= 0)
         {
             isDead = true;
+            gameManager.wheelController.GainExp(expReward);
             audioSource.Stop();
             bloodVisualEffect.Play();
             undead.isStopped = true;

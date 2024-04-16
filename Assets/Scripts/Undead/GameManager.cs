@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public EnemyPool enemyPool;
     public CasingPool casingPool;
     public CasingManager casingManager;
+    public UIManager uiManager;
 
     #endregion
     #region Singleton
