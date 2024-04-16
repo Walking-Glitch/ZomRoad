@@ -5,6 +5,8 @@ using UnityEngine;
 public class Mutant : UndeadBase
 {
     public bool IsInAttackArea { get; set; }
+    public AudioClip swingSfx;
+    
 
     protected override void Start()
     {
@@ -26,10 +28,9 @@ public class Mutant : UndeadBase
             isAgentOnNavMesh = IsAgentOnNavMesh(undead);
         }
 
-        if (player != null && isAgentOnNavMesh) // Use cached result
+        if (player != null && isAgentOnNavMesh && !isDead) // Use cached result
         {
             undead.SetDestination(player.position);
-            undead.isStopped = false;
         }
 
 
@@ -38,7 +39,7 @@ public class Mutant : UndeadBase
             CleanerDestroyZombie();
         }
 
-        if (IsInAttackArea)
+        if (IsInAttackArea && !isDead)
         {
             anim.SetBool("Attack", true);
             undead.isStopped = true;
@@ -54,6 +55,7 @@ public class Mutant : UndeadBase
     {
         if (IsInAttackArea)
         {
+            gameManager.wheelController.PlaySfx();
             player.gameObject.GetComponent<Rigidbody>().AddForce((undead.transform.forward.normalized + undead.transform.up.normalized) * 5000f, ForceMode.Impulse);
         }
 
@@ -64,16 +66,35 @@ public class Mutant : UndeadBase
       
     }
 
-   
+    private void PlaySfx()
+    {
+        audioSource.clip = swingSfx;
+        audioSource.Play();
+    }
+
+
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
 
         if (health <= 0)
         {
-            //ApplyKnockbackForce(-500f, new Vector3(25, 5, -50));
+            isDead = true;
+            audioSource.Stop();
+            bloodVisualEffect.Play();
+            undead.isStopped = true;
+            anim.SetBool("Dead", true);
             PlayerDestroyZombie();
+
+            return;
         }
+
+        bloodVisualEffect.enabled = true;
+        bloodVisualEffect.Play();
+        anim.SetTrigger("Hit");
+
+
+
     }
 
     protected override void PlayerDestroyZombie()
@@ -86,9 +107,14 @@ public class Mutant : UndeadBase
     {
 
         yield return new WaitForSeconds(delay);
+
+        bloodVisualEffect.enabled = false;
+        health = maxHealth;
+        isDead = false;
         gameObject.SetActive(false);
         gameManager.enemyManager.DecreaseEnemyCtr();
-
+        
+   
     }
 
     protected override void CleanerDestroyZombie()

@@ -19,11 +19,16 @@ public class AttackCheck : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !undead.isDead)
         {
             undead.SetIsInAttackArea(true);
 
-            Debug.Log("player Hit");
+         //   Debug.Log("player Hit");
+        }
+
+        else
+        {
+            undead.SetIsInAttackArea(false);
         }
 
     }
@@ -33,7 +38,7 @@ public class AttackCheck : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             undead.SetIsInAttackArea(false);
-            Debug.Log("player Left");
+          //  Debug.Log("player Left");
             //_enemy.SetCurrentTarget(null);
         }
     }
