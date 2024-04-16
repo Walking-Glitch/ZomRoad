@@ -45,7 +45,8 @@ public class Turret : MonoBehaviour
 
         foreach (Collider col in colliders)
         {
-            enemies.Add(col.transform);
+            if(col.gameObject.GetComponent<UndeadBase>().health > 0)
+                enemies.Add(col.transform);
         }
     }
 
@@ -102,14 +103,14 @@ public class Turret : MonoBehaviour
     public void FireTurret()
     {
 
-        if (currentEnemy != null)
+        if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0)
         {
             audioSource.Play();
             muzzleFlash.Play();
             gameManager.casingManager.SpawnCasing();
             anim.SetBool("Shoot", false);
             currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(50);
-            //currentEnemy.gameObject.GetComponent<UndeadBase>().ApplyKnockbackForce(-1000f, new Vector3(2,2,-20));
+           
         }
     }
 

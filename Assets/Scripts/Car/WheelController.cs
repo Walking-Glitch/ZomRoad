@@ -82,7 +82,7 @@ public class WheelController : MonoBehaviour
         transform.rotation = rotation;
     }
 
-    void PlaySfx()
+    public void PlaySfx()
     {
         audioSource.clip = crashClips[Random.Range(0, crashClips.Length)];
         audioSource.Play();

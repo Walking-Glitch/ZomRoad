@@ -28,9 +28,13 @@ public class UndeadBase : MonoBehaviour
 
     protected VisualEffect bloodVisualEffect;
 
+    protected AudioSource audioSource;
+
     public int maxHealth;
 
     public int health;
+
+    public bool isDead;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -40,6 +44,7 @@ public class UndeadBase : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         bloodVisualEffect = GetComponentInChildren<VisualEffect>();
         bloodVisualEffect.enabled = false;
+        audioSource = GetComponent<AudioSource>();
 
         health = maxHealth;
 
@@ -100,6 +105,8 @@ public class UndeadBase : MonoBehaviour
 
     protected void RagdollModeOff()
     {
+        isDead = false;
+
         health = maxHealth;
 
         foreach (Collider col in ragdollColliders)

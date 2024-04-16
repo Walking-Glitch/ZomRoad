@@ -825,8 +825,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefabs:
-  - {fileID: 2627201940857257896, guid: 5e8c335e32047ec42937d47e02279d83, type: 3}
-  - {fileID: 145898862096447031, guid: 1dc1c4cb0cbd16e42a196469492f8550, type: 3}
   - {fileID: 7513022768765096022, guid: 3a324b820671ed74bac00a06516c5eb4, type: 3}
   EnemyList: []
 --- !u!4 &1479729958

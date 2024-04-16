@@ -35,6 +35,7 @@ public class Zombie : UndeadBase
 
         if (health <= 0)
         {
+            isDead = true;
             RagdollModeOn();
             ApplyKnockbackForce(-500f, new Vector3(25, 5, -50));
             PlayerDestroyZombie();
