@@ -111,7 +111,22 @@ public class WheelController : MonoBehaviour
         exp += expReceived;
         gameManager.uiManager.SetXp(exp);
 
+        if (exp >= maxExp)
+        {
+            IncreaseDifficulty();
+        }
+
     }
+
+    private void IncreaseDifficulty()
+    {
+        maxExp = (int) (maxExp * 1.5);
+        exp = 0;
+        gameManager.uiManager.SetXp(exp);
+        gameManager.uiManager.SetMaxXp(maxExp);
+        gameManager.enemyManager.maxEnemy += 1;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
