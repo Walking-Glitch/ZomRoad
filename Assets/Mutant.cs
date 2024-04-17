@@ -7,7 +7,7 @@ public class Mutant : UndeadBase
     public bool IsInAttackArea { get; set; }
     public AudioClip swingSfx;
 
-    public int expReward = 10;
+    public int expReward = 15;
     public int giveDamage = 25;
     protected override void Start()
     {
