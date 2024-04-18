@@ -5,7 +5,7 @@ using UnityEngine;
 public class CasingPool : MonoBehaviour
 {
     [SerializeField] private GameObject casingPrefab;
-    private int poolSize = 10;
+    [SerializeField] private int poolSize;
     [SerializeField] private List<GameObject> casingList;
     void Start()
     {

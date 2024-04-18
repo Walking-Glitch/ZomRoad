@@ -11,19 +11,15 @@ public class Turret : MonoBehaviour
     public Transform carTransform;
     public float transitionDuration;
     public float resetDuration;
-    private AudioSource audioSource;
-    private ParticleSystem muzzleFlash;
+    protected AudioSource audioSource;
+    protected ParticleSystem muzzleFlash;
 
-    private GameManager gameManager;
+    protected GameManager gameManager;
 
-    //public GameObject shellCasing;
-    //public Transform ejectionTransform;
-    //public float ejectForce;
-    //public float ejectTorque;
 
-    [SerializeField] private List<Transform> enemies = new List<Transform>();
-    [SerializeField] private Transform currentEnemy;
-    void Start()
+    [SerializeField] protected List<Transform> enemies = new List<Transform>();
+    [SerializeField] protected Transform currentEnemy;
+    protected virtual void Start()
     {
         gameManager = GameManager.Instance;
         audioSource = GetComponent<AudioSource>();
@@ -31,13 +27,13 @@ public class Turret : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         FindEnemies();
         AimAtTarget();
     }
 
-    private void FindEnemies()
+    protected virtual void FindEnemies()
     {
         enemies.Clear();
 
@@ -50,8 +46,8 @@ public class Turret : MonoBehaviour
         }
     }
 
-    
-    private void AimAtTarget()
+
+    protected virtual void AimAtTarget()
     {
         if (enemies.Count > 0)
         {
@@ -100,14 +96,14 @@ public class Turret : MonoBehaviour
         }
     }
 
-    public void FireTurret()
+    public virtual void FireTurret()
     {
 
         if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0)
         {
             audioSource.Play();
             muzzleFlash.Play();
-            gameManager.casingManager.SpawnCasing();
+            gameManager.casingManager.SpawnCasing(false);
             anim.SetBool("Shoot", false);
             currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(50);
            

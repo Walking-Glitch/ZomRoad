@@ -8,7 +8,7 @@ public class EnemyPool : MonoBehaviour
     [SerializeField] private List<GameObject> EnemyPrefabs;
 
 
-    private int poolSize = 10;
+    [SerializeField] private int poolSize;
     [SerializeField] private List<GameObject> EnemyList;
 
     void Start()
