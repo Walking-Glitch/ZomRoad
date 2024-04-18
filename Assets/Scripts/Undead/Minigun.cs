@@ -14,7 +14,7 @@ public class Minigun : Turret
             audioSource.Play();
             muzzleFlashLeft.Play();
             muzzleFlashRight.Play();
-            gameManager.casingManager.SpawnCasing(true);
+            gameManager.casingManager.SpawnBulletCasing();
             anim.SetBool("Shoot", false);
             currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(10);
 

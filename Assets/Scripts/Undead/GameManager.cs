@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     public RoadManager roadManager;
     public StreetPool streetPool;
     public EnemyPool enemyPool;
-    public CasingPool casingPool;
+    public ShellCasingPool ShellCasingPool;
+    public BulletCasingPool BulletCasingPool;
     public CasingManager casingManager;
     public UIManager uiManager;
+
 
     #endregion
     #region Singleton
