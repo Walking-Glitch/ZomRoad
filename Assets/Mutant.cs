@@ -96,8 +96,6 @@ public class Mutant : UndeadBase
         bloodVisualEffect.Play();
         anim.SetTrigger("Hit");
 
-
-
     }
 
     protected override void PlayerDestroyZombie()

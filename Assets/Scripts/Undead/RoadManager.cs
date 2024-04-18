@@ -10,7 +10,6 @@ public class RoadManager : MonoBehaviour
 {
     public GameObject currStreet;
     private GameObject prevStreet;
-    //[SerializeField] private GameObject[] streets;
     [SerializeField] private Transform streetEndPoint;
     private GameManager gameManager;
 
