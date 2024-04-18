@@ -100,7 +100,7 @@ public class Mutant : UndeadBase
 
     protected override void PlayerDestroyZombie()
     {
-        StartCoroutine(DelayDestruction(3f));
+        StartCoroutine(DelayDestruction(2f));
 
     }
 
