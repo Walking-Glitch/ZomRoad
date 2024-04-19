@@ -19,17 +19,22 @@ public class Mutant : UndeadBase
     protected override void Update()
     {
         //base.Update();
+        if (health > 0)
+        {
+            isDead = false;
+        }
         MutantMovement();
     }
 
     private void MutantMovement()
     {
+
         if (Time.frameCount % 10 == 0) // Update every 10 frames for example
         {
             isAgentOnNavMesh = IsAgentOnNavMesh(undead);
         }
 
-        if (player != null && isAgentOnNavMesh && !isDead) // Use cached result
+        if (player != null && isAgentOnNavMesh && !isDead &&!IsInAttackArea) // Use cached result
         {
             undead.SetDestination(player.position);
         }
@@ -49,16 +54,20 @@ public class Mutant : UndeadBase
         else
         {
             anim.SetBool("Attack", false);
+           
         }
     }
 
     private void Attack()
     {
+        undead.isStopped = true;
+
         if (IsInAttackArea)
         {
             gameManager.wheelController.PlaySfx();
             player.gameObject.GetComponent<Rigidbody>().AddForce((undead.transform.forward.normalized + undead.transform.up.normalized) * 5000f, ForceMode.Impulse);
             gameManager.wheelController.TakeDamage(giveDamage);
+
         }
 
         else
@@ -87,8 +96,6 @@ public class Mutant : UndeadBase
             bloodVisualEffect.Play();
             undead.isStopped = true;
             anim.SetBool("Dead", true);
-            PlayerDestroyZombie();
-
             return;
         }
 
@@ -100,37 +107,27 @@ public class Mutant : UndeadBase
 
     protected override void PlayerDestroyZombie()
     {
-        StartCoroutine(DelayDestruction(2f));
-
-    }
-
-    protected override IEnumerator DelayDestruction(float delay)
-    {
-
-        yield return new WaitForSeconds(delay);
-
         bloodVisualEffect.enabled = false;
-        health = maxHealth;
-        isDead = false;
         gameObject.SetActive(false);
+        health = maxHealth;
         gameManager.enemyManager.DecreaseEnemyCtr();
-        
-   
     }
+
 
     protected override void CleanerDestroyZombie()
     {
-        gameObject.SetActive(false);
-        gameManager.enemyManager.DecreaseEnemyCtr();
+        PlayerDestroyZombie();
+        //gameObject.SetActive(false);
+        //gameManager.enemyManager.DecreaseEnemyCtr();
     }
 
     public void SetIsInAttackArea(bool isInAttackArea)
     {
         IsInAttackArea = isInAttackArea;
     }
-    
 
-
-
-
+    protected void ResumeMovement()
+    {
+        undead.isStopped = false;
+    }
 }

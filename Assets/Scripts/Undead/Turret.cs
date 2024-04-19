@@ -33,67 +33,81 @@ public class Turret : MonoBehaviour
         AimAtTarget();
     }
 
+    protected virtual void LateUpdate()
+    {
+        
+    }
+
     protected virtual void FindEnemies()
     {
-        enemies.Clear();
+      
+            enemies.Clear();
 
-        Collider[] colliders = Physics.OverlapSphere(transformT.position, detectionRadius, enemyLayer);
+            Collider[] colliders = Physics.OverlapSphere(transformT.position, detectionRadius, enemyLayer);
 
-        foreach (Collider col in colliders)
-        {
-            if(col.gameObject.GetComponent<UndeadBase>().health > 0)
-                enemies.Add(col.transform);
-        }
+            foreach (Collider col in colliders)
+            {
+                if (col.gameObject.GetComponent<UndeadBase>().health > 0)
+                    enemies.Add(col.transform);
+            }
+        
+        
     }
 
 
     protected virtual void AimAtTarget()
     {
-        if (enemies.Count > 0)
-        {
-            if (currentEnemy == null || !enemies.Contains(currentEnemy))
+       
+            if (enemies.Count > 0)
             {
-                currentEnemy = enemies[0];
-            }
+                if (currentEnemy == null || !enemies.Contains(currentEnemy))
+                {
+                    currentEnemy = enemies[0];
+                }
 
-            Vector3 direction = currentEnemy.position - transformT.position;
-            Quaternion rotation = Quaternion.LookRotation(direction);
+                Vector3 direction = currentEnemy.position - carTransform.position;//
+                Quaternion rotation = Quaternion.LookRotation(direction);
 
 
 
-            // Calculate the angle between the turret's forward direction and the direction to the enemy
-            float angleToEnemy = Vector3.Angle(transformT.forward, direction);
+                // Calculate the angle between the turret's forward direction and the direction to the enemy
+                float angleToEnemy = Vector3.Angle(carTransform.forward, direction);//
 
-            // Define the maximum allowed angle for the front field of view
-            float maxAngle = 45f; // Adjust this angle as needed
+                // Define the maximum allowed angle for the front field of view
+                float maxAngle = 45f; // Adjust this angle as needed
 
-            // Check if the angle to the enemy is within the front field of view
-            if (angleToEnemy <= maxAngle)
-            {
-                // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
-                float t = Time.deltaTime / transitionDuration;
-                Quaternion newRotation = Quaternion.Lerp(transformT.rotation, rotation, t);
-                transformT.rotation = newRotation;
+                // Check if the angle to the enemy is within the front field of view
+                if (angleToEnemy <= maxAngle)
+                {
+                    // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
+                    float t = Time.deltaTime / transitionDuration;
+                    Quaternion newRotation = Quaternion.Lerp(transformT.rotation, rotation, t);//
+                    transformT.rotation = newRotation;
 
-                // Set the "Shoot" animation trigger
-                anim.SetBool("Shoot", true);
+                    //Set the "Shoot" animation trigger
+                    anim.SetBool("Shoot", true);
+                    
+                }
+                else
+                {
+                    // If the enemy is outside the front field of view, do not rotate the turret
+                    anim.SetBool("Shoot", false);
+                    enemies.Remove(enemies[0]);
+                    currentEnemy = null;
+                 
+                }
             }
             else
             {
-                // If the enemy is outside the front field of view, do not rotate the turret
-                anim.SetBool("Shoot", false);
+                //anim.SetBool("Shoot", false);
                 currentEnemy = null;
+                Quaternion targetRotation = Quaternion.LookRotation(carTransform.forward);
+                float t = Time.deltaTime / resetDuration;
+                Quaternion newRotation = Quaternion.Lerp(transformT.rotation, targetRotation, t);
+                transformT.rotation = newRotation;
             }
-        }
-        else
-        {
-            anim.SetBool("Shoot", false);
-            currentEnemy = null;
-            Quaternion targetRotation = Quaternion.LookRotation(carTransform.forward);
-            float t = Time.deltaTime / resetDuration;
-            Quaternion newRotation = Quaternion.Lerp(transformT.rotation, targetRotation, t);
-            transformT.rotation = newRotation;
-        }
+        
+       
     }
 
     public virtual void FireTurret()
@@ -104,12 +118,30 @@ public class Turret : MonoBehaviour
             audioSource.Play();
             muzzleFlash.Play();
             gameManager.casingManager.SpawnShellCasing();
-            anim.SetBool("Shoot", false);
             currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(50);
-           
+            anim.SetBool("Shoot", false);
         }
     }
 
+    public virtual void DisableLogic()
+    {
+ 
+        enemies.Clear();
+        currentEnemy = null;
+        transformT.rotation = Quaternion.LookRotation(carTransform.forward);
+        //gameObject.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
+    }
+
+    public virtual void EnableLogic()
+    {
+        enemies.Clear();
+        currentEnemy = null;
+        transform.parent.gameObject.SetActive(true);
+        //gameObject.SetActive(true);
+
+
+    }
     private void OnDrawGizmosSelected()
     {
         // Draw a wire sphere in the editor to visualize the detection radius
