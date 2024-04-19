@@ -45,7 +45,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 1, z: 0.5}
 --- !u!114 &1149392940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,6 +1175,7 @@ GameObject:
   - component: {fileID: 7242623515737056147}
   - component: {fileID: 7242623515737056158}
   - component: {fileID: 6093712532970247826}
+  - component: {fileID: 7168291664444554469}
   - component: {fileID: 5866666020827534242}
   - component: {fileID: 4751431331648829580}
   m_Layer: 8
@@ -1244,6 +1245,8 @@ MonoBehaviour:
   health: 0
   isDead: 0
   swingSfx: {fileID: 8300000, guid: 7274517078f0233449a9c6eba94cbf6e, type: 3}
+  expReward: 15
+  giveDamage: 25
 --- !u!195 &7242623515737056158
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1275,9 +1278,23 @@ BoxCollider:
   m_GameObject: {fileID: 7513022768765096022}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!136 &7168291664444554469
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7513022768765096022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.22
+  m_Height: 1.8
+  m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &5866666020827534242
 Rigidbody:
