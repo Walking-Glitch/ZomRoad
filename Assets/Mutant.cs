@@ -117,8 +117,6 @@ public class Mutant : UndeadBase
     protected override void CleanerDestroyZombie()
     {
         PlayerDestroyZombie();
-        //gameObject.SetActive(false);
-        //gameManager.enemyManager.DecreaseEnemyCtr();
     }
 
     public void SetIsInAttackArea(bool isInAttackArea)

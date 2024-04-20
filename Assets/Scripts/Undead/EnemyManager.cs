@@ -43,6 +43,7 @@ public class EnemyManager : MonoBehaviour
             tempEnemy.transform.position = selectedSpawnPoint.position;
             tempEnemy.transform.rotation = selectedSpawnPoint.rotation;
             tempEnemy.GetComponent<NavMeshAgent>().enabled = true;
+            tempEnemy.SetActive(true);
             enemyCtr++;
         }
         yield return new WaitForSeconds(delay);
