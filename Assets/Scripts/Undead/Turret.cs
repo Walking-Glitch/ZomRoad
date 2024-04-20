@@ -16,9 +16,11 @@ public class Turret : MonoBehaviour
 
     protected GameManager gameManager;
 
+    private bool sameObjects;
 
     [SerializeField] protected List<Transform> enemies = new List<Transform>();
     [SerializeField] protected Transform currentEnemy;
+    [SerializeField] protected Transform previousEnemy;
     protected virtual void Start()
     {
         gameManager = GameManager.Instance;
@@ -30,22 +32,31 @@ public class Turret : MonoBehaviour
     protected virtual void Update()
     {
         FindEnemies();
+        
+    }
+
+    protected virtual void LateUpdate()
+    {
         AimAtTarget();
     }
 
     protected virtual void FindEnemies()
     {
-      
-            enemies.Clear();
 
-            Collider[] colliders = Physics.OverlapSphere(transformT.position, detectionRadius, enemyLayer);
+        enemies.Clear();
 
-            foreach (Collider col in colliders)
-            {
-                if (col.gameObject.GetComponent<UndeadBase>().health > 0)
-                    enemies.Add(col.transform);
-            }
-            
+        Collider[] colliders = Physics.OverlapSphere(transformT.position, detectionRadius, enemyLayer);
+
+        foreach (Collider col in colliders)
+        {
+            if (col.gameObject.GetComponent<UndeadBase>().health > 0)
+                enemies.Add(col.transform);
+            //else
+            //{
+            //    enemies.Remove(col.transform);
+            //}
+        }
+
     }
 
 
@@ -58,6 +69,7 @@ public class Turret : MonoBehaviour
             {
                 currentEnemy = enemies[0];
             }
+            
 
             Vector3 direction = currentEnemy.position - carTransform.position;//
             Quaternion rotation = Quaternion.LookRotation(direction);
@@ -78,17 +90,14 @@ public class Turret : MonoBehaviour
                 Quaternion newRotation = Quaternion.Lerp(transformT.rotation, rotation, t);//
                 transformT.rotation = newRotation;
 
-                //Set the "Shoot" animation trigger
                 anim.SetBool("Shoot", true);
-                    
+             
             }
             else
             {
                 // If the enemy is outside the front field of view, do not rotate the turret
                 anim.SetBool("Shoot", false);
-                enemies.Remove(enemies[0]);
-                currentEnemy = null;
-                 
+                
             }
         }
         else
@@ -100,8 +109,7 @@ public class Turret : MonoBehaviour
             Quaternion newRotation = Quaternion.Lerp(transformT.rotation, targetRotation, t);
             transformT.rotation = newRotation;
         }
-        
-       
+
     }
 
     public virtual void FireTurret()
@@ -114,6 +122,11 @@ public class Turret : MonoBehaviour
             gameManager.casingManager.SpawnShellCasing();
             currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(50);
             anim.SetBool("Shoot", false);
+        }
+
+        else
+        {
+            Debug.Log("fire turret called without an enemy");
         }
     }
 

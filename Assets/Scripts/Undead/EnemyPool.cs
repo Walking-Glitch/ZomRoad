@@ -35,7 +35,7 @@ public class EnemyPool : MonoBehaviour
         {
             if (!EnemyList[i].activeSelf)
             {
-                EnemyList[i].SetActive(true);
+                //EnemyList[i].SetActive(true);
                 EnemyList[i].GetComponent<NavMeshAgent>().enabled = false;
                 return EnemyList[i];
             }

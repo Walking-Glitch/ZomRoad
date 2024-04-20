@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnergyGun : Turret
@@ -28,8 +29,10 @@ public class EnergyGun : Turret
             gameManager.casingManager.SpawnBulletCasing();
             EnemiesInBlastRadius();
             anim.SetBool("Shoot", false);
-             
-
+        }
+        else
+        {
+            Debug.Log("fire turret called without an enemy");
         }
     }
 
