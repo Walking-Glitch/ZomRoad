@@ -31,16 +31,17 @@ public class Zombie : UndeadBase
         base.Update();
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(int damage, Vector3 bloodSpeed, bool explosion, float force)
     {
-        base.TakeDamage(damage);
+        base.TakeDamage(damage, bloodSpeed, explosion, force);
 
         if (health <= 0)
         {
             isDead = true;
             gameManager.wheelController.GainExp(expReward);
             RagdollModeOn();
-            ApplyKnockbackForce(-500f, new Vector3(25, 5, -50));
+            // ApplyKnockbackForce(-500f, new Vector3(25, 5, -50), false);
+            ApplyKnockbackForce(force, bloodSpeed, explosion);
             PlayerDestroyZombie();
         }
     }
@@ -48,7 +49,7 @@ public class Zombie : UndeadBase
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-           TakeDamage(100);
+           TakeDamage(100, new Vector3(25, 5, -50), false, -500f);
            gameManager.wheelController.TakeDamage(giveDamage);
         }
     }

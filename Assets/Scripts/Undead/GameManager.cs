@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public BulletCasingPool BulletCasingPool;
     public CasingManager casingManager;
     public UIManager uiManager;
+    public EnergyGun EnergyGun;
 
 
     #endregion

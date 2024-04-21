@@ -84,9 +84,9 @@ public class Mutant : UndeadBase
     }
 
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(int damage, Vector3 bloodSpeed, bool explosion, float force)
     {
-        base.TakeDamage(damage);
+        base.TakeDamage(damage, bloodSpeed, explosion, force);
 
         if (health <= 0)
         {

@@ -20532,6 +20532,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1074830302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4484934314138234505, guid: d7a52e5890c6bd340bbcb7c7f02eff4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4484934315213059415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010588148331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7f54994070a4d4da868e37241579fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1089838425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4484934314148915214, guid: d7a52e5890c6bd340bbcb7c7f02eff4d,
@@ -35693,6 +35705,7 @@ MonoBehaviour:
   BulletCasingPool: {fileID: 1148681413}
   casingManager: {fileID: 1443322946}
   uiManager: {fileID: 711274757}
+  EnergyGun: {fileID: 1074830302}
 --- !u!4 &1842097828
 Transform:
   m_ObjectHideFlags: 0
@@ -55710,7 +55723,7 @@ PrefabInstance:
       objectReference: {fileID: 153650522}
     - target: {fileID: 156691239, guid: 270170632c444e34dadc580663b9287a, type: 3}
       propertyPath: maxEnemy
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1287570407, guid: 270170632c444e34dadc580663b9287a, type: 3}
       propertyPath: m_Enabled
@@ -55739,6 +55752,11 @@ PrefabInstance:
     - target: {fileID: 1512505169, guid: 270170632c444e34dadc580663b9287a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043942577846309457, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3043942577846309457, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
