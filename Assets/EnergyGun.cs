@@ -45,7 +45,7 @@ public class EnergyGun : Turret
         foreach (Collider col in colliders)
         {
             if (col.gameObject.GetComponent<UndeadBase>().health > 0)
-                col.gameObject.GetComponent<UndeadBase>().TakeDamage(500);
+                col.gameObject.GetComponent<UndeadBase>().TakeDamage(500, new Vector3(25, 5, -50), true, 500f);
         }
         
     }

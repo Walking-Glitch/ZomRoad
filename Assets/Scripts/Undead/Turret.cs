@@ -120,7 +120,7 @@ public class Turret : MonoBehaviour
             audioSource.Play();
             muzzleFlash.Play();
             gameManager.casingManager.SpawnShellCasing();
-            currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(50);
+            currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(50, new Vector3(25, 5, -50), false, -500f);
             anim.SetBool("Shoot", false);
         }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.VFX;
@@ -96,11 +97,25 @@ public class UndeadBase : MonoBehaviour
 
     }
 
-    public virtual void ApplyKnockbackForce(float force, Vector3 bloodSpeed)
+    public virtual void ApplyKnockbackForce(float force, Vector3 bloodSpeed, bool explosion)
     {
-        knockbackGameObjects[Random.Range(0, knockbackGameObjects.Length)].AddForce(gameObject.transform.forward.normalized * force, ForceMode.Impulse);
-        bloodVisualEffect.SetVector3("BloodVelocity", bloodSpeed);
-        bloodVisualEffect.enabled = true;
+        if (explosion)
+        {
+            Vector3 direction = transform.position - gameManager.EnergyGun.explosionObject.transform.position;//
+            knockbackGameObjects[Random.Range(0, knockbackGameObjects.Length)].AddForce(direction.normalized * force, ForceMode.Impulse);
+            bloodVisualEffect.SetVector3("BloodVelocity", bloodSpeed);
+            bloodVisualEffect.enabled = true;
+
+        }
+
+        else
+        {
+            knockbackGameObjects[Random.Range(0, knockbackGameObjects.Length)].AddForce(gameObject.transform.forward.normalized * force, ForceMode.Impulse);
+            bloodVisualEffect.SetVector3("BloodVelocity", bloodSpeed);
+            bloodVisualEffect.enabled = true;
+        }
+
+       
     }
 
     protected void RagdollModeOff()
@@ -174,7 +189,7 @@ public class UndeadBase : MonoBehaviour
 
     }
 
-    public virtual void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage, Vector3 bloodSpeed, bool explosion, float force)
     {
         health -= damage;
 
