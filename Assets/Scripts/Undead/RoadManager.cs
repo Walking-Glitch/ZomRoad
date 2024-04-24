@@ -9,7 +9,7 @@ using UnityEngine.AI;
 public class RoadManager : MonoBehaviour
 {
     public GameObject currStreet;
-    private GameObject prevStreet;
+    [SerializeField]private GameObject prevStreet;
     [SerializeField] private Transform streetEndPoint;
     private GameManager gameManager;
 
@@ -18,12 +18,7 @@ public class RoadManager : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+     
     private void OnTriggerEnter(Collider other)
     {
         

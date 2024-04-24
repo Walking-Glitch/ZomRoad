@@ -5,6 +5,7 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public float detectionRadius;
+    public float maxAngle;
     public LayerMask enemyLayer;
     public Animator anim;
     public Transform transformT;
@@ -13,6 +14,8 @@ public class Turret : MonoBehaviour
     public float resetDuration;
     protected AudioSource audioSource;
     protected ParticleSystem muzzleFlash;
+
+
 
     protected GameManager gameManager;
 
@@ -80,7 +83,7 @@ public class Turret : MonoBehaviour
             float angleToEnemy = Vector3.Angle(carTransform.forward, direction);//
 
             // Define the maximum allowed angle for the front field of view
-            float maxAngle = 45f; // Adjust this angle as needed
+            //float maxAngle = 45f; // Adjust this angle as needed
 
             // Check if the angle to the enemy is within the front field of view
             if (angleToEnemy <= maxAngle)

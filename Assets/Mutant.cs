@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Mutant : UndeadBase
 {
@@ -49,6 +50,16 @@ public class Mutant : UndeadBase
         {
             anim.SetBool("Attack", true);
             undead.isStopped = true;
+
+            Vector3 direction = player.position - transform.position;
+
+            // Ensure the direction is not zero (to prevent NaN errors)
+            if (direction != Vector3.zero)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+
+                transform.rotation = lookRotation;
+            }
         }
 
         else
@@ -60,8 +71,6 @@ public class Mutant : UndeadBase
 
     private void Attack()
     {
-        undead.isStopped = true;
-
         if (IsInAttackArea)
         {
             gameManager.wheelController.PlaySfx();

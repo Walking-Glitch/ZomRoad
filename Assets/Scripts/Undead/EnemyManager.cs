@@ -7,7 +7,10 @@ using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
-    public Transform[] spawnPoint;
+    //public Transform[] spawnPoint;
+    public Transform parentSpawnPoint;
+
+    [SerializeField] private List<Transform> spawnPointsList = new List<Transform>();
 
     public int enemyCtr = 0;
     public int maxEnemy;
@@ -20,6 +23,8 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         gameManager = GameManager.Instance;
+
+        CollectChildObjects(parentSpawnPoint);
     }
     // Update is called once per frame
     void Update()
@@ -30,6 +35,18 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    void CollectChildObjects(Transform parentSpawnPoint)
+    {
+        // Iterate through each child of the parent
+        foreach (Transform sp in parentSpawnPoint)
+        {
+            // Add the child object to the list
+            spawnPointsList.Add(sp.transform);
+
+            //// Recursively call this method for each child to also add their children
+            //CollectChildObjects(child);
+        }
+    }
     private IEnumerator SpawnEnemies()
     {
         isSpawning = true;
@@ -54,14 +71,14 @@ public class EnemyManager : MonoBehaviour
     Transform GetValidSpawnPoint()
     {
 
-        int i = Random.Range(0, spawnPoint.Length);
-        Vector3 spawnPos = spawnPoint[i].position;
+        int i = Random.Range(0, spawnPointsList.Count-1);
+        Vector3 spawnPos = spawnPointsList[i].position;
 
         NavMeshHit hit;
 
         if (NavMesh.SamplePosition(spawnPos, out hit, 1.0f, NavMesh.AllAreas))
         {
-            return spawnPoint[i];
+            return spawnPointsList[i];
         }
         
 

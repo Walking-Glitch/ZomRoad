@@ -4963,7 +4963,7 @@ GameObject:
   - component: {fileID: 4471318774619140429}
   m_Layer: 0
   m_Name: BridgeSlope_Simple (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7655,7 +7655,7 @@ GameObject:
   - component: {fileID: 4471318775099413807}
   m_Layer: 0
   m_Name: BridgeSlope_Simple
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -15932,7 +15932,7 @@ GameObject:
   - component: {fileID: 4471318775164036694}
   m_Layer: 0
   m_Name: Bridge_Simple_Straight
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

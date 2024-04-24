@@ -59,7 +59,7 @@ public class UndeadBase : MonoBehaviour
             isAgentOnNavMesh = IsAgentOnNavMesh(undead);
         }
 
-        if (player != null && isAgentOnNavMesh) // Use cached result
+        if (player != null && isAgentOnNavMesh && !isDead) // Use cached result
         {
             undead.SetDestination(player.position);
         }
@@ -176,6 +176,7 @@ public class UndeadBase : MonoBehaviour
         yield return new WaitForSeconds(delay);
         RagdollModeOff();
         gameObject.SetActive(false);
+
         gameManager.enemyManager.DecreaseEnemyCtr();
 
     }
@@ -185,8 +186,6 @@ public class UndeadBase : MonoBehaviour
         RagdollModeOff();
         gameObject.SetActive(false);
         gameManager.enemyManager.DecreaseEnemyCtr();
-
-
     }
 
     public virtual void TakeDamage(int damage, Vector3 bloodSpeed, bool explosion, float force)

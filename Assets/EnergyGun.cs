@@ -61,4 +61,5 @@ public class EnergyGun : Turret
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(explosionObject.transform.position, detectionRadius);
     }
+
 }
