@@ -251,6 +251,9 @@ MonoBehaviour:
   - {fileID: 5172075378903163021}
   maxHealth: 50
   health: 0
+  isDead: 0
+  expReward: 10
+  giveDamage: 10
 --- !u!195 &6894353821790238454
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -261,7 +264,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 300

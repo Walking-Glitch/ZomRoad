@@ -10,6 +10,7 @@ TagManager:
   - RoadTrigger
   - DeleteTrigger
   - EnemyCleaner
+  - Ground
   layers:
   - Default
   - TransparentFX

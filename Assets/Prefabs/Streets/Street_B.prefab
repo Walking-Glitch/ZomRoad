@@ -5214,7 +5214,7 @@ GameObject:
   - component: {fileID: 4956489936154376376}
   m_Layer: 0
   m_Name: Bridge_Simple_Straight_A (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -5776,7 +5776,7 @@ GameObject:
   - component: {fileID: 4956489936212569407}
   m_Layer: 0
   m_Name: Bridge_Simple_Straight_A (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15582,7 +15582,7 @@ GameObject:
   - component: {fileID: 4956489936651854870}
   m_Layer: 0
   m_Name: Bridge_Simple_Straight_A
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

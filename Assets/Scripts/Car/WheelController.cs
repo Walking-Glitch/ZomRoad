@@ -35,6 +35,13 @@ public class WheelController : MonoBehaviour
     public int maxExp;
     public int exp;
 
+    public bool IsGrounded { get; set; }
+    public bool IsInvincible { get; set; }
+
+    public MeshCollider CarMeshCollider;
+
+    public Rigidbody CaRigidbody;
+
     private GameManager gameManager;
 
     void Start()
@@ -43,6 +50,8 @@ public class WheelController : MonoBehaviour
         health = maxHealth;
         exp = 0;
         audioSource = GetComponent<AudioSource>();
+        CarMeshCollider = GetComponent<MeshCollider>();
+        CaRigidbody = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -118,6 +127,15 @@ public class WheelController : MonoBehaviour
 
     }
 
+    public void SetIsGrounded(bool isGrounded)
+    {
+        IsGrounded = isGrounded;
+    }
+
+    public void SetIsInvincible(bool isInvincible)
+    {
+        IsInvincible = isInvincible;
+    }
     private void IncreaseDifficulty()
     {
         maxExp = (int) (maxExp * 1.5);
@@ -132,6 +150,11 @@ public class WheelController : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             PlaySfx();
+            if (IsInvincible)
+            { 
+                collision.gameObject.GetComponent<UndeadBase>().TakeDamage(500, new Vector3(25, 5, -50), false, -500f);
+            }
+            
         }
     }
 

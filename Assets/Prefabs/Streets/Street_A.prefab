@@ -1114,6 +1114,10 @@ PrefabInstance:
       value: Bridge_Simple_Straight_A (3)
       objectReference: {fileID: 0}
     - target: {fileID: 100096, guid: 0ee78a4d576343145b941b9999014e56, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 100096, guid: 0ee78a4d576343145b941b9999014e56, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -1431,6 +1435,10 @@ PrefabInstance:
     - target: {fileID: 100096, guid: 0ee78a4d576343145b941b9999014e56, type: 3}
       propertyPath: m_Name
       value: Bridge_Simple_Straight_A (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100096, guid: 0ee78a4d576343145b941b9999014e56, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 100096, guid: 0ee78a4d576343145b941b9999014e56, type: 3}
       propertyPath: m_StaticEditorFlags
