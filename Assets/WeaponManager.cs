@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField] protected GameObject[] weapons;
+    [SerializeField] protected GameObject[] weaponsUI;
     [SerializeField] private int j = 0;
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public class WeaponManager : MonoBehaviour
         for (int i = 0; i < weapons.Length; i++)
         {
             weapons[i].gameObject.SetActive(false);
+            weaponsUI[i].gameObject.SetActive(false);
         }
     }
 
@@ -42,11 +44,13 @@ public class WeaponManager : MonoBehaviour
                 if (i == j)
                 {
                     weapons[i].gameObject.SetActive(true);
+                    weaponsUI[i].gameObject.SetActive(true);
                     //weapons[i].gameObject.GetComponentInChildren<Turret>().EnableLogic();
                 }
                 else
                 {
                     weapons[i].gameObject.SetActive(false);
+                    weaponsUI[i].gameObject.SetActive(false);
                     //weapons[i].gameObject.GetComponentInChildren<Turret>().DisableLogic();
                 }
             }

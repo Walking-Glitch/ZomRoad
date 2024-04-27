@@ -42,6 +42,10 @@ public class WheelController : MonoBehaviour
 
     public Rigidbody CaRigidbody;
 
+    public int slugAmmo = 0;
+    public int energyAmmo = 0;
+    public int bulletAmmo = 0;
+
     private GameManager gameManager;
 
     void Start()
@@ -111,8 +115,15 @@ public class WheelController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        health = Mathf.Clamp(health, 0, maxHealth);
         gameManager.uiManager.SetHealth(health);
+    }
 
+    public void Heal(int heal)
+    {
+        health += heal;
+        health = Mathf.Clamp(health, 0, maxHealth);
+        gameManager.uiManager.SetHealth(health);
     }
 
     public void GainExp(int expReceived)
@@ -124,7 +135,21 @@ public class WheelController : MonoBehaviour
         {
             IncreaseDifficulty();
         }
+    }
 
+    public void CollectSlugAmmo(int amount)
+    {
+        slugAmmo += amount;
+    }
+
+    public void CollectBulletAmmo(int amount)
+    {
+        bulletAmmo += amount;
+    }
+
+    public void CollectEnergyAmmo(int amount)
+    {
+        energyAmmo += amount;
     }
 
     public void SetIsGrounded(bool isGrounded)
@@ -157,6 +182,26 @@ public class WheelController : MonoBehaviour
             
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "Ammo1":
+                CollectSlugAmmo(25);
+                break;
+            case "Ammo2":
+                CollectBulletAmmo(50);
+                break;
+            case "Ammo3":
+                CollectEnergyAmmo(10);
+                break;
+            default:
+                break;
+        }
+    }
+
+
 
 
 }
