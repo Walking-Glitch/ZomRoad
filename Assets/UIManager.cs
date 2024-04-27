@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,9 @@ public class UIManager : MonoBehaviour
 {
     public Slider healthSlider;
     public Slider xpSlider;
+    public TextMeshProUGUI ammoText;
+
+
 
     public void SetMaxHealth(int maxHealth)
     {
@@ -28,5 +32,10 @@ public class UIManager : MonoBehaviour
     public void SetXp(int xp)
     {
         xpSlider.value = xp;
+    }
+
+    public void SetAmmo(int ammo)
+    {
+        
     }
 }
