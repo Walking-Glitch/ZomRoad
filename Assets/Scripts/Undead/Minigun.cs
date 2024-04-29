@@ -9,12 +9,13 @@ public class Minigun : Turret
     public override void FireTurret()
     {
 
-        if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0)
+        if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0 && gameManager.wheelController.bulletAmmo > 0)
         {
             audioSource.Play();
             muzzleFlashLeft.Play();
             muzzleFlashRight.Play();
             gameManager.casingManager.SpawnBulletCasing();
+            gameManager.wheelController.SpendBulletAmmo(1);
             anim.SetBool("Shoot", false);
             currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(20, new Vector3(25, 5, -50), false, -500f);
 

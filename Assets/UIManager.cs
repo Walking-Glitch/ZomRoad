@@ -8,10 +8,16 @@ public class UIManager : MonoBehaviour
 {
     public Slider healthSlider;
     public Slider xpSlider;
-    public TextMeshProUGUI ammoText;
+    public TextMeshProUGUI slugAmmoText;
+    public TextMeshProUGUI bulletAmmoText;
+    public TextMeshProUGUI energyAmmoText;
 
+    private GameManager gameManager;
 
-
+    void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
     public void SetMaxHealth(int maxHealth)
     {
         healthSlider.maxValue = maxHealth;
@@ -34,8 +40,18 @@ public class UIManager : MonoBehaviour
         xpSlider.value = xp;
     }
 
-    public void SetAmmo(int ammo)
+    public void SetSlugAmmoText()
     {
-        
+        slugAmmoText.text = gameManager.wheelController.slugAmmo.ToString();
+    }
+
+    public void SetBulletAmmoText()
+    {
+        bulletAmmoText.text = gameManager.wheelController.bulletAmmo.ToString();
+    }
+
+    public void SetEnergyAmmoText()
+    {
+        energyAmmoText.text = gameManager.wheelController.energyAmmo.ToString();
     }
 }
