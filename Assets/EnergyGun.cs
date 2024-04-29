@@ -14,19 +14,72 @@ public class EnergyGun : Turret
     public float explosionRadius;
    public LayerMask EnemiesLayerMask;
 
-   //[SerializeField] protected ParticleSystem muzzleFlashRight;
-   //[SerializeField] protected ParticleSystem muzzleFlashLeft;
+    //[SerializeField] protected ParticleSystem muzzleFlashRight;
+    //[SerializeField] protected ParticleSystem muzzleFlashLeft;
     // Start is called before the first frame update
+
+    protected override void AimAtTarget()
+    {
+
+        if (enemies.Count > 0)
+        {
+            if (currentEnemy == null || !enemies.Contains(currentEnemy))
+            {
+                currentEnemy = enemies[0];
+            }
+
+
+            Vector3 direction = currentEnemy.position - carTransform.position;//
+            Quaternion rotation = Quaternion.LookRotation(direction);
+
+
+
+            // Calculate the angle between the turret's forward direction and the direction to the enemy
+            float angleToEnemy = Vector3.Angle(carTransform.forward, direction);//
+
+            // Define the maximum allowed angle for the front field of view
+            //float maxAngle = 45f; // Adjust this angle as needed
+
+            // Check if the angle to the enemy is within the front field of view
+            if (angleToEnemy <= maxAngle && gameManager.wheelController.energyAmmo > 0)
+            {
+                // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
+                float t = Time.deltaTime / transitionDuration;
+                Quaternion newRotation = Quaternion.Lerp(transformT.rotation, rotation, t);//
+                transformT.rotation = newRotation;
+
+                anim.SetBool("Shoot", true);
+
+            }
+            else
+            {
+                // If the enemy is outside the front field of view, do not rotate the turret
+                anim.SetBool("Shoot", false);
+
+            }
+        }
+        else
+        {
+            anim.SetBool("Shoot", false);
+            currentEnemy = null;
+            Quaternion targetRotation = Quaternion.LookRotation(carTransform.forward);
+            float t = Time.deltaTime / resetDuration;
+            Quaternion newRotation = Quaternion.Lerp(transformT.rotation, targetRotation, t);
+            transformT.rotation = newRotation;
+        }
+
+    }
     public override void FireTurret()
     {
 
-        if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0)
+        if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0 && gameManager.wheelController.energyAmmo > 0)
         {
             explosionObject.transform.SetParent(null);
             explosionObject.transform.position = currentEnemy.position + new Vector3(0, 1.2f, 0);
             muzzleFlashLeft.Play();
             muzzleFlashRight.Play();
             gameManager.casingManager.SpawnBulletCasing();
+            gameManager.wheelController.SpendEnergyAmmo(1);
             EnemiesInBlastRadius();
             anim.SetBool("Shoot", false);
         }

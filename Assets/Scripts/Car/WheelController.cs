@@ -137,19 +137,42 @@ public class WheelController : MonoBehaviour
         }
     }
 
+    public void SpendSlugAmmo(int amount)
+    {
+        slugAmmo -= amount;
+        slugAmmo = Mathf.Clamp(slugAmmo, 0, 500);
+        gameManager.uiManager.SetSlugAmmoText();
+    }
+
+    public void SpendBulletAmmo(int amount)
+    {
+        bulletAmmo -= amount;
+        bulletAmmo = Mathf.Clamp(bulletAmmo, 0, 500);
+        gameManager.uiManager.SetBulletAmmoText();
+    }
+    public void SpendEnergyAmmo(int amount)
+    {
+        energyAmmo -= amount;
+        energyAmmo = Mathf.Clamp(energyAmmo, 0, 500);
+        gameManager.uiManager.SetEnergyAmmoText();
+    }
+
     public void CollectSlugAmmo(int amount)
     {
         slugAmmo += amount;
+        gameManager.uiManager.SetSlugAmmoText();
     }
 
     public void CollectBulletAmmo(int amount)
     {
         bulletAmmo += amount;
+        gameManager.uiManager.SetBulletAmmoText();
     }
 
     public void CollectEnergyAmmo(int amount)
     {
         energyAmmo += amount;
+        gameManager.uiManager.SetEnergyAmmoText();
     }
 
     public void SetIsGrounded(bool isGrounded)
@@ -183,23 +206,23 @@ public class WheelController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        switch (other.tag)
-        {
-            case "Ammo1":
-                CollectSlugAmmo(25);
-                break;
-            case "Ammo2":
-                CollectBulletAmmo(50);
-                break;
-            case "Ammo3":
-                CollectEnergyAmmo(10);
-                break;
-            default:
-                break;
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    switch (other.tag)
+    //    {
+    //        case "Ammo1":
+    //            CollectSlugAmmo(25);
+    //            break;
+    //        case "Ammo2":
+    //            CollectBulletAmmo(50);
+    //            break;
+    //        case "Ammo3":
+    //            CollectEnergyAmmo(10);
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
 
 
 

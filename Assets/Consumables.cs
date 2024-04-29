@@ -13,6 +13,8 @@ public class Consumables : MonoBehaviour
     public const float MaxtimeValue = 5;
     protected bool flag;
 
+    protected MeshRenderer[] meshRenderers;
+
     protected GameManager gameManager;
 
     // Update is called once per frame
@@ -26,10 +28,30 @@ public class Consumables : MonoBehaviour
     protected virtual void Update()
     {
         transform.Rotate(rotation * speed * Time.deltaTime);
-        ConsumableTimer();
+        ConsumableTimer(false);
     }
 
-    private void ConsumableTimer()
+    protected virtual void GetMeshRenderers()
+    {
+        meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+    }
+
+    protected virtual void EnableNestedMeshRenderers()
+    {
+        foreach (var meshRenderer in meshRenderers)
+        {
+            meshRenderer.enabled = true;
+        }
+    }
+
+    protected virtual void DisableNestedMeshRenderers()
+    {
+        foreach (var meshRenderer in meshRenderers)
+        {
+            meshRenderer.enabled = false;
+        }
+    }
+    protected virtual void ConsumableTimer(bool isNestedMesh)
     {
         if (flag && timeValue > 0)
         {
@@ -40,8 +62,17 @@ public class Consumables : MonoBehaviour
         {
             flag = false;
             timeValue = MaxtimeValue;
-            consumable.GetComponent<MeshRenderer>().enabled = true;
+            if (isNestedMesh)
+            {
+                EnableNestedMeshRenderers();
+            }
+            else
+            {
+                consumable.GetComponent<MeshRenderer>().enabled = true;
+            }
+
             consumable.GetComponent<BoxCollider>().enabled = true;
+
         }
 
     }

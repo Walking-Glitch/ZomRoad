@@ -2,23 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Slug : Consumables
+public class EnergyCell : Consumables
 {
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        GetMeshRenderers();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        // base.Update();
-        transform.Rotate(rotation * speed * Time.deltaTime);
-        ConsumableTimer(true);
+        base.Update();
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,10 +22,9 @@ public class Slug : Consumables
         {
             flag = true;
             //healSound.PlayOneShot(healSound.clip);
-            //consumable.GetComponent<MeshRenderer>().enabled = false;
-            DisableNestedMeshRenderers();
+            consumable.GetComponent<MeshRenderer>().enabled = false;
             consumable.GetComponent<BoxCollider>().enabled = false;
-            gameManager.wheelController.CollectSlugAmmo(10);
+            gameManager.wheelController.CollectEnergyAmmo(5);
         }
     }
 }

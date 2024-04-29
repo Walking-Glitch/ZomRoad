@@ -118,11 +118,12 @@ public class Turret : MonoBehaviour
     public virtual void FireTurret()
     {
 
-        if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0)
+        if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0 && gameManager.wheelController.slugAmmo > 0)
         {
             audioSource.Play();
             muzzleFlash.Play();
             gameManager.casingManager.SpawnShellCasing();
+            gameManager.wheelController.SpendSlugAmmo(1);
             currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(50, new Vector3(25, 5, -50), false, -500f);
             anim.SetBool("Shoot", false);
         }
