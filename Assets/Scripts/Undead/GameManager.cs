@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public CasingManager casingManager;
     public UIManager uiManager;
     public EnergyGun EnergyGun;
+    public ConsumablesPool ConsumablesPool;
+    public ConsumablesManager consumablesManager;
 
 
     #endregion
