@@ -41,14 +41,15 @@ public class EnergyGun : Turret
             //float maxAngle = 45f; // Adjust this angle as needed
 
             // Check if the angle to the enemy is within the front field of view
-            if (angleToEnemy <= maxAngle && gameManager.wheelController.energyAmmo > 0)
+            if (angleToEnemy <= maxAngle)
             {
                 // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
                 float t = Time.deltaTime / transitionDuration;
                 Quaternion newRotation = Quaternion.Lerp(transformT.rotation, rotation, t);//
                 transformT.rotation = newRotation;
 
-                anim.SetBool("Shoot", true);
+                if( gameManager.wheelController.energyAmmo > 0)
+                    anim.SetBool("Shoot", true);
 
             }
             else

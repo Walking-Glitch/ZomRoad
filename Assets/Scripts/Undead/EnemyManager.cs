@@ -7,7 +7,6 @@ using UnityEngine.AI;
 
 public class EnemyManager : MonoBehaviour
 {
-    //public Transform[] spawnPoint;
     public Transform parentSpawnPoint;
 
     [SerializeField] private List<Transform> spawnPointsList = new List<Transform>();
