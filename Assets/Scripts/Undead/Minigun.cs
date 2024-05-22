@@ -6,11 +6,14 @@ public class Minigun : Turret
 {
     [SerializeField]protected ParticleSystem muzzleFlashRight;
     [SerializeField] protected ParticleSystem muzzleFlashLeft;
+    [SerializeField] Transform barrelRight;
+    [SerializeField] Transform barrelLeft;
     public override void FireTurret()
     {
 
         if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0 && gameManager.wheelController.bulletAmmo > 0)
         {
+            gameManager.tracerManager.SpawnBulletTracer(currentEnemy);
             audioSource.Play();
             muzzleFlashLeft.Play();
             muzzleFlashRight.Play();

@@ -16,20 +16,32 @@ public class Slug : Consumables
     {
         // base.Update();
         transform.Rotate(rotation * speed * Time.deltaTime);
-        ConsumableTimer(true);
+        //ConsumableTimer(true);
     }
 
 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if ((other.CompareTag("Player") && timeValue == MaxtimeValue))
+    //    {
+    //        flag = true;
+    //        //healSound.PlayOneShot(healSound.clip);
+    //        //consumable.GetComponent<MeshRenderer>().enabled = false;
+    //        DisableNestedMeshRenderers();
+    //        consumable.GetComponent<BoxCollider>().enabled = false;
+    //        gameManager.wheelController.CollectSlugAmmo(10);
+    //    }
+    //}
+
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("Player") && timeValue == MaxtimeValue))
+        if (other.CompareTag("Player"))
         {
-            flag = true;
             //healSound.PlayOneShot(healSound.clip);
-            //consumable.GetComponent<MeshRenderer>().enabled = false;
-            DisableNestedMeshRenderers();
-            consumable.GetComponent<BoxCollider>().enabled = false;
             gameManager.wheelController.CollectSlugAmmo(10);
+            gameManager.consumablesManager.slugCtr--;
+            gameObject.SetActive(false);
+           
         }
     }
 }

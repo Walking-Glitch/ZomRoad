@@ -14,6 +14,7 @@ public class Turret : MonoBehaviour
     public float resetDuration;
     protected AudioSource audioSource;
     protected ParticleSystem muzzleFlash;
+   // [SerializeField] private Transform barrel;
 
 
 
@@ -22,8 +23,9 @@ public class Turret : MonoBehaviour
     private bool sameObjects;
 
     [SerializeField] protected List<Transform> enemies = new List<Transform>();
-    [SerializeField] protected Transform currentEnemy;
-    [SerializeField] protected Transform previousEnemy;
+    //[SerializeField] protected Transform currentEnemy;
+    public Transform currentEnemy;
+    //[SerializeField] protected Transform previousEnemy;
     protected virtual void Start()
     {
         gameManager = GameManager.Instance;
@@ -54,10 +56,6 @@ public class Turret : MonoBehaviour
         {
             if (col.gameObject.GetComponent<UndeadBase>().health > 0)
                 enemies.Add(col.transform);
-            //else
-            //{
-            //    enemies.Remove(col.transform);
-            //}
         }
 
     }
@@ -122,6 +120,7 @@ public class Turret : MonoBehaviour
         {
             audioSource.Play();
             muzzleFlash.Play();
+            gameManager.tracerManager.SpawnBulletTracer(currentEnemy);
             gameManager.casingManager.SpawnShellCasing();
             gameManager.wheelController.SpendSlugAmmo(1);
             currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(50, new Vector3(25, 5, -50), false, -500f);
@@ -130,7 +129,7 @@ public class Turret : MonoBehaviour
 
         else
         {
-            Debug.Log("fire turret called without an enemy");
+            //Debug.Log("fire turret called without an enemy");
         }
     }
 
