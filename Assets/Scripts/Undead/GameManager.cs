@@ -16,9 +16,13 @@ public class GameManager : MonoBehaviour
     public BulletCasingPool BulletCasingPool;
     public CasingManager casingManager;
     public UIManager uiManager;
-    public EnergyGun EnergyGun;
     public ConsumablesPool ConsumablesPool;
     public ConsumablesManager consumablesManager;
+    public BulletTracePool bulletTracePool;
+    public TracerManager tracerManager;
+    public Turret Turret;
+    public Minigun Minigun;
+    public EnergyGun EnergyGun;
 
 
     #endregion

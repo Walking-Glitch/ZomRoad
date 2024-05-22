@@ -16,19 +16,29 @@ public class Bullet : Consumables
     {
         //base.Update();
         transform.Rotate(rotation * speed * Time.deltaTime);
-        ConsumableTimer(true);
+        //ConsumableTimer(true);
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if ((other.CompareTag("Player") && timeValue == MaxtimeValue))
+    //    {
+    //        flag = true;
+    //        //healSound.PlayOneShot(healSound.clip);
+    //        //consumable.GetComponent<MeshRenderer>().enabled = false;
+    //        DisableNestedMeshRenderers();
+    //        consumable.GetComponent<BoxCollider>().enabled = false;
+    //        gameManager.wheelController.CollectBulletAmmo(50);
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
         if ((other.CompareTag("Player") && timeValue == MaxtimeValue))
         {
-            flag = true;
-            //healSound.PlayOneShot(healSound.clip);
-            //consumable.GetComponent<MeshRenderer>().enabled = false;
-            DisableNestedMeshRenderers();
-            consumable.GetComponent<BoxCollider>().enabled = false;
             gameManager.wheelController.CollectBulletAmmo(50);
+            gameManager.consumablesManager.bulletCtr--;
+            gameObject.SetActive(false);
         }
     }
 }

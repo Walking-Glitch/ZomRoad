@@ -28,7 +28,7 @@ public class Consumables : MonoBehaviour
     protected virtual void Update()
     {
         transform.Rotate(rotation * speed * Time.deltaTime);
-        ConsumableTimer(false);
+        //ConsumableTimer(false);
     }
 
     protected virtual void GetMeshRenderers()

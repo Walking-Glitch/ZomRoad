@@ -23,7 +23,11 @@ public class ConsumablesManager : MonoBehaviour
 
     public float delay;
 
-    private bool isSpawning;
+    private bool isSpawning1;
+    private bool isSpawning2;
+    private bool isSpawning3;
+    private bool isSpawning4;
+
 
     private GameManager gameManager;
 
@@ -36,22 +40,22 @@ public class ConsumablesManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isSpawning && medkitCtr < maxMedkit)
+        if (!isSpawning1 && medkitCtr < maxMedkit)
         {
             StartCoroutine(SpawnMedkits());
         }
 
-        if (!isSpawning && slugCtr < maxSlug)
+        if (!isSpawning2 && slugCtr < maxSlug)
         {
             StartCoroutine(SpawnSlugs());
         }
 
-        if (!isSpawning && bulletCtr < maxBullet)
+        if (!isSpawning3 && bulletCtr < maxBullet)
         {
             StartCoroutine(SpawnBullets());
         }
 
-        if (!isSpawning && energyCellCtr < maxEnergyCell)
+        if (!isSpawning4 && energyCellCtr < maxEnergyCell)
         {
             StartCoroutine(SpawnEnergyCells());
         }
@@ -71,7 +75,7 @@ public class ConsumablesManager : MonoBehaviour
     }
     private IEnumerator SpawnMedkits()
     {
-        isSpawning = true;
+        isSpawning1 = true;
 
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
@@ -86,13 +90,13 @@ public class ConsumablesManager : MonoBehaviour
             medkitCtr++;
         }
         yield return new WaitForSeconds(delay);
-        isSpawning = false;
+        isSpawning1 = false;
 
     }
 
     private IEnumerator SpawnSlugs()
     {
-        isSpawning = true;
+        isSpawning2 = true;
 
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
@@ -107,13 +111,13 @@ public class ConsumablesManager : MonoBehaviour
             slugCtr++;
         }
         yield return new WaitForSeconds(delay);
-        isSpawning = false;
+        isSpawning2 = false;
 
     }
 
     private IEnumerator SpawnBullets()
     {
-        isSpawning = true;
+        isSpawning3 = true;
 
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
@@ -128,12 +132,12 @@ public class ConsumablesManager : MonoBehaviour
             bulletCtr++;
         }
         yield return new WaitForSeconds(delay);
-        isSpawning = false;
+        isSpawning3 = false;
     }
 
     private IEnumerator SpawnEnergyCells()
     {
-        isSpawning = true;
+        isSpawning4 = true;
 
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
@@ -148,7 +152,7 @@ public class ConsumablesManager : MonoBehaviour
             energyCellCtr++;
         }
         yield return new WaitForSeconds(delay);
-        isSpawning = false;
+        isSpawning4 = false;
     }
 
 
