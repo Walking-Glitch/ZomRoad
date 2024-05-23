@@ -41,6 +41,7 @@ public class TracerBehavior : MonoBehaviour
     {
         gameObject.SetActive(false);
         Target.transform.parent = transform;
+        transform.position = Vector3.zero;
     }
 
     private void OnTriggerEnter(Collider other)
