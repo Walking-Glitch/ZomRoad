@@ -15,7 +15,7 @@ public class Turret : MonoBehaviour
     protected AudioSource audioSource;
     protected ParticleSystem muzzleFlash;
    // [SerializeField] private Transform barrel;
-
+    protected TracerManager tracerManager;
 
 
     protected GameManager gameManager;
@@ -31,6 +31,7 @@ public class Turret : MonoBehaviour
         gameManager = GameManager.Instance;
         audioSource = GetComponent<AudioSource>();
         muzzleFlash = GetComponentInChildren<ParticleSystem>();
+        tracerManager = GetComponent<TracerManager>();
     }
 
     // Update is called once per frame
@@ -120,7 +121,8 @@ public class Turret : MonoBehaviour
         {
             audioSource.Play();
             muzzleFlash.Play();
-            gameManager.tracerManager.SpawnBulletTracer(currentEnemy);
+            //gameManager.tracerManager.SpawnShellTracer(currentEnemy);
+            tracerManager.SpawnShellTracer(currentEnemy);
             gameManager.casingManager.SpawnShellCasing();
             gameManager.wheelController.SpendSlugAmmo(1);
             currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(50, new Vector3(25, 5, -50), false, -500f);
