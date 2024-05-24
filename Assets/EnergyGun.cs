@@ -75,6 +75,7 @@ public class EnergyGun : Turret
 
         if (currentEnemy != null && currentEnemy.gameObject.GetComponent<UndeadBase>().health > 0 && gameManager.wheelController.energyAmmo > 0)
         {
+            tracerManager.SpawnEnergyTracer(currentEnemy);
             explosionObject.transform.SetParent(null);
             explosionObject.transform.position = currentEnemy.position + new Vector3(0, 1.2f, 0);
             muzzleFlashLeft.Play();

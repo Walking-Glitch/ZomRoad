@@ -5,11 +5,14 @@ using UnityEngine;
 public class BulletTracePool : MonoBehaviour
 {
     [SerializeField] private GameObject bulletTracePrefab;
+    [SerializeField] private GameObject energyTracePrefab;
     [SerializeField] private int poolSize;
-    [SerializeField] private List<GameObject> tracerList;
+    [SerializeField] private List<GameObject> bulletTracerList;
+    [SerializeField] private List<GameObject> EnergyTracerList;
     void Start()
     {
         AddTracersToPool(poolSize);
+        AddEnergyTracersToPool(poolSize);
     }
 
     private void AddTracersToPool(int amount)
@@ -18,19 +21,46 @@ public class BulletTracePool : MonoBehaviour
         {
             GameObject tracer = Instantiate(bulletTracePrefab);
             tracer.SetActive(false);
-            tracerList.Add(tracer);
+            bulletTracerList.Add(tracer);
             tracer.transform.parent = transform;
         }
+
+    }
+
+    private void AddEnergyTracersToPool(int amount)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            GameObject tracer = Instantiate(energyTracePrefab);
+            tracer.SetActive(false);
+            EnergyTracerList.Add(tracer);
+            tracer.transform.parent = transform;
+        }
+
     }
 
     public GameObject RequestBulletTracer( Transform x)
     {
-        for (int i = 0; i < tracerList.Count; i++)
+        for (int i = 0; i < bulletTracerList.Count; i++)
         {
-            if (!tracerList[i].activeSelf)
+            if (!bulletTracerList[i].activeSelf)
             {
-                tracerList[i].gameObject.GetComponent<TracerBehavior>().EnableLogic(x);
-                return tracerList[i];
+                bulletTracerList[i].gameObject.GetComponent<TracerBehavior>().EnableLogic(x);
+                return bulletTracerList[i];
+            }
+        }
+
+        return null;
+    }
+
+    public GameObject RequestEnergyTracer(Transform x)
+    {
+        for (int i = 0; i < EnergyTracerList.Count; i++)
+        {
+            if (!EnergyTracerList[i].activeSelf)
+            {
+                EnergyTracerList[i].gameObject.GetComponent<TracerBehavior>().EnableLogic(x);
+                return EnergyTracerList[i];
             }
         }
 
