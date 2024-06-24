@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3488601150070262633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3488601150070262635}
+  - component: {fileID: 3488601150070262634}
+  m_Layer: 0
+  m_Name: Consumables pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3488601150070262635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488601150070262633}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.8050016, y: 3.66185, z: 30.726646}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3488601150070262634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488601150070262633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4efb0111dd8bd1346a253108e2928a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medkitPrefab: {fileID: 3710246227922208915, guid: ed56c84b5b6dc144c98dcf12bdb079dd,
+    type: 3}
+  bulletPrefab: {fileID: 101519788229037364, guid: 1c0eb3b8efdd9da47a6cf1cd7ec1aa53,
+    type: 3}
+  slugPrefab: {fileID: 9113544725769228763, guid: ee0502e5bd6a57845951b38b730560ba,
+    type: 3}
+  energyCellPrefab: {fileID: 5030811547433563752, guid: 3261073f772993f478a86e7aa8c511e9,
+    type: 3}
+  poolSize: 10
+  medkitList: []
+  bulletList: []
+  slugList: []
+  energyCellList: []

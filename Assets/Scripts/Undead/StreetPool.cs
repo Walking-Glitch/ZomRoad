@@ -30,6 +30,7 @@ public class StreetPool : MonoBehaviour
 
     public GameObject RequestStreet()
     {
+        Debug.Log("street has been requested");
         for (int i = Random.Range(0, streetList.Count - 1); i < streetList.Count; i++)
         {
             if (!streetList[i].activeSelf)

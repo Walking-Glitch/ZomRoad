@@ -39,5 +39,12 @@ public class MedKit : Consumables
             gameManager.consumablesManager.medkitCtr--;
             gameObject.SetActive(false);
         }
+
+        if (other.CompareTag("EnemyCleaner"))
+        {
+            gameManager.consumablesManager.medkitCtr--;
+            this.gameObject.SetActive(false);
+        }
+
     }
 }

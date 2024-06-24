@@ -2,21 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : Consumables
+public class EnergyCell : Consumables
 {
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
-        GetMeshRenderers();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        //base.Update();
-        transform.Rotate(rotation * speed * Time.deltaTime);
-        //ConsumableTimer(true);
+        base.Update();
     }
 
     //private void OnTriggerEnter(Collider other)
@@ -25,19 +22,26 @@ public class Bullet : Consumables
     //    {
     //        flag = true;
     //        //healSound.PlayOneShot(healSound.clip);
-    //        //consumable.GetComponent<MeshRenderer>().enabled = false;
-    //        DisableNestedMeshRenderers();
+    //        consumable.GetComponent<MeshRenderer>().enabled = false;
     //        consumable.GetComponent<BoxCollider>().enabled = false;
-    //        gameManager.wheelController.CollectBulletAmmo(50);
+    //        gameManager.wheelController.CollectEnergyAmmo(5);
     //    }
     //}
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("Player") && timeValue == MaxtimeValue))
+        if (other.CompareTag("Player"))
         {
-            gameManager.wheelController.CollectBulletAmmo(50);
-            gameManager.consumablesManager.bulletCtr--;
+            
+            //healSound.PlayOneShot(healSound.clip);
+            gameManager.wheelController.CollectEnergyAmmo(5);
+            gameManager.consumablesManager.energyCellCtr--;
+            gameObject.SetActive(false);
+        }
+
+        if (other.CompareTag("EnemyCleaner"))
+        {
+            gameManager.consumablesManager.energyCellCtr--;
             gameObject.SetActive(false);
         }
     }
