@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6768310447841460916}
   - component: {fileID: 2808472572733520915}
   - component: {fileID: 2808472572733520916}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnergyAmmoTemp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

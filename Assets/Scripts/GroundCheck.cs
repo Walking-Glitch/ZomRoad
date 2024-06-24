@@ -10,10 +10,12 @@ public class GroundCheck : MonoBehaviour
     [SerializeField] private float timeToStartRelocation = 4;
     [SerializeField] private float timeToResetIsResetting = 4;
     [SerializeField] private float timeElapsed;
+    private GameManager gameManager;
 
     void Start()
     {
         player = GetComponentInParent<WheelController>();
+        gameManager = GameManager.Instance;
     }
 
     // Update is called once per frame
@@ -35,11 +37,14 @@ public class GroundCheck : MonoBehaviour
         if (!player.IsGrounded && !isResetting)
         {
             StartCoroutine(RelocateCar());
+
         }
 
      
             
     }
+
+ 
 
     private void OnTriggerStay(Collider other)
     {

@@ -2,19 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnergyCell : Consumables
+public class Slug : Consumables
 {
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        GetMeshRenderers();
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
+        // base.Update();
+        transform.Rotate(rotation * speed * Time.deltaTime);
+        //ConsumableTimer(true);
     }
+
 
     //private void OnTriggerEnter(Collider other)
     //{
@@ -22,9 +26,10 @@ public class EnergyCell : Consumables
     //    {
     //        flag = true;
     //        //healSound.PlayOneShot(healSound.clip);
-    //        consumable.GetComponent<MeshRenderer>().enabled = false;
+    //        //consumable.GetComponent<MeshRenderer>().enabled = false;
+    //        DisableNestedMeshRenderers();
     //        consumable.GetComponent<BoxCollider>().enabled = false;
-    //        gameManager.wheelController.CollectEnergyAmmo(5);
+    //        gameManager.wheelController.CollectSlugAmmo(10);
     //    }
     //}
 
@@ -32,10 +37,16 @@ public class EnergyCell : Consumables
     {
         if (other.CompareTag("Player"))
         {
-            
             //healSound.PlayOneShot(healSound.clip);
-            gameManager.wheelController.CollectEnergyAmmo(5);
-            gameManager.consumablesManager.energyCellCtr--;
+            gameManager.wheelController.CollectSlugAmmo(10);
+            gameManager.consumablesManager.slugCtr--;
+            gameObject.SetActive(false);
+           
+        }
+
+        if (other.CompareTag("EnemyCleaner"))
+        {
+            gameManager.consumablesManager.slugCtr--;
             gameObject.SetActive(false);
         }
     }
