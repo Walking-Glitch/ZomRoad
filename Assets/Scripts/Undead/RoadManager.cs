@@ -14,6 +14,10 @@ public class RoadManager : MonoBehaviour
     [SerializeField] private Transform streetEndPoint;
     private GameManager gameManager;
 
+    private GameObject storeRoadTrigger;
+
+    //[SerializeField] private Transform createObjecTransform;
+
     void Start()
     {
         gameManager = GameManager.Instance;
@@ -25,6 +29,7 @@ public class RoadManager : MonoBehaviour
 
         if (other.gameObject.CompareTag("RoadTrigger"))
         {
+            storeRoadTrigger = other.gameObject;
             other.gameObject.SetActive(false);
             streetEndPoint = currStreet.transform.Find("CreatePoint");
 
@@ -32,19 +37,24 @@ public class RoadManager : MonoBehaviour
             {
                 GameObject newStreet = gameManager.streetPool.RequestStreet();
                 newStreet.transform.position = streetEndPoint.position + new Vector3(0, 0, 29.5f);
+
+            
                 //newStreet.GetComponentInChildren<OffMeshLink>().gameObject.SetActive(true);
                 OffMeshLink offMeshLink = newStreet.GetComponentInChildren<OffMeshLink>();
                // this was necessary for off mesh links to display on run time
                     offMeshLink.gameObject.SetActive(false);
                     offMeshLink.gameObject.SetActive(true);
 
-
                 prevStreet = currStreet;
                 currStreet = newStreet;
 
+        
             }
             
+            
         }
+
+       
 
         if (other.gameObject.CompareTag("DeleteTrigger"))
         {
@@ -52,6 +62,11 @@ public class RoadManager : MonoBehaviour
             if (prevStreet != null)
             {
                 prevStreet.SetActive(false);
+                if (storeRoadTrigger != null)
+                {
+                    storeRoadTrigger.SetActive(true);
+                }
+               
             }
             
         }

@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 4086457913709841630}
   - component: {fileID: 6059647678491482086}
   m_Layer: 0
-  m_Name: 'Create Object  '
+  m_Name: 'CreateObject  '
   m_TagString: RoadTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2540135580871782100}
   m_Layer: 0
-  m_Name: Street_Bridge_A
+  m_Name: Street_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

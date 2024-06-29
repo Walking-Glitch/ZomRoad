@@ -6,10 +6,12 @@ using UnityEngine.AI;
 public class StreetPool : MonoBehaviour
 {
     [SerializeField] private List<GameObject> streetPrefabs;
-    
 
-    private int poolSize = 10;
+
+    [SerializeField] private int poolSize;
     [SerializeField] private List<GameObject> streetList;
+
+    [SerializeField] private Transform createTransform;
 
     void Start()
     {
@@ -36,7 +38,6 @@ public class StreetPool : MonoBehaviour
             if (!streetList[i].activeSelf)
             {
                 streetList[i].SetActive(true);
-                //streetList[i].GetComponentInChildren<OffMeshLink>().gameObject.SetActive(false);
                 return streetList[i];
             }
 
@@ -44,4 +45,6 @@ public class StreetPool : MonoBehaviour
         return null;
 
     }
+
+    
 }
