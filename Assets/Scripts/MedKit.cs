@@ -17,18 +17,6 @@ public class MedKit : Consumables
         base.Update();
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if ((other.CompareTag("Player") && timeValue == MaxtimeValue) && gameManager.wheelController.health < 100)
-    //    {
-    //        flag = true;
-    //        //healSound.PlayOneShot(healSound.clip);
-    //        consumable.GetComponent<MeshRenderer>().enabled = false;
-    //        consumable.GetComponent<BoxCollider>().enabled = false;
-    //        gameManager.wheelController.Heal(50);
-    //    }
-    //}
-
     private void OnTriggerEnter(Collider other)
     {
         if ((other.CompareTag("Player") && gameManager.wheelController.health < 100))

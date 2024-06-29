@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3467582652600830415}
   - component: {fileID: 4160492333851562105}
   m_Layer: 0
-  m_Name: DeleteObject (1)
+  m_Name: 'CreateObject '
   m_TagString: RoadTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

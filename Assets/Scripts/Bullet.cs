@@ -19,19 +19,6 @@ public class Bullet : Consumables
         //ConsumableTimer(true);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if ((other.CompareTag("Player") && timeValue == MaxtimeValue))
-    //    {
-    //        flag = true;
-    //        //healSound.PlayOneShot(healSound.clip);
-    //        //consumable.GetComponent<MeshRenderer>().enabled = false;
-    //        DisableNestedMeshRenderers();
-    //        consumable.GetComponent<BoxCollider>().enabled = false;
-    //        gameManager.wheelController.CollectBulletAmmo(50);
-    //    }
-    //}
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
