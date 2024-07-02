@@ -62,7 +62,7 @@ public class EnemyManager : MonoBehaviour
 
         if (selectedSpawnPoint == null)
         {
-            Debug.Log("Failed to find a valid spawn point after multiple attempts.");
+           // Debug.Log("Failed to find a valid spawn point after multiple attempts.");
             isSpawning = false;
             yield break;
         }
