@@ -10,7 +10,7 @@ using UnityEngine.AI;
 public class RoadManager : MonoBehaviour
 {
     public GameObject currStreet;
-    [SerializeField]private GameObject prevStreet;
+    [SerializeField] private GameObject prevStreet;
     [SerializeField] private Transform streetEndPoint;
     private GameManager gameManager;
 
@@ -19,6 +19,8 @@ public class RoadManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> prevTriggersGameObjects;
     [SerializeField] private List<GameObject> currTriggersGameObjects;
+
+    public Transform reAllocationPoint;
 
 
     void Start()
@@ -44,6 +46,17 @@ public class RoadManager : MonoBehaviour
 
         if (other.CompareTag("EnterStreetTrigger"))
         {
+            Transform childTransform = other.transform.Find("SpawnPoint");
+            if (childTransform != null)
+            {
+                reAllocationPoint = childTransform;
+               // Debug.Log("Child object found and assigned to reAllocationPoint.");
+            }
+            else
+            {
+                Debug.LogError("Child object with the specified name not found.");
+            }
+
             if (prevTriggersGameObjects.Count > 0)
             {
                 foreach (var t in prevTriggersGameObjects)

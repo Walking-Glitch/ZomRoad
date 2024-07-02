@@ -65,7 +65,7 @@ public class UndeadBase : MonoBehaviour
         }
 
 
-        if (!IsAgentOnNavMesh(undead) && !IsAgentOnOffMeshLink(undead))
+        if ((gameManager.wheelController.IsInvincible) || !IsAgentOnNavMesh(undead) && !IsAgentOnOffMeshLink(undead))
         {
             CleanerDestroyZombie();
         }
