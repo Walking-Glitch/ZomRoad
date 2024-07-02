@@ -11,6 +11,8 @@ TagManager:
   - DeleteTrigger
   - EnemyCleaner
   - Ground
+  - EnterStreetTrigger
+  - ExitStreetTrigger
   layers:
   - Default
   - TransparentFX
