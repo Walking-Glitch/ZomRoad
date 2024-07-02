@@ -51,17 +51,29 @@ public class EnemyManager : MonoBehaviour
         isSpawning = true;
 
         Transform selectedSpawnPoint = GetValidSpawnPoint();
-        if (selectedSpawnPoint != null)
+
+        int attempts = 0;
+
+        while (selectedSpawnPoint == null && attempts < 10)
         {
-            //Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
-            //enemyCtr++;
-            GameObject tempEnemy = gameManager.enemyPool.RequestEnemy();
-            tempEnemy.transform.position = selectedSpawnPoint.position;
-            tempEnemy.transform.rotation = selectedSpawnPoint.rotation;
-            tempEnemy.GetComponent<NavMeshAgent>().enabled = true;
-            tempEnemy.SetActive(true);
-            enemyCtr++;
+            selectedSpawnPoint =  GetValidSpawnPoint();
+            attempts++;
         }
+
+        if (selectedSpawnPoint == null)
+        {
+            Debug.Log("Failed to find a valid spawn point after multiple attempts.");
+            isSpawning = false;
+            yield break;
+        }
+
+        GameObject tempEnemy = gameManager.enemyPool.RequestEnemy();
+        tempEnemy.transform.position = selectedSpawnPoint.position;
+        tempEnemy.transform.rotation = selectedSpawnPoint.rotation;
+        tempEnemy.GetComponent<NavMeshAgent>().enabled = true;
+        tempEnemy.SetActive(true);
+        enemyCtr++;
+        
         yield return new WaitForSeconds(delay);
         isSpawning = false;
 
