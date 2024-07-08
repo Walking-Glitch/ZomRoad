@@ -46,6 +46,11 @@ public class WheelController : MonoBehaviour
     public int energyAmmo = 0;
     public int bulletAmmo = 0;
 
+    public bool isRecDis;
+    public float distance = 0;
+    private Vector3 previousPos;
+    
+
     private GameManager gameManager;
 
     void Start()
@@ -53,6 +58,7 @@ public class WheelController : MonoBehaviour
         gameManager = GameManager.Instance;
         health = maxHealth;
         exp = 0;
+       // distance = gameObject.transform.position.magnitude;
         audioSource = GetComponent<AudioSource>();
         CarMeshCollider = GetComponent<MeshCollider>();
         CaRigidbody = GetComponent<Rigidbody>();
@@ -93,6 +99,11 @@ public class WheelController : MonoBehaviour
         UpdateWheel(frontLeft, frontLeftTransform);
         UpdateWheel(backLeft, backLeftTransform);
         UpdateWheel(backRight, backRightTransform);
+
+        if (isRecDis)
+        {
+            CalculateDistance();
+        }
     }
 
     void UpdateWheel(WheelCollider col, Transform transform)
@@ -193,6 +204,14 @@ public class WheelController : MonoBehaviour
         gameManager.enemyManager.maxEnemy += 1;
     }
 
+    public void CalculateDistance()
+    {
+        distance += Vector2.Distance(transform.position, previousPos);
+        previousPos = transform.position;
+
+        Debug.Log(distance);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
@@ -205,25 +224,7 @@ public class WheelController : MonoBehaviour
             
         }
     }
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    switch (other.tag)
-    //    {
-    //        case "Ammo1":
-    //            CollectSlugAmmo(25);
-    //            break;
-    //        case "Ammo2":
-    //            CollectBulletAmmo(50);
-    //            break;
-    //        case "Ammo3":
-    //            CollectEnergyAmmo(10);
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
-
+ 
 
 
 
