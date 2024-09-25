@@ -150,7 +150,7 @@ public class WheelController : MonoBehaviour
             engineAudioSource.clip = engineClips[3];
         }
 
-        else if (currAcceleration < 5)
+        else if (currAcceleration < 3)
         {
             engineAudioSource.clip = engineClips[1];
         }

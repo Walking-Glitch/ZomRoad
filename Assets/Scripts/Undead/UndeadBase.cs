@@ -54,7 +54,7 @@ public class UndeadBase : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (Time.frameCount % 10 == 0) // Update every 10 frames for example
+        if (Time.frameCount % 10 == 0) // Update every 10 frames 
         {
             isAgentOnNavMesh = IsAgentOnNavMesh(undead);
         }
@@ -118,7 +118,7 @@ public class UndeadBase : MonoBehaviour
        
     }
 
-    protected void RagdollModeOff()
+    protected virtual void RagdollModeOff()
     {
         isDead = false;
 
