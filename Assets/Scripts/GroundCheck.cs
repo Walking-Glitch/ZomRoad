@@ -65,15 +65,15 @@ public class GroundCheck : MonoBehaviour
                 player.transform.position = gameManager.roadManager.reAllocationPoint.position;
                 player.transform.rotation = Quaternion.Euler(0, 0, 0);
 
-                player.CaRigidbody.isKinematic = true;
-                player.CaRigidbody.useGravity = false;
+                player.CarRigidbody.isKinematic = true;
+                player.CarRigidbody.useGravity = false;
 
                 isResetting = true;
 
                 yield return new WaitForSeconds(dropTime);
 
-                player.CaRigidbody.isKinematic = false;
-                player.CaRigidbody.useGravity = true;
+                player.CarRigidbody.isKinematic = false;
+                player.CarRigidbody.useGravity = true;
 
                 player.SetIsInvincible(false);
 
@@ -90,15 +90,15 @@ public class GroundCheck : MonoBehaviour
         //    player.transform.position = gameManager.roadManager.reAllocationPoint.position;
         //    player.transform.rotation = Quaternion.Euler(0, 0, 0);
                 
-        //    player.CaRigidbody.isKinematic = true;
-        //    player.CaRigidbody.useGravity = false;
+        //    player.CarRigidbody.isKinematic = true;
+        //    player.CarRigidbody.useGravity = false;
 
         //    isResetting = true;
 
         //yield return new WaitForSeconds(cooldownTime);
 
-        //player.CaRigidbody.isKinematic = false;
-        //player.CaRigidbody.useGravity = true;
+        //player.CarRigidbody.isKinematic = false;
+        //player.CarRigidbody.useGravity = true;
 
         //player.SetIsInvincible(false);
 
