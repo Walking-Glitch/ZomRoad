@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class WheelController : MonoBehaviour
@@ -22,9 +23,13 @@ public class WheelController : MonoBehaviour
     private float currentBrakeForce = 0f;
     private float currentTurnAngle = 0f;
 
+    private bool isBraking;
+
     public AudioClip[] crashClips;
+    public AudioClip[] engineClips;
 
     private AudioSource audioSource;
+    public AudioSource engineAudioSource;
 
     public FixedJoystick joystick;
     private Vector3 moveDirJoystick;
@@ -40,7 +45,7 @@ public class WheelController : MonoBehaviour
 
     public MeshCollider CarMeshCollider;
 
-    public Rigidbody CaRigidbody;
+    public Rigidbody CarRigidbody;
 
     public int slugAmmo = 0;
     public int energyAmmo = 0;
@@ -61,7 +66,7 @@ public class WheelController : MonoBehaviour
        // distance = gameObject.transform.position.magnitude;
         audioSource = GetComponent<AudioSource>();
         CarMeshCollider = GetComponent<MeshCollider>();
-        CaRigidbody = GetComponent<Rigidbody>();
+        CarRigidbody = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -72,10 +77,18 @@ public class WheelController : MonoBehaviour
 
         //
         if (Input.GetKey(KeyCode.Space))
+        {
             currentBrakeForce = brakingForce;
-        
+            isBraking = true;
+
+        }
+
         else
+        {
             currentBrakeForce = 0f;
+            isBraking = false;
+        }
+         
 
         //add acceleration to front wheels
         frontRight.motorTorque = currentAcceleration;
@@ -104,6 +117,11 @@ public class WheelController : MonoBehaviour
         {
             CalculateDistance();
         }
+
+        PlayEngineSfx(CarRigidbody.velocity.magnitude, isBraking);
+
+        Debug.Log(CarRigidbody.velocity.magnitude);
+        Debug.Log(engineAudioSource.isPlaying);
     }
 
     void UpdateWheel(WheelCollider col, Transform transform)
@@ -121,6 +139,27 @@ public class WheelController : MonoBehaviour
     {
         audioSource.clip = crashClips[Random.Range(0, crashClips.Length)];
         audioSource.Play();
+    }
+
+    public void PlayEngineSfx(float currAcceleration, bool isBraking)
+    {
+
+     
+        if (isBraking && currAcceleration > 1 && IsGrounded)
+        {
+            engineAudioSource.clip = engineClips[3];
+        }
+
+        else if (currAcceleration < 5)
+        {
+            engineAudioSource.clip = engineClips[1];
+        }
+        else if (currAcceleration > 8)
+        {
+            engineAudioSource.clip = engineClips[2];
+        }
+
+        if (!engineAudioSource.isPlaying) engineAudioSource.Play();
     }
 
     public void TakeDamage(int damage)
@@ -209,7 +248,7 @@ public class WheelController : MonoBehaviour
         distance += Vector2.Distance(transform.position, previousPos);
         previousPos = transform.position;
 
-        Debug.Log(distance);
+        //Debug.Log(distance);
     }
 
     private void OnCollisionEnter(Collision collision)
