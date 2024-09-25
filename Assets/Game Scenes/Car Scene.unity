@@ -2181,7 +2181,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7e8d1d0a493c0064a93aa05b3c2dd04d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2190,9 +2190,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 10
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -2627,7 +2627,7 @@ PrefabInstance:
     - target: {fileID: 3355012743767373481, guid: 0e6304bb5507ffd4381fbf8c2b87072f,
         type: 3}
       propertyPath: EnemyPrefabs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3355012743767373481, guid: 0e6304bb5507ffd4381fbf8c2b87072f,
         type: 3}
@@ -2913,7 +2913,7 @@ PrefabInstance:
     - target: {fileID: 4132080453749980905, guid: 4515f8ee646164c4a8d22be2385d0b04,
         type: 3}
       propertyPath: maxEnemy
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4132080453749980905, guid: 4515f8ee646164c4a8d22be2385d0b04,
         type: 3}
