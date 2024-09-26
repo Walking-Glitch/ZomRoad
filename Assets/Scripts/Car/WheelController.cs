@@ -120,8 +120,8 @@ public class WheelController : MonoBehaviour
 
         PlayEngineSfx(CarRigidbody.velocity.magnitude, isBraking);
 
-        Debug.Log(CarRigidbody.velocity.magnitude);
-        Debug.Log(engineAudioSource.isPlaying);
+        //Debug.Log(CarRigidbody.velocity.magnitude);
+        //Debug.Log(engineAudioSource.isPlaying);
     }
 
     void UpdateWheel(WheelCollider col, Transform transform)
