@@ -13,6 +13,7 @@ public class Turret : MonoBehaviour
     public float transitionDuration;
     public float resetDuration;
     protected AudioSource audioSource;
+    public AudioSource AudioSourceTurret;
     protected ParticleSystem muzzleFlash;
    // [SerializeField] private Transform barrel;
     protected TracerManager tracerManager;
@@ -87,13 +88,20 @@ public class Turret : MonoBehaviour
             // Check if the angle to the enemy is within the front field of view
             if (angleToEnemy <= maxAngle)
             {
+                Debug.Log("we are here 1");
+                AudioSourceTurret.Play();
                 // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
                 float t = Time.deltaTime / transitionDuration;
                 Quaternion newRotation = Quaternion.Lerp(transformT.rotation, rotation, t);//
                 transformT.rotation = newRotation;
 
+                
+
                 anim.SetBool("Shoot", true);
-             
+                 
+                 
+           
+
             }
             else
             {
@@ -104,6 +112,11 @@ public class Turret : MonoBehaviour
         }
         else
         {
+            //if (!AudioSourceTurret.isPlaying)
+            //{
+            //    Debug.Log("we are here 2");
+            //    AudioSourceTurret.Play();
+            //}////
             anim.SetBool("Shoot", false);
             currentEnemy = null;
             Quaternion targetRotation = Quaternion.LookRotation(carTransform.forward);
