@@ -52,6 +52,10 @@ MonoBehaviour:
   rotation: {x: 0, y: 7, z: 0}
   speed: 10
   timeValue: 5
+  AudioClips:
+  - {fileID: 8300000, guid: ad8934a3850a0754e808e277e3318a4f, type: 3}
+  - {fileID: 8300000, guid: 49232256fb70d63448828ac197158ab4, type: 3}
+  - {fileID: 8300000, guid: b9926d78a95101846a63c5d421a33346, type: 3}
 --- !u!82 &101519788229037370
 AudioSource:
   m_ObjectHideFlags: 0
@@ -63,7 +67,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

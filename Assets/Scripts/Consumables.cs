@@ -10,11 +10,14 @@ public class Consumables : MonoBehaviour
     protected GameObject consumable;
 
     [SerializeField] protected float timeValue = MaxtimeValue;
-    private AudioSource healSound;
+   
+
     public const float MaxtimeValue = 5;
     protected bool flag;
 
     protected MeshRenderer[] meshRenderers;
+
+    
 
     protected GameManager gameManager;
 
@@ -24,7 +27,6 @@ public class Consumables : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         consumable = gameObject;
-        healSound = GetComponent<AudioSource>();
     }
     protected virtual void Update()
     {
@@ -77,5 +79,8 @@ public class Consumables : MonoBehaviour
         }
 
     }
+
+   
+
 
 }

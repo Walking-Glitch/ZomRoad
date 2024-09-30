@@ -29,12 +29,15 @@ public class ConsumablesManager : MonoBehaviour
     private bool isSpawning4;
 
 
+    public AudioSource audioSource;
+    public AudioClip[] AudioClips;
+    public AudioClip healthRefillClip;
+
     private GameManager gameManager;
 
     void Start()
     {
         gameManager = GameManager.Instance;
-
         CollectChildObjects(parentSpawnPoint);
     }
     // Update is called once per frame
@@ -192,5 +195,17 @@ public class ConsumablesManager : MonoBehaviour
     public void DecreaseEnergyCellCtr()
     {
         energyCellCtr--;
+    }
+
+    public void PlayAmmoRefillSFX()
+    {
+        audioSource.clip = AudioClips[Random.Range(0, AudioClips.Length)];
+        audioSource.Play();
+    }
+
+    public void PlayHealthRefillSFX()
+    {
+        audioSource.clip = healthRefillClip;
+        audioSource.Play();
     }
 }

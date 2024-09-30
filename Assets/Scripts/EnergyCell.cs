@@ -16,24 +16,12 @@ public class EnergyCell : Consumables
         base.Update();
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if ((other.CompareTag("Player") && timeValue == MaxtimeValue))
-    //    {
-    //        flag = true;
-    //        //healSound.PlayOneShot(healSound.clip);
-    //        consumable.GetComponent<MeshRenderer>().enabled = false;
-    //        consumable.GetComponent<BoxCollider>().enabled = false;
-    //        gameManager.wheelController.CollectEnergyAmmo(5);
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            
-            //healSound.PlayOneShot(healSound.clip);
+            gameManager.consumablesManager.PlayAmmoRefillSFX();
             gameManager.wheelController.CollectEnergyAmmo(5);
             gameManager.consumablesManager.energyCellCtr--;
             gameObject.SetActive(false);
