@@ -21,17 +21,19 @@ public class Consumables : MonoBehaviour
 
     protected GameManager gameManager;
 
+    protected Vector3 playerPos;
+
     // Update is called once per frame
 
     protected virtual void Start()
     {
         gameManager = GameManager.Instance;
+        playerPos = gameManager.wheelController.transform.position;
         consumable = gameObject;
     }
     protected virtual void Update()
     {
         transform.Rotate(rotation * speed * Time.deltaTime);
-        //ConsumableTimer(false);
     }
 
     protected virtual void GetMeshRenderers()
@@ -80,7 +82,17 @@ public class Consumables : MonoBehaviour
 
     }
 
-   
+    //protected virtual bool IsDistanceTooGreat(Vector3 player, Vector3 cons)
+    //{
+    //    float distance = Vector3.Distance(player, cons);
+
+    //    if (distance > 100)
+    //    {
+    //        return true;
+    //    }
+
+    //    return false;
+    //}
 
 
 }

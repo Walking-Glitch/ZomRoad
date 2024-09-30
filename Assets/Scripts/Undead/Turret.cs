@@ -16,7 +16,7 @@ public class Turret : MonoBehaviour
     protected AudioSource audioSource;
     public AudioSource AudioSourceTurret;
     protected ParticleSystem muzzleFlash;
-   // [SerializeField] private Transform barrel;
+ 
     protected TracerManager tracerManager;
 
 
@@ -40,7 +40,6 @@ public class Turret : MonoBehaviour
     protected virtual void Update()
     {
         FindEnemies();
-        
     }
 
     protected virtual void LateUpdate()
@@ -50,7 +49,6 @@ public class Turret : MonoBehaviour
 
     protected virtual void FindEnemies()
     {
-
         enemies.Clear();
 
         Collider[] colliders = Physics.OverlapSphere(transformT.position, detectionRadius, enemyLayer);

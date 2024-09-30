@@ -16,7 +16,6 @@ public class Slug : Consumables
     {
         // base.Update();
         transform.Rotate(rotation * speed * Time.deltaTime);
-        //ConsumableTimer(true);
     }
 
 

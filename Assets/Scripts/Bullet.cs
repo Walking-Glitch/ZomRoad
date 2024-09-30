@@ -14,9 +14,15 @@ public class Bullet : Consumables
     // Update is called once per frame
     protected override void Update()
     {
-        //base.Update();
+         
         transform.Rotate(rotation * speed * Time.deltaTime);
-        //ConsumableTimer(true);
+
+        //if (IsDistanceTooGreat(playerPos, consumable.transform.position))
+        //{
+        //    gameManager.consumablesManager.bulletCtr--;
+        //    this.gameObject.SetActive(false);
+        //}
+
     }
 
     private void OnTriggerEnter(Collider other)
