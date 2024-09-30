@@ -150,11 +150,11 @@ public class WheelController : MonoBehaviour
             engineAudioSource.clip = engineClips[3];
         }
 
-        else if (currAcceleration < 3)
+        else if (currAcceleration < 2)
         {
             engineAudioSource.clip = engineClips[1];
         }
-        else if (currAcceleration > 8)
+        else if (currAcceleration > 2 && IsGrounded)
         {
             engineAudioSource.clip = engineClips[2];
         }

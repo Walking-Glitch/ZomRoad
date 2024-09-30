@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -62,7 +63,6 @@ public class Turret : MonoBehaviour
 
     }
 
-
     protected virtual void AimAtTarget()
     {
         
@@ -86,7 +86,7 @@ public class Turret : MonoBehaviour
             //float maxAngle = 45f; // Adjust this angle as needed
 
             // Check if the angle to the enemy is within the front field of view
-            if (angleToEnemy <= maxAngle)
+            if (angleToEnemy <= maxAngle && gameManager.wheelController.slugAmmo != 0)
             {
                 Debug.Log("we are here 1");
                 AudioSourceTurret.Play();

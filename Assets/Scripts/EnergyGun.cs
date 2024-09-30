@@ -41,7 +41,7 @@ public class EnergyGun : Turret
             //float maxAngle = 45f; // Adjust this angle as needed
 
             // Check if the angle to the enemy is within the front field of view
-            if (angleToEnemy <= maxAngle)
+            if (angleToEnemy <= maxAngle && gameManager.wheelController.energyAmmo != 0)
             {
                 Debug.Log("we are here 1");
                 AudioSourceTurret.Play();

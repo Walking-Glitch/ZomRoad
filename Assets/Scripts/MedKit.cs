@@ -21,8 +21,7 @@ public class MedKit : Consumables
     {
         if ((other.CompareTag("Player") && gameManager.wheelController.health < 100))
         {
-           
-            //healSound.PlayOneShot(healSound.clip);
+            gameManager.consumablesManager.PlayHealthRefillSFX();
             gameManager.wheelController.Heal(50);
             gameManager.consumablesManager.medkitCtr--;
             gameObject.SetActive(false);
@@ -33,6 +32,6 @@ public class MedKit : Consumables
             gameManager.consumablesManager.medkitCtr--;
             this.gameObject.SetActive(false);
         }
-
     }
+
 }

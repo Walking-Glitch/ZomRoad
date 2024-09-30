@@ -20,28 +20,14 @@ public class Slug : Consumables
     }
 
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if ((other.CompareTag("Player") && timeValue == MaxtimeValue))
-    //    {
-    //        flag = true;
-    //        //healSound.PlayOneShot(healSound.clip);
-    //        //consumable.GetComponent<MeshRenderer>().enabled = false;
-    //        DisableNestedMeshRenderers();
-    //        consumable.GetComponent<BoxCollider>().enabled = false;
-    //        gameManager.wheelController.CollectSlugAmmo(10);
-    //    }
-    //}
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            //healSound.PlayOneShot(healSound.clip);
+            gameManager.consumablesManager.PlayAmmoRefillSFX();
             gameManager.wheelController.CollectSlugAmmo(10);
             gameManager.consumablesManager.slugCtr--;
             gameObject.SetActive(false);
-           
         }
 
         if (other.CompareTag("EnemyCleaner"))
