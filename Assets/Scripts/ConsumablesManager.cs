@@ -33,12 +33,27 @@ public class ConsumablesManager : MonoBehaviour
     public AudioClip[] AudioClips;
     public AudioClip healthRefillClip;
 
+    private Vector3 oldTransform;
+
     private GameManager gameManager;
 
     void Start()
     {
         gameManager = GameManager.Instance;
         CollectChildObjects(parentSpawnPoint);
+    }
+
+    bool DifferentSpawn(Vector3 usedPosition, Vector3 newPosition)
+    {
+        if (newPosition == usedPosition)
+        {
+            return false;
+        }
+
+        else
+        {
+            return true;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -167,8 +182,9 @@ public class ConsumablesManager : MonoBehaviour
 
         NavMeshHit hit;
 
-        if (NavMesh.SamplePosition(spawnPos, out hit, 1.0f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(spawnPos, out hit, 1.0f, NavMesh.AllAreas) && DifferentSpawn(spawnPos, oldTransform))
         {
+            oldTransform = spawnPos;
             return spawnPointsList[i];
         }
 

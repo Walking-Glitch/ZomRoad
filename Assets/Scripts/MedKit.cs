@@ -15,6 +15,7 @@ public class MedKit : Consumables
     protected override void Update()
     {
         base.Update();
+
     }
 
     private void OnTriggerEnter(Collider other)
