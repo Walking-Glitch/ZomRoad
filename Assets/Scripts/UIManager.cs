@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public Slider healthSlider;
     public Slider xpSlider;
+    public Slider fuelSlider;
     public TextMeshProUGUI slugAmmoText;
     public TextMeshProUGUI bulletAmmoText;
     public TextMeshProUGUI energyAmmoText;
@@ -29,6 +30,16 @@ public class UIManager : MonoBehaviour
         healthSlider.value = health;
     }
 
+    public void SetMaxFuel(int maxFuel)
+    {
+        fuelSlider.maxValue = maxFuel;
+        fuelSlider.value = maxFuel;
+    }
+
+    public void SetFuel(float fuel)
+    {
+        fuelSlider.value = fuel;
+    }
     public void SetMaxXp(int maxXp)
     {
         xpSlider.maxValue = maxXp;
@@ -39,6 +50,8 @@ public class UIManager : MonoBehaviour
     {
         xpSlider.value = xp;
     }
+
+   
 
     public void SetSlugAmmoText()
     {

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class WheelController : MonoBehaviour
 {
@@ -16,7 +18,7 @@ public class WheelController : MonoBehaviour
     [SerializeField] private Transform backLeftTransform;
 
     public float acceleration = 500f;
-    public float brakingForce = 300f;
+    public float brakingForce = 350f;
     public float maxTurnAngle = 15f;
 
     private float currentAcceleration = 0f;
@@ -40,6 +42,9 @@ public class WheelController : MonoBehaviour
     public int maxExp;
     public int exp;
 
+    public float maxFuel;
+    public float fuel; 
+
     public bool IsGrounded { get; set; }
     public bool IsInvincible { get; set; }
 
@@ -62,6 +67,7 @@ public class WheelController : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         health = maxHealth;
+        fuel = maxFuel;
         exp = 0;
        // distance = gameObject.transform.position.magnitude;
         audioSource = GetComponent<AudioSource>();
@@ -71,6 +77,7 @@ public class WheelController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Fuel();
         // get forward and reverse acceleration
         currentAcceleration = acceleration * Input.GetAxis("Vertical");
         //currentAcceleration = acceleration * joystick.Vertical;
@@ -169,6 +176,15 @@ public class WheelController : MonoBehaviour
         gameManager.uiManager.SetHealth(health);
     }
 
+    public void Fuel()
+    {
+        fuel -= Time.deltaTime;
+        fuel = Mathf.Clamp(fuel, 0, maxFuel);
+        gameManager.uiManager.SetFuel(fuel);
+
+        acceleration = fuel <= 0 ? 200f : 500f;
+
+    }
     public void Heal(int heal)
     {
         health += heal;
