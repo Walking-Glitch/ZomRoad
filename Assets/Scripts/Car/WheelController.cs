@@ -43,7 +43,10 @@ public class WheelController : MonoBehaviour
     public int exp;
 
     public float maxFuel;
-    public float fuel; 
+    public float fuel;
+
+
+    public int Level = 1;
 
     public bool IsGrounded { get; set; }
     public bool IsInvincible { get; set; }
@@ -69,7 +72,8 @@ public class WheelController : MonoBehaviour
         health = maxHealth;
         fuel = maxFuel;
         exp = 0;
-       // distance = gameObject.transform.position.magnitude;
+        
+        // distance = gameObject.transform.position.magnitude;
         audioSource = GetComponent<AudioSource>();
         CarMeshCollider = GetComponent<MeshCollider>();
         CarRigidbody = GetComponent<Rigidbody>();
@@ -77,7 +81,7 @@ public class WheelController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Fuel();
+        ConsumeFuel();
         // get forward and reverse acceleration
         currentAcceleration = acceleration * Input.GetAxis("Vertical");
         //currentAcceleration = acceleration * joystick.Vertical;
@@ -176,15 +180,21 @@ public class WheelController : MonoBehaviour
         gameManager.uiManager.SetHealth(health);
     }
 
-    public void Fuel()
+    public void ConsumeFuel()
     {
         fuel -= Time.deltaTime;
         fuel = Mathf.Clamp(fuel, 0, maxFuel);
         gameManager.uiManager.SetFuel(fuel);
 
         acceleration = fuel <= 0 ? 200f : 500f;
-
     }
+
+    public void RefillFuel(float amount)
+    {
+        fuel += amount;
+        fuel = Mathf.Clamp(fuel, 0, maxFuel);
+        gameManager.uiManager.SetFuel(fuel);
+    } 
     public void Heal(int heal)
     {
         health += heal;
@@ -199,7 +209,7 @@ public class WheelController : MonoBehaviour
 
         if (exp >= maxExp)
         {
-            IncreaseDifficulty();
+            IncreaseLevel();
         }
     }
 
@@ -250,13 +260,15 @@ public class WheelController : MonoBehaviour
     {
         IsInvincible = isInvincible;
     }
-    private void IncreaseDifficulty()
+    private void IncreaseLevel()
     {
         maxExp = (int) (maxExp * 1.5);
         exp = 0;
         gameManager.uiManager.SetXp(exp);
         gameManager.uiManager.SetMaxXp(maxExp);
         gameManager.enemyManager.maxEnemy += 1;
+        Level += 1;
+        gameManager.uiManager.SetLevelText();
     }
 
     public void CalculateDistance()

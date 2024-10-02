@@ -31,13 +31,13 @@ public class Bullet : Consumables
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
             gameManager.wheelController.CollectBulletAmmo(50);
-            gameManager.consumablesManager.bulletCtr--;
+            gameManager.consumablesManager.DecreaseBulletCtr();
             gameObject.SetActive(false);
         }
 
         if (other.CompareTag("EnemyCleaner"))
         {
-            gameManager.consumablesManager.bulletCtr--;
+            gameManager.consumablesManager.DecreaseBulletCtr();
             gameObject.SetActive(false);
         }
     }

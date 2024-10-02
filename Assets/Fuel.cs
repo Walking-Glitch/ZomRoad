@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class MedKit : Consumables
+public class Fuel : Consumables
 {
-    // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
@@ -20,19 +18,18 @@ public class MedKit : Consumables
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("Player") && gameManager.wheelController.health < gameManager.wheelController.maxHealth))
+        if ((other.CompareTag("Player") && gameManager.wheelController.fuel < gameManager.wheelController.maxFuel))
         {
-            gameManager.consumablesManager.PlayHealthRefillSFX();
-            gameManager.wheelController.Heal(50);
-            gameManager.consumablesManager.DecreaseMedkitCtr();
+            gameManager.consumablesManager.PlayFuelRefillSFX();//
+            gameManager.wheelController.RefillFuel(20);
+            gameManager.consumablesManager.DecreaseFuelCtr();
             gameObject.SetActive(false);
         }
 
         if (other.CompareTag("EnemyCleaner"))
         {
-            gameManager.consumablesManager.DecreaseMedkitCtr();
+            gameManager.consumablesManager.DecreaseFuelCtr();
             this.gameObject.SetActive(false);
         }
     }
-
 }

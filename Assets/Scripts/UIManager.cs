@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI slugAmmoText;
     public TextMeshProUGUI bulletAmmoText;
     public TextMeshProUGUI energyAmmoText;
+    public TextMeshProUGUI LevelText;
 
     private GameManager gameManager;
 
@@ -51,8 +52,11 @@ public class UIManager : MonoBehaviour
         xpSlider.value = xp;
     }
 
-   
 
+    public void SetLevelText()
+    {
+        LevelText.text = gameManager.wheelController.Level.ToString();
+    }
     public void SetSlugAmmoText()
     {
         slugAmmoText.text = gameManager.wheelController.slugAmmo.ToString();

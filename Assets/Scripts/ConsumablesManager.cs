@@ -21,17 +21,22 @@ public class ConsumablesManager : MonoBehaviour
     public int energyCellCtr = 0;
     public int maxEnergyCell;
 
+    public int fuelCtr = 0;
+    public int maxFuel; 
+
     public float delay;
 
     private bool isSpawning1;
     private bool isSpawning2;
     private bool isSpawning3;
     private bool isSpawning4;
+    private bool isSpawning5;
 
 
     public AudioSource audioSource;
     public AudioClip[] AudioClips;
     public AudioClip healthRefillClip;
+    public AudioClip fuelRefillClip;
 
     private Vector3 oldTransform;
 
@@ -76,6 +81,11 @@ public class ConsumablesManager : MonoBehaviour
         if (!isSpawning4 && energyCellCtr < maxEnergyCell)
         {
             StartCoroutine(SpawnEnergyCells());
+        }
+
+        if (!isSpawning5 && fuelCtr < maxFuel)
+        {
+            StartCoroutine(SpawnFuelCanister());
         }
     }
 
@@ -173,6 +183,27 @@ public class ConsumablesManager : MonoBehaviour
         isSpawning4 = false;
     }
 
+    private IEnumerator SpawnFuelCanister()
+    {
+        isSpawning5 = true;
+
+        Transform selectedSpawnPoint = GetValidSpawnPoint();
+        if (selectedSpawnPoint != null)
+        {
+            //Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
+            //enemyCtr++;
+            GameObject tempFuelCanister = gameManager.ConsumablesPool.RequestFuelCanister();
+            tempFuelCanister.transform.position = selectedSpawnPoint.position;
+            tempFuelCanister.transform.rotation = selectedSpawnPoint.rotation;
+
+            tempFuelCanister.SetActive(true);
+            fuelCtr++;
+        }
+        yield return new WaitForSeconds(delay);
+        isSpawning5 = false;
+    }
+
+
 
     Transform GetValidSpawnPoint()
     {
@@ -212,6 +243,10 @@ public class ConsumablesManager : MonoBehaviour
     {
         energyCellCtr--;
     }
+    public void DecreaseFuelCtr()
+    {
+        fuelCtr--;
+    }
 
     public void PlayAmmoRefillSFX()
     {
@@ -222,6 +257,12 @@ public class ConsumablesManager : MonoBehaviour
     public void PlayHealthRefillSFX()
     {
         audioSource.clip = healthRefillClip;
+        audioSource.Play();
+    }
+
+    public void PlayFuelRefillSFX()
+    {
+        audioSource.clip = fuelRefillClip;
         audioSource.Play();
     }
 }
