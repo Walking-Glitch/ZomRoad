@@ -8,12 +8,14 @@ public class ConsumablesPool : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private GameObject slugPrefab;
     [SerializeField] private GameObject energyCellPrefab;
+    [SerializeField] private GameObject fuelPrefab;
 
     [SerializeField] private int poolSize;
     [SerializeField] private List<GameObject> medkitList;
     [SerializeField] private List<GameObject> bulletList;
     [SerializeField] private List<GameObject> slugList;
     [SerializeField] private List<GameObject> energyCellList;
+    [SerializeField] private List<GameObject> fuelList;
     void Start()
     {
         AddConsumablesToPool(poolSize);
@@ -42,6 +44,12 @@ public class ConsumablesPool : MonoBehaviour
             energyCell.SetActive(false);
             energyCellList.Add(energyCell);
             energyCell.transform.parent = transform;
+
+            GameObject fuelCanister = Instantiate(fuelPrefab);
+            fuelCanister.SetActive(false);
+            fuelList.Add(fuelCanister);
+            fuelCanister.transform.parent = transform;
+
         }
     }
 
@@ -53,6 +61,20 @@ public class ConsumablesPool : MonoBehaviour
             {
                 medkitList[i].gameObject.SetActive(true);
                 return medkitList[i];
+            }
+        }
+
+        return null;
+    }
+
+    public GameObject RequestFuelCanister()
+    {
+        for (int i = 0; i < fuelList.Count; i++)
+        {
+            if (!fuelList[i].activeSelf)
+            {
+                fuelList[i].gameObject.SetActive(true);
+                return fuelList[i];
             }
         }
 

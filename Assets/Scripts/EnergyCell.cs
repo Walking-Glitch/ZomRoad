@@ -23,13 +23,13 @@ public class EnergyCell : Consumables
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
             gameManager.wheelController.CollectEnergyAmmo(5);
-            gameManager.consumablesManager.energyCellCtr--;
+            gameManager.consumablesManager.DecreaseEnergyCellCtr();
             gameObject.SetActive(false);
         }
 
         if (other.CompareTag("EnemyCleaner"))
         {
-            gameManager.consumablesManager.energyCellCtr--;
+            gameManager.consumablesManager.DecreaseEnergyCellCtr();
             gameObject.SetActive(false);
         }
     }

@@ -25,13 +25,13 @@ public class Slug : Consumables
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
             gameManager.wheelController.CollectSlugAmmo(10);
-            gameManager.consumablesManager.slugCtr--;
+            gameManager.consumablesManager.DecreaseSlugCtr();
             gameObject.SetActive(false);
         }
 
         if (other.CompareTag("EnemyCleaner"))
         {
-            gameManager.consumablesManager.slugCtr--;
+            gameManager.consumablesManager.DecreaseSlugCtr();
             gameObject.SetActive(false);
         }
     }

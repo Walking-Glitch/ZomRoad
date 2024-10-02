@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    #region Variables
+
+
+    #endregion
+
     #region References
 
     public WheelController wheelController;
@@ -23,7 +28,6 @@ public class GameManager : MonoBehaviour
     public Turret Turret;
     public Minigun Minigun;
     public EnergyGun EnergyGun;
-
 
     #endregion
     #region Singleton
