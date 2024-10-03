@@ -15,7 +15,15 @@ public class MedKit : Consumables
     protected override void Update()
     {
         base.Update();
-
+        if (IsFarFromPlayer())
+        {
+            DeactivateConsumable();
+        }
+    }
+    private void DeactivateConsumable()
+    {
+        gameManager.consumablesManager.DecreaseMedkitCtr();
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,14 +32,12 @@ public class MedKit : Consumables
         {
             gameManager.consumablesManager.PlayHealthRefillSFX();
             gameManager.wheelController.Heal(30);
-            gameManager.consumablesManager.DecreaseMedkitCtr();
-            gameObject.SetActive(false);
+            DeactivateConsumable();
         }
 
         if (other.CompareTag("EnemyCleaner"))
         {
-            gameManager.consumablesManager.DecreaseMedkitCtr();
-            this.gameObject.SetActive(false);
+            DeactivateConsumable();
         }
     }
 

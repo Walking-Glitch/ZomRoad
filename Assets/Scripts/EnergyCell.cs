@@ -14,23 +14,29 @@ public class EnergyCell : Consumables
     protected override void Update()
     {
         base.Update();
+        if (IsFarFromPlayer())
+        {
+            DeactivateConsumable();
+        }
     }
 
-
+    private void DeactivateConsumable()
+    {
+        gameManager.consumablesManager.DecreaseEnergyCellCtr();
+        gameObject.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
-            gameManager.wheelController.CollectEnergyAmmo(2);
-            gameManager.consumablesManager.DecreaseEnergyCellCtr();
-            gameObject.SetActive(false);
+            gameManager.wheelController.CollectEnergyAmmo(3);
+            DeactivateConsumable();
         }
 
         if (other.CompareTag("EnemyCleaner"))
         {
-            gameManager.consumablesManager.DecreaseEnergyCellCtr();
-            gameObject.SetActive(false);
+            DeactivateConsumable();
         }
     }
 }

@@ -29,21 +29,38 @@ public class ConsumablesPool : MonoBehaviour
             medKit.SetActive(false);
             medkitList.Add(medKit);
             medKit.transform.parent = transform;
+        }
+
+        for (int i = 0; i < amount; i++)
+        {
+
 
             GameObject bullet = Instantiate(bulletPrefab);
             bullet.SetActive(false);
             bulletList.Add(bullet);
             bullet.transform.parent = transform;
+        }
+
+        for (int i = 0; i < amount; i++)
+        {
+
 
             GameObject slug = Instantiate(slugPrefab);
             slug.SetActive(false);
             slugList.Add(slug);
             slug.transform.parent = transform;
+        }
 
+        for (int i = 0; i < amount; i++)
+        {
             GameObject energyCell = Instantiate(energyCellPrefab);
             energyCell.SetActive(false);
             energyCellList.Add(energyCell);
             energyCell.transform.parent = transform;
+        }
+
+        for (int i = 0; i < amount; i++)
+        {
 
             GameObject fuelCanister = Instantiate(fuelPrefab);
             fuelCanister.SetActive(false);

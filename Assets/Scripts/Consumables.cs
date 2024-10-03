@@ -82,17 +82,19 @@ public class Consumables : MonoBehaviour
 
     }
 
-    //protected virtual bool IsDistanceTooGreat(Vector3 player, Vector3 cons)
-    //{
-    //    float distance = Vector3.Distance(player, cons);
+    public bool IsFarFromPlayer()
+    {
+        float distance = Vector3.Distance(gameObject.transform.position, gameManager.wheelController.gameObject.transform.position);
+ 
+       // Debug.Log("Distance: " + distance);
 
-    //    if (distance > 100)
-    //    {
-    //        return true;
-    //    }
+        if (distance > 113)
+        {
+            return true;
+        }
+        return false;
+    }
 
-    //    return false;
-    //}
 
 
 }
