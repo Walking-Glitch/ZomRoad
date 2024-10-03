@@ -30,7 +30,7 @@ public class Bullet : Consumables
         if (other.CompareTag("Player"))
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
-            gameManager.wheelController.CollectBulletAmmo(50);
+            gameManager.wheelController.CollectBulletAmmo(20);
             gameManager.consumablesManager.DecreaseBulletCtr();
             gameObject.SetActive(false);
         }

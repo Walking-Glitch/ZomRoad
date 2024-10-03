@@ -21,21 +21,16 @@ public class Zombie : UndeadBase
     {
        base.Start();
 
-
         GetRagdollBits();
         RagdollModeOff();
         PlaySfx();
-
-
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-       
         base.Update();
     }
-
     public void PlaySfx()
     {
         if (!isDead)
@@ -44,16 +39,13 @@ public class Zombie : UndeadBase
             audioSource.clip = ZombieVoice[Random.Range(0, ZombieVoice.Length)];
             audioSource.Play();
         }
-
         else
         {
             audioSource.loop = false;
             audioSource.clip = DeathAudioClip[Random.Range(0, DeathAudioClip.Length)];
             audioSource.Play();
         }
-       
     }
-
     protected override void RagdollModeOff()
     {
         base.RagdollModeOff();

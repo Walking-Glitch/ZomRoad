@@ -13,6 +13,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI bulletAmmoText;
     public TextMeshProUGUI energyAmmoText;
     public TextMeshProUGUI LevelText;
+    public TextMeshProUGUI CurrFuelText;
+    public TextMeshProUGUI CurrHealthText;
+    public TextMeshProUGUI CurrXpText;
+    public TextMeshProUGUI MaxXpText;
 
     private GameManager gameManager;
 
@@ -29,6 +33,7 @@ public class UIManager : MonoBehaviour
     public void SetHealth(int health)
     {
         healthSlider.value = health;
+        CurrHealthText.text = health.ToString();
     }
 
     public void SetMaxFuel(int maxFuel)
@@ -40,16 +45,19 @@ public class UIManager : MonoBehaviour
     public void SetFuel(float fuel)
     {
         fuelSlider.value = fuel;
+        CurrFuelText.text = fuel.ToString("#.#");
     }
     public void SetMaxXp(int maxXp)
     {
         xpSlider.maxValue = maxXp;
         xpSlider.value = 0;
+        MaxXpText.text = maxXp.ToString();
     }
 
     public void SetXp(int xp)
     {
         xpSlider.value = xp;
+        CurrXpText.text = xp.ToString();
     }
 
 

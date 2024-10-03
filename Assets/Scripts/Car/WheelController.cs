@@ -72,7 +72,9 @@ public class WheelController : MonoBehaviour
         health = maxHealth;
         fuel = maxFuel;
         exp = 0;
-        
+        gameManager.uiManager.SetHealth(health);
+        gameManager.uiManager.SetXp(exp);
+        gameManager.uiManager.SetMaxXp(maxExp);
         // distance = gameObject.transform.position.magnitude;
         audioSource = GetComponent<AudioSource>();
         CarMeshCollider = GetComponent<MeshCollider>();
