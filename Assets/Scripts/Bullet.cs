@@ -14,15 +14,17 @@ public class Bullet : Consumables
     // Update is called once per frame
     protected override void Update()
     {
-         
-        transform.Rotate(rotation * speed * Time.deltaTime);
+        base.Update();
+        if (IsFarFromPlayer())
+        {
+            DeactivateConsumable();
+        }
+    }
 
-        //if (IsDistanceTooGreat(playerPos, consumable.transform.position))
-        //{
-        //    gameManager.consumablesManager.bulletCtr--;
-        //    this.gameObject.SetActive(false);
-        //}
-
+    private void DeactivateConsumable()
+    {
+        gameManager.consumablesManager.DecreaseBulletCtr();
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,15 +32,13 @@ public class Bullet : Consumables
         if (other.CompareTag("Player"))
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
-            gameManager.wheelController.CollectBulletAmmo(20);
-            gameManager.consumablesManager.DecreaseBulletCtr();
-            gameObject.SetActive(false);
+            gameManager.wheelController.CollectBulletAmmo(30);
+            DeactivateConsumable();
         }
 
         if (other.CompareTag("EnemyCleaner"))
         {
-            gameManager.consumablesManager.DecreaseBulletCtr();
-            gameObject.SetActive(false);
+            DeactivateConsumable();
         }
     }
 }

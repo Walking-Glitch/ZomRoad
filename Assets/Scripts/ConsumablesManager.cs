@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,6 +9,8 @@ public class ConsumablesManager : MonoBehaviour
     public Transform parentSpawnPoint;
 
     [SerializeField] private List<Transform> spawnPointsList = new List<Transform>();
+
+    private int i = 0;
 
     public int medkitCtr = 0;
     public int maxMedkit;
@@ -32,13 +35,14 @@ public class ConsumablesManager : MonoBehaviour
     private bool isSpawning4;
     private bool isSpawning5;
 
+    
 
     public AudioSource audioSource;
     public AudioClip[] AudioClips;
     public AudioClip healthRefillClip;
     public AudioClip fuelRefillClip;
 
-    private Vector3 oldTransform;
+    private GameObject oldSpawnPoint;
 
     private GameManager gameManager;
 
@@ -46,19 +50,7 @@ public class ConsumablesManager : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         CollectChildObjects(parentSpawnPoint);
-    }
-
-    bool DifferentSpawn(Vector3 usedPosition, Vector3 newPosition)
-    {
-        if (newPosition == usedPosition)
-        {
-            return false;
-        }
-
-        else
-        {
-            return true;
-        }
+       
     }
     // Update is called once per frame
     void Update()
@@ -101,6 +93,7 @@ public class ConsumablesManager : MonoBehaviour
             //CollectChildObjects(child);
         }
     }
+
     private IEnumerator SpawnMedkits()
     {
         isSpawning1 = true;
@@ -112,7 +105,7 @@ public class ConsumablesManager : MonoBehaviour
             //enemyCtr++;
             GameObject tempMedkit = gameManager.ConsumablesPool.RequestMedkit();
             tempMedkit.transform.position = selectedSpawnPoint.position;
-            //tempMedkit.transform.rotation = tempMedkit.transform.rotation;
+            
 
             tempMedkit.SetActive(true);
             medkitCtr++;
@@ -129,8 +122,6 @@ public class ConsumablesManager : MonoBehaviour
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
         {
-            //Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
-            //enemyCtr++;
             GameObject tempSlug = gameManager.ConsumablesPool.RequestSlug();
             tempSlug.transform.position = selectedSpawnPoint.position;
             tempSlug.transform.rotation = selectedSpawnPoint.rotation;
@@ -203,26 +194,40 @@ public class ConsumablesManager : MonoBehaviour
         isSpawning5 = false;
     }
 
-
-
     Transform GetValidSpawnPoint()
     {
 
-        int i = Random.Range(0, spawnPointsList.Count - 1);
+        //int i = Random.Range(0, spawnPointsList.Count);
+
+        if (i >= spawnPointsList.Count-1)
+        {
+            i = 0;
+        }
+
         Vector3 spawnPos = spawnPointsList[i].position;
 
         NavMeshHit hit;
 
-        if (NavMesh.SamplePosition(spawnPos, out hit, 1.0f, NavMesh.AllAreas) && DifferentSpawn(spawnPos, oldTransform))
+        if (NavMesh.SamplePosition(spawnPos, out hit, 0.5f, NavMesh.AllAreas))
         {
-            oldTransform = spawnPos;
-            return spawnPointsList[i];
+            Transform validSpawnPoint = spawnPointsList[i];
+
+            // Increment i after a valid point is found (so it’s ready for the next call)
+            i++;
+
+            // Optionally adjust the spawn point to the NavMesh position if needed
+            validSpawnPoint.position = hit.position + new Vector3(0,0.5f,0);
+
+            // Return the valid spawn point
+            return validSpawnPoint;
         }
 
-
+        i++;
         // If no valid spawn point is found, return null
         return null;
     }
+
+    
 
     public void DecreaseMedkitCtr()
     {

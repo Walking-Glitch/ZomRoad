@@ -13,7 +13,16 @@ public class Fuel : Consumables
     protected override void Update()
     {
         base.Update();
+        if (IsFarFromPlayer())
+        {
+            DeactivateConsumable();
+        }
+    }
 
+    private void DeactivateConsumable()
+    {
+        gameManager.consumablesManager.DecreaseFuelCtr();
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -22,14 +31,12 @@ public class Fuel : Consumables
         {
             gameManager.consumablesManager.PlayFuelRefillSFX();//
             gameManager.wheelController.RefillFuel(20);
-            gameManager.consumablesManager.DecreaseFuelCtr();
-            gameObject.SetActive(false);
+            DeactivateConsumable();
         }
 
         if (other.CompareTag("EnemyCleaner"))
         {
-            gameManager.consumablesManager.DecreaseFuelCtr();
-            this.gameObject.SetActive(false);
+            DeactivateConsumable();
         }
     }
 }

@@ -14,25 +14,30 @@ public class Slug : Consumables
     // Update is called once per frame
     protected override void Update()
     {
-        // base.Update();
-        transform.Rotate(rotation * speed * Time.deltaTime);
+        base.Update();
+        if (IsFarFromPlayer())
+        {
+            DeactivateConsumable();
+        }
     }
 
-
+    private void DeactivateConsumable()
+    {
+        gameManager.consumablesManager.DecreaseSlugCtr();
+        gameObject.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
-            gameManager.wheelController.CollectSlugAmmo(5);
-            gameManager.consumablesManager.DecreaseSlugCtr();
-            gameObject.SetActive(false);
+            gameManager.wheelController.CollectSlugAmmo(8);
+            DeactivateConsumable();
         }
 
         if (other.CompareTag("EnemyCleaner"))
         {
-            gameManager.consumablesManager.DecreaseSlugCtr();
-            gameObject.SetActive(false);
+            DeactivateConsumable();
         }
     }
 }
