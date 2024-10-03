@@ -23,7 +23,7 @@ public class MedKit : Consumables
         if ((other.CompareTag("Player") && gameManager.wheelController.health < gameManager.wheelController.maxHealth))
         {
             gameManager.consumablesManager.PlayHealthRefillSFX();
-            gameManager.wheelController.Heal(50);
+            gameManager.wheelController.Heal(30);
             gameManager.consumablesManager.DecreaseMedkitCtr();
             gameObject.SetActive(false);
         }

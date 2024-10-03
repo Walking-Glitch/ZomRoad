@@ -22,7 +22,7 @@ public class EnergyCell : Consumables
         if (other.CompareTag("Player"))
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
-            gameManager.wheelController.CollectEnergyAmmo(5);
+            gameManager.wheelController.CollectEnergyAmmo(2);
             gameManager.consumablesManager.DecreaseEnergyCellCtr();
             gameObject.SetActive(false);
         }

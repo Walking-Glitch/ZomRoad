@@ -10,12 +10,11 @@ public class Mutant : UndeadBase
 
     public int expReward = 15;
     public int giveDamage = 25;
+    public int giveMinDamage = 2;
     protected override void Start()
     {
         base.Start();
-        
     }
-
     
     protected override void Update()
     {
@@ -112,6 +111,14 @@ public class Mutant : UndeadBase
         bloodVisualEffect.Play();
         anim.SetTrigger("Hit");
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            gameManager.wheelController.TakeDamage(giveMinDamage);
+        }
     }
 
     protected override void PlayerDestroyZombie()
