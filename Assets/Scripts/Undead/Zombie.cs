@@ -66,6 +66,7 @@ public class Zombie : UndeadBase
             // ApplyKnockbackForce(-500f, new Vector3(25, 5, -50), false);
             ApplyKnockbackForce(force, bloodSpeed, explosion);
             PlayerDestroyZombie();
+            gameManager.enemyManager.ZombKCtr++;
         }
     }
     private void OnCollisionEnter(Collision collision)

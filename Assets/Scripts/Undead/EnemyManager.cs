@@ -15,6 +15,9 @@ public class EnemyManager : MonoBehaviour
     public int maxEnemy;
     public float delay;
 
+    public int ZombKCtr;
+    public int BruteKCtr;
+
     private bool isSpawning;
 
     private GameManager gameManager;

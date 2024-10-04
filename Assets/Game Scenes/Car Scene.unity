@@ -673,11 +673,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049565ac47161194f9f1e6ea279a306e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelValue: {fileID: 0}
-  TotalExpValue: {fileID: 0}
-  ZombiesKValue: {fileID: 0}
-  BrutesKValue: {fileID: 0}
-  TimeSurvivedValue: {fileID: 0}
+  LevelValue: {fileID: 1895151441}
+  TotalExpValue: {fileID: 1043521988}
+  ZombiesKValue: {fileID: 569720408}
+  BrutesKValue: {fileID: 1918008153}
+  TimeSurvivedValue: {fileID: 537776261}
 --- !u!114 &285330219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7652,6 +7652,21 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1627346938}
+    - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: acceleration
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: brakingForce
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: maxTurnAngle
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
       propertyPath: engineAudioSource

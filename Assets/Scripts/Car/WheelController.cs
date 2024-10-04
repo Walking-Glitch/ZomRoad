@@ -17,9 +17,11 @@ public class WheelController : MonoBehaviour
     [SerializeField] private Transform backRightTransform;
     [SerializeField] private Transform backLeftTransform;
 
-    public float acceleration = 500f;
-    public float brakingForce = 350f;
-    public float maxTurnAngle = 15f;
+    public float AliveTimer;
+
+    public float acceleration;
+    public float brakingForce;
+    public float maxTurnAngle;
 
     private float currentAcceleration = 0f;
     private float currentBrakeForce = 0f;
@@ -36,18 +38,21 @@ public class WheelController : MonoBehaviour
     public FixedJoystick joystick;
     private Vector3 moveDirJoystick;
 
+    public int Level;
+
     public int maxHealth;
     public int health;
 
     public int maxExp;
-    public int exp;
+    public int Exp;
+    public int TotalExp;
 
     public float maxFuel;
     public float fuel;
 
+    public bool isAlive;
 
-    public int Level = 1;
-
+    
     public bool IsGrounded { get; set; }
     public bool IsInvincible { get; set; }
 
@@ -71,16 +76,21 @@ public class WheelController : MonoBehaviour
         gameManager = GameManager.Instance;
         health = maxHealth;
         fuel = maxFuel;
-        exp = 0;
+        Exp = 0;
+        Level = 0;
+        isAlive = true;
         gameManager.uiManager.SetHealth(health);
-        gameManager.uiManager.SetXp(exp);
+        gameManager.uiManager.SetXp(Exp);
         gameManager.uiManager.SetMaxXp(maxExp);
         // distance = gameObject.transform.position.magnitude;
         audioSource = GetComponent<AudioSource>();
         CarMeshCollider = GetComponent<MeshCollider>();
         CarRigidbody = GetComponent<Rigidbody>();
     }
-
+    void Update()
+    {
+        TimePlayed();
+    }
     void FixedUpdate()
     {
         ConsumeFuel();
@@ -175,6 +185,13 @@ public class WheelController : MonoBehaviour
         if (!engineAudioSource.isPlaying) engineAudioSource.Play();
     }
 
+    public void TimePlayed()
+    {
+        if (isAlive)
+        {
+            AliveTimer += Time.deltaTime;
+        }
+    }
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -183,7 +200,9 @@ public class WheelController : MonoBehaviour
 
         if (health <= 0)
         {
-            gameManager.LoseMenu.GameOver();
+            isAlive = false;
+             
+            gameManager.LoseMenu.GameOver(Level,TotalExp,gameManager.enemyManager.ZombKCtr,gameManager.enemyManager.BruteKCtr, AliveTimer);
         }
     }
 
@@ -211,10 +230,11 @@ public class WheelController : MonoBehaviour
 
     public void GainExp(int expReceived)
     {
-        exp += expReceived;
-        gameManager.uiManager.SetXp(exp);
+        Exp += expReceived;
+        TotalExp += expReceived;
+        gameManager.uiManager.SetXp(Exp);
 
-        if (exp >= maxExp)
+        if (Exp >= maxExp)
         {
             IncreaseLevel();
         }
@@ -270,8 +290,8 @@ public class WheelController : MonoBehaviour
     private void IncreaseLevel()
     {
         maxExp = (int) (maxExp * 1.5);
-        exp = 0;
-        gameManager.uiManager.SetXp(exp);
+        Exp = 0;
+        gameManager.uiManager.SetXp(Exp);
         gameManager.uiManager.SetMaxXp(maxExp);
         gameManager.enemyManager.maxEnemy += 1;
         Level += 1;

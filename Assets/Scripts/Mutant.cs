@@ -18,7 +18,6 @@ public class Mutant : UndeadBase
     
     protected override void Update()
     {
-        //base.Update();
         if (health > 0)
         {
             isDead = false;
@@ -64,7 +63,6 @@ public class Mutant : UndeadBase
         else
         {
             anim.SetBool("Attack", false);
-           
         }
     }
 
@@ -75,7 +73,6 @@ public class Mutant : UndeadBase
             gameManager.wheelController.PlaySfx();
             player.gameObject.GetComponent<Rigidbody>().AddForce((undead.transform.forward.normalized + undead.transform.up.normalized) * 5000f, ForceMode.Impulse);
             gameManager.wheelController.TakeDamage(giveDamage);
-
         }
 
         else
@@ -127,6 +124,7 @@ public class Mutant : UndeadBase
         gameObject.SetActive(false);
         health = maxHealth;
         gameManager.enemyManager.DecreaseEnemyCtr();
+        gameManager.enemyManager.BruteKCtr++;
     }
 
 
