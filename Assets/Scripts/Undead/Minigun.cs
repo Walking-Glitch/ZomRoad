@@ -27,7 +27,7 @@ public class Minigun : Turret
             
             if (angleToEnemy <= maxAngle && gameManager.wheelController.bulletAmmo != 0)
             {
-                Debug.Log("we are here 1");
+                //Debug.Log("we are here 1");
                 AudioSourceTurret.Play();
                 // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
                 float t = Time.deltaTime / transitionDuration;

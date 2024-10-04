@@ -43,7 +43,7 @@ public class EnergyGun : Turret
             // Check if the angle to the enemy is within the front field of view
             if (angleToEnemy <= maxAngle && gameManager.wheelController.energyAmmo != 0)
             {
-                Debug.Log("we are here 1");
+                //Debug.Log("we are here 1");
                 AudioSourceTurret.Play();
                 // Interpolate between the current rotation and the target rotation using Quaternion.Lerp
                 float t = Time.deltaTime / transitionDuration;

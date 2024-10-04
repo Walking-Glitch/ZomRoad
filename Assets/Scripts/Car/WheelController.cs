@@ -180,6 +180,11 @@ public class WheelController : MonoBehaviour
         health -= damage;
         health = Mathf.Clamp(health, 0, maxHealth);
         gameManager.uiManager.SetHealth(health);
+
+        if (health <= 0)
+        {
+            gameManager.LoseMenu.GameOver();
+        }
     }
 
     public void ConsumeFuel()

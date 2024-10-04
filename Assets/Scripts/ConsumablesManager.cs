@@ -10,7 +10,7 @@ public class ConsumablesManager : MonoBehaviour
 
     [SerializeField] private List<Transform> spawnPointsList = new List<Transform>();
 
-    private int i = 0;
+    [SerializeField] private int i = 0;
 
     public int medkitCtr = 0;
     public int maxMedkit;
@@ -101,8 +101,6 @@ public class ConsumablesManager : MonoBehaviour
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
         {
-            //Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
-            //enemyCtr++;
             GameObject tempMedkit = gameManager.ConsumablesPool.RequestMedkit();
             tempMedkit.transform.position = selectedSpawnPoint.position;
             
@@ -141,8 +139,6 @@ public class ConsumablesManager : MonoBehaviour
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
         {
-            //Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
-            //enemyCtr++;
             GameObject tempBullet = gameManager.ConsumablesPool.RequestBullet();
             tempBullet.transform.position = selectedSpawnPoint.position;
             tempBullet.transform.rotation = selectedSpawnPoint.rotation;
@@ -161,8 +157,6 @@ public class ConsumablesManager : MonoBehaviour
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
         {
-            //Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
-            //enemyCtr++;
             GameObject tempEnergyCell = gameManager.ConsumablesPool.RequestEnergyCell();
             tempEnergyCell.transform.position = selectedSpawnPoint.position;
             tempEnergyCell.transform.rotation = selectedSpawnPoint.rotation;
@@ -181,8 +175,6 @@ public class ConsumablesManager : MonoBehaviour
         Transform selectedSpawnPoint = GetValidSpawnPoint();
         if (selectedSpawnPoint != null)
         {
-            //Instantiate(enemy[Random.Range(0, enemy.Length)], spawnPoint[Random.Range(0, spawnPoint.Length)].position, spawnPoint[Random.Range(0, spawnPoint.Length)].rotation);
-            //enemyCtr++;
             GameObject tempFuelCanister = gameManager.ConsumablesPool.RequestFuelCanister();
             tempFuelCanister.transform.position = selectedSpawnPoint.position;
             tempFuelCanister.transform.rotation = selectedSpawnPoint.rotation;
@@ -196,9 +188,6 @@ public class ConsumablesManager : MonoBehaviour
 
     Transform GetValidSpawnPoint()
     {
-
-        //int i = Random.Range(0, spawnPointsList.Count);
-
         if (i >= spawnPointsList.Count-1)
         {
             i = 0;
@@ -208,7 +197,7 @@ public class ConsumablesManager : MonoBehaviour
 
         NavMeshHit hit;
 
-        if (NavMesh.SamplePosition(spawnPos, out hit, 0.5f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(spawnPos, out hit, 0.8f, NavMesh.AllAreas))
         {
             Transform validSpawnPoint = spawnPointsList[i];
 
