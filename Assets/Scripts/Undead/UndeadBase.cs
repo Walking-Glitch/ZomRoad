@@ -36,7 +36,6 @@ public class UndeadBase : MonoBehaviour
     public int health;
 
     public bool isDead;
-
     // Start is called before the first frame update
     protected virtual void Start()
     {
