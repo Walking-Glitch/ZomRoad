@@ -38,6 +38,7 @@ public class WheelController : MonoBehaviour
     public FixedJoystick joystick;
     private Vector3 moveDirJoystick;
 
+    public int MaxLevel;
     public int Level;
 
     public int maxHealth;
@@ -202,7 +203,7 @@ public class WheelController : MonoBehaviour
         {
             isAlive = false;
              
-            gameManager.LoseMenu.GameOver(Level,TotalExp,gameManager.enemyManager.ZombKCtr,gameManager.enemyManager.BruteKCtr, AliveTimer);
+            gameManager.EndMenu.GameOver(Level,TotalExp,gameManager.enemyManager.ZombKCtr,gameManager.enemyManager.BruteKCtr, AliveTimer);
         }
     }
 
@@ -293,9 +294,14 @@ public class WheelController : MonoBehaviour
         Exp = 0;
         gameManager.uiManager.SetXp(Exp);
         gameManager.uiManager.SetMaxXp(maxExp);
-        gameManager.enemyManager.maxEnemy += 1;
+        gameManager.enemyManager.maxEnemy += 3;
         Level += 1;
         gameManager.uiManager.SetLevelText();
+        
+        if (Level == MaxLevel)
+        {
+            gameManager.EndMenu.PlayerWin(Level, TotalExp, gameManager.enemyManager.ZombKCtr, gameManager.enemyManager.BruteKCtr, AliveTimer);
+        }
     }
 
     public void CalculateDistance()

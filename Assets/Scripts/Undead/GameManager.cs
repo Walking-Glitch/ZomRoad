@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     public Turret Turret;
     public Minigun Minigun;
     public EnergyGun EnergyGun;
-    public LoseMenu LoseMenu;
+    public EndMenu EndMenu;
 
     #endregion
     #region Singleton

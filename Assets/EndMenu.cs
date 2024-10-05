@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Cinemachine.DocumentationSortingAttribute;
 
-public class LoseMenu : MonoBehaviour
+public class EndMenu : MonoBehaviour
 {
+    public TextMeshProUGUI EndMessageText;
     public TextMeshProUGUI LevelValue;
     public TextMeshProUGUI TotalExpValue;
     public TextMeshProUGUI ZombiesKValue;
@@ -26,9 +26,21 @@ public class LoseMenu : MonoBehaviour
         
     }
 
+    public void PlayerWin(int level, int exp, int zomb, int brute, float time)
+    {
+        this.gameObject.SetActive(true);
+        EndMessageText.text = "VICTORY! ALL LEVELS CLEARED!";
+        SetLevelValueText(level);
+        SetExpValueText(exp);
+        SetEnemiesKText(zomb, brute);
+        SetTimeSurvivedText(time);
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+    }
     public void GameOver(int level, int exp, int zomb, int brute, float time)
     {
         this.gameObject.SetActive(true);
+        EndMessageText.text = "YOU DIED!";
         SetLevelValueText(level);
         SetExpValueText(exp);
         SetEnemiesKText(zomb, brute);
