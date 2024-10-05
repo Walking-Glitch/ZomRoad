@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 285330219}
   - component: {fileID: 285330218}
   m_Layer: 5
-  m_Name: LoseCanvas
+  m_Name: EndCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 049565ac47161194f9f1e6ea279a306e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndMessageText: {fileID: 1348410619}
   LevelValue: {fileID: 1895151441}
   TotalExpValue: {fileID: 1043521988}
   ZombiesKValue: {fileID: 569720408}
@@ -4048,7 +4049,7 @@ GameObject:
   - component: {fileID: 1348410620}
   - component: {fileID: 1348410619}
   m_Layer: 5
-  m_Name: DiedText
+  m_Name: EndText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4121,10 +4122,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 44.75
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -6486,6 +6487,11 @@ PrefabInstance:
       objectReference: {fileID: 1349131062}
     - target: {fileID: 541603948091900974, guid: c30ab5e704fad0a4dad3022546d4daec,
         type: 3}
+      propertyPath: EndMenu
+      value: 
+      objectReference: {fileID: 285330218}
+    - target: {fileID: 541603948091900974, guid: c30ab5e704fad0a4dad3022546d4daec,
+        type: 3}
       propertyPath: Minigun
       value: 
       objectReference: {fileID: 1032735900}
@@ -7639,8 +7645,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
+      propertyPath: Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
       propertyPath: maxFuel
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: MaxLevel
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
