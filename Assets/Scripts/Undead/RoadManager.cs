@@ -49,7 +49,7 @@ public class RoadManager : MonoBehaviour
             if (childTransform != null)
             {
                 reAllocationPoint = childTransform;
-               // Debug.Log("Child object found and assigned to reAllocationPoint.");
+               
             }
             else
             {
@@ -102,14 +102,10 @@ public class RoadManager : MonoBehaviour
             storeRoadDeleter = other.gameObject;
             currTriggersGameObjects.Add(storeRoadDeleter);
             other.gameObject.SetActive(false);
-            //Destroy(prevStreet);
-            if (prevStreet != null)
+            if (prevStreet != null && prevStreet != currStreet)
             {
                 prevStreet.SetActive(false);
-                //if (storeRoadTrigger != null)
-                //{
-                //    storeRoadTrigger.SetActive(true);
-                //}
+               
             }
         }
     }

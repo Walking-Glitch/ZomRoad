@@ -98,14 +98,16 @@ public class Mutant : UndeadBase
             isDead = true;
             gameManager.wheelController.GainExp(expReward);
             audioSource.Stop();
-            bloodVisualEffect.Play();
+            //bloodVisualEffect.Play();
+            bloodParticleSystem.Play();
             undead.isStopped = true;
             anim.SetBool("Dead", true);
             return;
         }
 
-        bloodVisualEffect.enabled = true;
-        bloodVisualEffect.Play();
+        //bloodVisualEffect.enabled = true;
+        //bloodVisualEffect.Play();
+        bloodParticleSystem.Play();
         anim.SetTrigger("Hit");
 
     }
@@ -120,7 +122,7 @@ public class Mutant : UndeadBase
 
     protected override void PlayerDestroyZombie()
     {
-        bloodVisualEffect.enabled = false;
+        //bloodVisualEffect.enabled = false;
         gameObject.SetActive(false);
         health = maxHealth;
         gameManager.enemyManager.DecreaseEnemyCtr();

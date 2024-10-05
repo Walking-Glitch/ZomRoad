@@ -27,7 +27,9 @@ public class UndeadBase : MonoBehaviour
 
     protected bool isAgentOnNavMesh; // Cache the result of IsAgentOnNavMesh
 
-    protected VisualEffect bloodVisualEffect;
+    //protected VisualEffect bloodVisualEffect;
+
+    protected ParticleSystem bloodParticleSystem;
 
     protected AudioSource audioSource;
 
@@ -42,8 +44,10 @@ public class UndeadBase : MonoBehaviour
         gameManager = GameManager.Instance;
         undead = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        bloodVisualEffect = GetComponentInChildren<VisualEffect>();
-        bloodVisualEffect.enabled = false;
+        //bloodVisualEffect = GetComponentInChildren<VisualEffect>();
+        //bloodVisualEffect.enabled = false;
+        bloodParticleSystem = GetComponentInChildren<ParticleSystem>();
+
         audioSource = GetComponent<AudioSource>();
 
         health = maxHealth;
@@ -102,16 +106,18 @@ public class UndeadBase : MonoBehaviour
         {
             Vector3 direction = transform.position - gameManager.EnergyGun.explosionObject.transform.position;//
             knockbackGameObjects[Random.Range(0, knockbackGameObjects.Length)].AddForce(direction.normalized * force, ForceMode.Impulse);
-            bloodVisualEffect.SetVector3("BloodVelocity", bloodSpeed);
-            bloodVisualEffect.enabled = true;
+            //bloodVisualEffect.SetVector3("BloodVelocity", bloodSpeed);
+            //bloodVisualEffect.enabled = true;
+            bloodParticleSystem.Play();
 
         }
 
         else
         {
             knockbackGameObjects[Random.Range(0, knockbackGameObjects.Length)].AddForce(gameObject.transform.forward.normalized * force, ForceMode.Impulse);
-            bloodVisualEffect.SetVector3("BloodVelocity", bloodSpeed);
-            bloodVisualEffect.enabled = true;
+            //bloodVisualEffect.SetVector3("BloodVelocity", bloodSpeed);
+            //bloodVisualEffect.enabled = true;
+            bloodParticleSystem.Play();
         }
 
        
@@ -144,7 +150,7 @@ public class UndeadBase : MonoBehaviour
             undead.isStopped = false;
         }
 
-        bloodVisualEffect.enabled = false;
+        //bloodVisualEffect.enabled = false;
 
     }
 
