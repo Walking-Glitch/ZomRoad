@@ -102,11 +102,15 @@ public class EnergyGun : Turret
         foreach (Collider col in colliders)
         {
             if (col.gameObject.GetComponent<UndeadBase>().health > 0)
-                col.gameObject.GetComponent<UndeadBase>().TakeDamage(500, new Vector3(25, 5, -50), true, 500f);
+                col.gameObject.GetComponent<UndeadBase>().TakeDamage(WeaponDamage, new Vector3(25, 5, -50), true, 500f);
         }
         
     }
 
+    protected override void SetWeaponStats(string wName, int damage, int range, int fireRate)
+    {
+        base.SetWeaponStats("Energy Gun", 500, (int)detectionRadius, 20);
+    }
     public void PlaySfx()
     {
         audioSource.Play();
