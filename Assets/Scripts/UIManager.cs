@@ -9,6 +9,12 @@ public class UIManager : MonoBehaviour
     public Slider healthSlider;
     public Slider xpSlider;
     public Slider fuelSlider;
+
+    public Slider DamageSlider;
+    public Slider RangeSlider;
+    public Slider FireRateSlider;
+
+    public TextMeshProUGUI weaponNameText;
     public TextMeshProUGUI slugAmmoText;
     public TextMeshProUGUI bulletAmmoText;
     public TextMeshProUGUI energyAmmoText;
@@ -60,11 +66,31 @@ public class UIManager : MonoBehaviour
         CurrXpText.text = xp.ToString();
     }
 
+    public void SetDamage(int damage)
+    {
+        DamageSlider.value = damage;
+    }
+
+    public void SetFireRate(int fireRate)
+    {
+        FireRateSlider.value = fireRate;
+    }
+
+    public void SetRange(int range)
+    {
+        RangeSlider.value = range;
+    }
+
 
     public void SetLevelText()
     {
         LevelText.text = gameManager.wheelController.Level.ToString();
     }
+    public void SetWeaponNameText( string weaponName)
+    {
+        weaponNameText.text = weaponName;
+    }
+
     public void SetSlugAmmoText()
     {
         slugAmmoText.text = gameManager.wheelController.slugAmmo.ToString();

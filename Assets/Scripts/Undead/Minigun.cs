@@ -68,9 +68,14 @@ public class Minigun : Turret
             gameManager.casingManager.SpawnBulletCasing();
             gameManager.wheelController.SpendBulletAmmo(1);
             anim.SetBool("Shoot", false);
-            currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(20, new Vector3(25, 5, -50), false, -500f);
+            currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(WeaponDamage, new Vector3(25, 5, -50), false, -500f);
 
         }
+    }
+
+    protected override void SetWeaponStats(string wName, int damage, int range, int fireRange)
+    {
+        base.SetWeaponStats("Gatling Gun", 20, (int)detectionRadius, 70);
     }
 
 }
