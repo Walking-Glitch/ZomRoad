@@ -11,6 +11,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField] protected GameObject[] WeaponsUI;
 
     [SerializeField] protected GameObject StatsPanelUI;
+    [SerializeField] protected GameObject ActivatePromptUI;
 
 
     [SerializeField] private int j;
@@ -58,6 +59,7 @@ public class WeaponManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             StatsPanelUI.SetActive(true);
+            ActivatePromptUI.SetActive(false);
 
             for (int i = 0; i < weapons.Length; i++)
             {
