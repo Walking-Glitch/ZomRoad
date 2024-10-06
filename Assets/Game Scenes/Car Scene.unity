@@ -7801,6 +7801,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3043942577846309457, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043942577846309457, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043942577846309457, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
       propertyPath: Level
@@ -7829,7 +7844,7 @@ PrefabInstance:
     - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
       propertyPath: acceleration
-      value: 500
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
@@ -7843,9 +7858,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
+      propertyPath: MaxAcceleration
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
       propertyPath: engineAudioSource
       value: 
       objectReference: {fileID: 2020470185}
+    - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: OutFuelAcceleration
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3043942577846309471, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
       propertyPath: engineClips.Array.size
@@ -7938,9 +7963,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5816187164699392470, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
+      propertyPath: detectionRadius
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816187164699392470, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
       propertyPath: AudioSourceTurret
       value: 
       objectReference: {fileID: 1727757127}
+    - target: {fileID: 5816187165804204938, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: detectionRadius
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5816187165804204938, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
       propertyPath: AudioSourceTurret

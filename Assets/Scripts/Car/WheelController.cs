@@ -19,6 +19,9 @@ public class WheelController : MonoBehaviour
 
     public float AliveTimer;
 
+    public float MaxAcceleration;
+    public float OutFuelAcceleration;
+
     public float acceleration;
     public float brakingForce;
     public float maxTurnAngle;
@@ -213,7 +216,7 @@ public class WheelController : MonoBehaviour
         fuel = Mathf.Clamp(fuel, 0, maxFuel);
         gameManager.uiManager.SetFuel(fuel);
 
-        acceleration = fuel <= 0 ? 200f : 500f;
+        acceleration = fuel <= 0 ? OutFuelAcceleration : MaxAcceleration;
     }
 
     public void RefillFuel(float amount)

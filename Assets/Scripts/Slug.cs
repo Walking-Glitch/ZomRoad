@@ -31,7 +31,7 @@ public class Slug : Consumables
         if (other.CompareTag("Player"))
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
-            gameManager.wheelController.CollectSlugAmmo(8);
+            gameManager.wheelController.CollectSlugAmmo(10);
             DeactivateConsumable();
         }
 

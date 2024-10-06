@@ -30,7 +30,7 @@ public class Fuel : Consumables
         if ((other.CompareTag("Player") && gameManager.wheelController.fuel < gameManager.wheelController.maxFuel))
         {
             gameManager.consumablesManager.PlayFuelRefillSFX();//
-            gameManager.wheelController.RefillFuel(20);
+            gameManager.wheelController.RefillFuel(25);
             DeactivateConsumable();
         }
 
