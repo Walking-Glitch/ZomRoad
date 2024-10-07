@@ -297,7 +297,7 @@ public class WheelController : MonoBehaviour
         Exp = 0;
         gameManager.uiManager.SetXp(Exp);
         gameManager.uiManager.SetMaxXp(maxExp);
-        gameManager.enemyManager.maxEnemy += 3;
+        gameManager.enemyManager.maxEnemy += 4;
         Level += 1;
         gameManager.uiManager.SetLevelText();
         

@@ -95,8 +95,6 @@ public class WeaponManager : MonoBehaviour
         gameManager.uiManager.SetRange(range);
         gameManager.uiManager.SetFireRate(fireRate);
 
-        Debug.Log(damage);
-
     }
 }
 

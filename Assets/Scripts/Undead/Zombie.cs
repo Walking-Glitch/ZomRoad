@@ -13,7 +13,7 @@ public class Zombie : UndeadBase
 {
 
     public int expReward = 10;
-    public int giveDamage = 10;
+    private int giveDamage = 5;
 
     public AudioClip [] ZombieVoice;
     public AudioClip [] DeathAudioClip;
