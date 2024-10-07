@@ -9,7 +9,7 @@ public class Mutant : UndeadBase
     public AudioClip swingSfx;
 
     public int expReward = 15;
-    public int giveDamage = 25;
+    private int giveDamage = 20;
     public int giveMinDamage = 2;
     protected override void Start()
     {

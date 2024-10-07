@@ -8,18 +8,15 @@ using UnityEngine.AI;
 
 public class RoadManager : MonoBehaviour
 {
-    public GameObject currStreet;
+    [SerializeField] private GameObject currStreet;
     [SerializeField] private GameObject prevStreet;
     [SerializeField] private Transform streetEndPoint;
     private GameManager gameManager;
 
-    [SerializeField] private GameObject storeRoadTrigger;
-    [SerializeField] private GameObject storeRoadDeleter;
-
-    [SerializeField] private List<GameObject> prevTriggersGameObjects;
-    [SerializeField] private List<GameObject> currTriggersGameObjects;
-
+    private GameObject storeRoadTrigger;
     public Transform reAllocationPoint;
+
+    private bool hasCreatedStreet = false;
 
 
     void Start()
@@ -27,56 +24,32 @@ public class RoadManager : MonoBehaviour
         gameManager = GameManager.Instance;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void SetRespawnPoint(Collider other)
     {
-
-        if (other.CompareTag("ExitStreetTrigger"))
+        Transform childTransform = other.transform.Find("SpawnPoint");
+        if (childTransform != null)
         {
-            if (currTriggersGameObjects.Count > 0)
-            {
-                foreach (var t in currTriggersGameObjects)
-                {
-                    prevTriggersGameObjects.Add(t);
-                }
-
-                currTriggersGameObjects.Clear();
-            }
+            reAllocationPoint = childTransform;
         }
-
-        if (other.CompareTag("EnterStreetTrigger"))
+        else
         {
-            Transform childTransform = other.transform.Find("SpawnPoint");
-            if (childTransform != null)
-            {
-                reAllocationPoint = childTransform;
-               
-            }
-            else
-            {
-                Debug.LogError("Child object with the specified name not found.");
-            }
-
-            if (prevTriggersGameObjects.Count > 0)
-            {
-                foreach (var t in prevTriggersGameObjects)
-                {
-                    t.SetActive(true);
-                }
-
-                prevTriggersGameObjects.Clear();
-            }
+            Debug.LogError("Child object with the specified name not found.");
         }
-
-        
     }
 
-    private void OnTriggerExit(Collider other)
+    private void CallTempStreets(Collider other)
     {
-        if (other.gameObject.CompareTag("RoadTrigger"))
+        
+
+        if (!hasCreatedStreet && storeRoadTrigger != other.gameObject.transform.parent.gameObject)
         {
-            storeRoadTrigger = other.gameObject;
-            currTriggersGameObjects.Add(storeRoadTrigger);
-            other.gameObject.SetActive(false);
+            // get reference to current street 
+            storeRoadTrigger = other.gameObject.transform.parent.gameObject;
+
+            prevStreet = currStreet;
+            
+            currStreet = storeRoadTrigger;
+
             streetEndPoint = currStreet.transform.Find("CreatePoint");
 
             if (streetEndPoint != null)
@@ -91,22 +64,40 @@ public class RoadManager : MonoBehaviour
                 offMeshLink.gameObject.SetActive(false);
                 offMeshLink.gameObject.SetActive(true);
 
-                prevStreet = currStreet;
-                currStreet = newStreet;
+                // prevStreet = currStreet;
+                // currStreet = newStreet;
             }
-        }
 
-
-        if (other.gameObject.CompareTag("DeleteTrigger"))
-        {
-            storeRoadDeleter = other.gameObject;
-            currTriggersGameObjects.Add(storeRoadDeleter);
-            other.gameObject.SetActive(false);
             if (prevStreet != null && prevStreet != currStreet)
             {
                 prevStreet.SetActive(false);
-               
+
             }
+
+            hasCreatedStreet = true;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("EnterStreetTrigger"))
+        {
+            SetRespawnPoint(other);
+        }
+
+        if (other.gameObject.CompareTag("RoadTrigger"))
+        {
+            CallTempStreets(other);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("RoadTrigger"))
+        {
+            hasCreatedStreet = false;
+        }
+    }
+
 }

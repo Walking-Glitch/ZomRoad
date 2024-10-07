@@ -20,7 +20,7 @@ public class EnemyPool : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            if ((i + 1) % 5 == 0)
+            if ((i + 1) % 7 == 0)
             {
                 GameObject enemyPrefab = EnemyPrefabs[2];
                 GameObject enemy = Instantiate(enemyPrefab);
