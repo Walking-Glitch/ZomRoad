@@ -585,7 +585,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press "Q"
+  m_text: Press "Q" to swap weapons
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -680,7 +680,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 66.9, y: 42.55}
-  m_SizeDelta: {x: 100, y: 50}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278325511 stripped
 MonoBehaviour:
@@ -2653,6 +2653,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610794913635302899, guid: d91d117bf0ab81a4fae6a5ba3ed438e4,
+        type: 3}
+      propertyPath: poolSize
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4610794913635302900, guid: d91d117bf0ab81a4fae6a5ba3ed438e4,
         type: 3}
@@ -6358,6 +6363,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3488601150070262634, guid: 511beb1b6b13b1545aec6979ac318dbc,
         type: 3}
+      propertyPath: poolSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488601150070262634, guid: 511beb1b6b13b1545aec6979ac318dbc,
+        type: 3}
       propertyPath: fuelPrefab
       value: 
       objectReference: {fileID: 27845402555607910, guid: 7675e33f6eb296746afb90f9150441b8,
@@ -9826,7 +9836,7 @@ PrefabInstance:
     - target: {fileID: 4132080453749980905, guid: 4515f8ee646164c4a8d22be2385d0b04,
         type: 3}
       propertyPath: maxEnemy
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4132080453749980905, guid: 4515f8ee646164c4a8d22be2385d0b04,
         type: 3}
@@ -10516,14 +10526,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5816187164699392470, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
+      propertyPath: WeaponRange
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816187164699392470, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
       propertyPath: detectionRadius
-      value: 20
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5816187164699392470, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
       propertyPath: AudioSourceTurret
       value: 
       objectReference: {fileID: 1727757127}
+    - target: {fileID: 5816187164699392470, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: transitionDuration
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816187165804204938, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: WeaponName
+      value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816187165804204938, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: WeaponRange
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5816187165804204938, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
       propertyPath: detectionRadius
@@ -10534,11 +10564,26 @@ PrefabInstance:
       propertyPath: AudioSourceTurret
       value: 
       objectReference: {fileID: 1727757127}
+    - target: {fileID: 5816187165804204938, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: transitionDuration
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816187165855179545, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: WeaponRange
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5816187165855179545, guid: 270170632c444e34dadc580663b9287a,
         type: 3}
       propertyPath: AudioSourceTurret
       value: 
       objectReference: {fileID: 1727757127}
+    - target: {fileID: 5816187165855179545, guid: 270170632c444e34dadc580663b9287a,
+        type: 3}
+      propertyPath: transitionDuration
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 270170632c444e34dadc580663b9287a, type: 3}
 --- !u!33 &6308467306585097238
@@ -10668,6 +10713,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1474207325}
     m_Modifications:
+    - target: {fileID: 7571610689976719232, guid: 0e6aab917e0577b479b415c167fb0b9e,
+        type: 3}
+      propertyPath: poolSize
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7571610689976719233, guid: 0e6aab917e0577b479b415c167fb0b9e,
         type: 3}
       propertyPath: m_Name
@@ -10779,6 +10829,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1474207325}
     m_Modifications:
+    - target: {fileID: 8919562005226954918, guid: a6a9d2003c530cf47b9a86d98d633b3e,
+        type: 3}
+      propertyPath: poolSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8919562005226954919, guid: a6a9d2003c530cf47b9a86d98d633b3e,
         type: 3}
       propertyPath: m_RootOrder

@@ -75,7 +75,7 @@ public class Minigun : Turret
 
     protected override void SetWeaponStats(string wName, int damage, int range, int fireRange)
     {
-        base.SetWeaponStats("Gatling Gun", 20, (int)detectionRadius, 70);
+        base.SetWeaponStats("Gatling Gun", 20, (int)WeaponRange, 70);
     }
 
 }
