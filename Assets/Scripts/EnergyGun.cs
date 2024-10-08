@@ -109,7 +109,7 @@ public class EnergyGun : Turret
 
     protected override void SetWeaponStats(string wName, int damage, int range, int fireRate)
     {
-        base.SetWeaponStats("Energy Gun", 500, (int)detectionRadius, 20);
+        base.SetWeaponStats("Energy Gun", 500, (int)WeaponRange, 20);
     }
     public void PlaySfx()
     {
@@ -120,7 +120,7 @@ public class EnergyGun : Turret
     {
         // Draw a wire sphere in the editor to visualize the detection radius
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(explosionObject.transform.position, detectionRadius);
+        Gizmos.DrawWireSphere(explosionObject.transform.position, WeaponRange);
     }
 
 }

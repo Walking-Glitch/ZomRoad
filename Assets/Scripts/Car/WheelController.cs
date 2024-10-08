@@ -300,7 +300,23 @@ public class WheelController : MonoBehaviour
         gameManager.enemyManager.maxEnemy += 4;
         Level += 1;
         gameManager.uiManager.SetLevelText();
-        
+
+        if (Level == 3)
+        {
+            gameManager.enemyManager.delay = 0.4f;
+        }
+
+        if (Level == 5)
+        {
+            gameManager.enemyManager.delay = 0.35f;
+            gameManager.consumablesManager.delay = 0.4f;
+        }
+
+        if (Level == 8)
+        {
+            gameManager.enemyManager.delay = 0.3f;
+        }
+
         if (Level == MaxLevel)
         {
             gameManager.EndMenu.PlayerWin(Level, TotalExp, gameManager.enemyManager.ZombKCtr, gameManager.enemyManager.BruteKCtr, AliveTimer);

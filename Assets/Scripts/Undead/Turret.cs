@@ -6,11 +6,11 @@ using UnityEngine;
 public class Turret : MonoBehaviour
 {
     public int WeaponDamage;
-    public int WeaponRange;
     public int WeaponFireRate;
+    public float WeaponRange;
     public string WeaponName;
 
-    public float detectionRadius;
+    
     public float maxAngle;
     public LayerMask enemyLayer;
     public Animator anim;
@@ -44,7 +44,7 @@ public class Turret : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        SetWeaponStats("Slug Cannon", 50, (int)detectionRadius, 40 );
+        SetWeaponStats("Slug Cannon", 50, (int)WeaponRange, 40 );
         
     }
     protected virtual void SetWeaponStats(string wName, int damage, int range, int fireRate )
@@ -69,7 +69,7 @@ public class Turret : MonoBehaviour
     {
         enemies.Clear();
 
-        Collider[] colliders = Physics.OverlapSphere(transformT.position, detectionRadius, enemyLayer);
+        Collider[] colliders = Physics.OverlapSphere(transformT.position, WeaponRange, enemyLayer);
 
         foreach (Collider col in colliders)
         {
@@ -154,7 +154,7 @@ public class Turret : MonoBehaviour
             tracerManager.SpawnShellTracer(currentEnemy);
             gameManager.casingManager.SpawnShellCasing();
             gameManager.wheelController.SpendSlugAmmo(1);
-            currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(WeaponDamage, new Vector3(25, 5, -50), false, -500f);
+            currentEnemy.gameObject.GetComponent<UndeadBase>().TakeDamage(WeaponDamage, new Vector3(25, 5, -50), false, -500);//
             anim.SetBool("Shoot", false);
         }
 

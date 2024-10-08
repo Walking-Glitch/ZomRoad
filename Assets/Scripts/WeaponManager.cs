@@ -87,7 +87,7 @@ public class WeaponManager : MonoBehaviour
     {
         wName = weapons[i].gameObject.GetComponent<Turret>().WeaponName;
         damage = weapons[i].gameObject.GetComponent<Turret>().WeaponDamage;
-        range = weapons[i].gameObject.GetComponent<Turret>().WeaponRange;
+        range = (int)weapons[i].gameObject.GetComponent<Turret>().WeaponRange;
         fireRate = weapons[i].gameObject.GetComponent<Turret>().WeaponFireRate;
 
         gameManager.uiManager.SetWeaponNameText(wName);
