@@ -48,7 +48,7 @@ public class WeaponManager : MonoBehaviour
         StatsPanelUI.SetActive(false);
     }
 
-    void SwapWeapons()
+    private void SwapWeapons()
     {
 
         if (j >= weapons.Length)
@@ -82,6 +82,37 @@ public class WeaponManager : MonoBehaviour
         }
 
     }
+
+    public void MobileSwapWeapons()
+    {
+        if (j >= weapons.Length)
+        {
+            j = 0;
+        }
+
+        StatsPanelUI.SetActive(true);
+        ActivatePromptUI.SetActive(false);
+
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (i == j)
+            {
+                weapons[i].gameObject.SetActive(true);
+                AmmoUI[i].gameObject.SetActive(true);
+                WeaponsUI[i].gameObject.SetActive(true);
+                RefreshStats(i);
+            }
+            else
+            {
+                weapons[i].gameObject.SetActive(false);
+                AmmoUI[i].gameObject.SetActive(false);
+                WeaponsUI[i].gameObject.SetActive(false);
+            }
+        }
+
+        j++;
+    }
+
 
     void RefreshStats(int i)
     {

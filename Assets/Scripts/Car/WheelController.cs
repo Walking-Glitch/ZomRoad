@@ -99,15 +99,23 @@ public class WheelController : MonoBehaviour
     {
         ConsumeFuel();
         // get forward and reverse acceleration
-        currentAcceleration = acceleration * Input.GetAxis("Vertical");
-        //currentAcceleration = acceleration * joystick.Vertical;
 
-        //
+        if (joystick != null)
+        {
+            currentAcceleration = acceleration * joystick.Vertical;
+            currentTurnAngle = maxTurnAngle * joystick.Horizontal;
+        }
+        else
+        {
+            currentAcceleration = acceleration * Input.GetAxis("Vertical");
+            currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
+        }
+    
+       
         if (Input.GetKey(KeyCode.Space))
         {
             currentBrakeForce = brakingForce;
             isBraking = true;
-
         }
 
         else
@@ -130,8 +138,7 @@ public class WheelController : MonoBehaviour
         backLeft.brakeTorque = currentBrakeForce;
 
         // steering
-        currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
-        //currentTurnAngle = maxTurnAngle * joystick.Horizontal;
+        
         frontRight.steerAngle = currentTurnAngle;
         frontLeft.steerAngle = currentTurnAngle;
 
