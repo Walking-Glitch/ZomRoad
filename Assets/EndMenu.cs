@@ -58,6 +58,13 @@ public class EndMenu : MonoBehaviour
         SceneManager.LoadScene("Car Scene");
     }
 
+    public void RetryMobile()
+    {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+        SceneManager.LoadScene("Mobile Car Scene");
+    }
+
     public void SetLevelValueText(int level)
     {
     
