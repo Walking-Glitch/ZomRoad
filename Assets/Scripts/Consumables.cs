@@ -17,7 +17,7 @@ public class Consumables : MonoBehaviour
 
     protected MeshRenderer[] meshRenderers;
 
-    
+    protected int replenishValue;
 
     protected GameManager gameManager;
 

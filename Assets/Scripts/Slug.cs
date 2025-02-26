@@ -9,6 +9,8 @@ public class Slug : Consumables
     {
         base.Start();
         GetMeshRenderers();
+
+        replenishValue = 20;
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class Slug : Consumables
         if (other.CompareTag("Player"))
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
-            gameManager.wheelController.CollectSlugAmmo(10);
+            gameManager.wheelController.CollectSlugAmmo(replenishValue);
             DeactivateConsumable();
         }
 

@@ -9,6 +9,7 @@ public class Bullet : Consumables
     {
         base.Start();
         GetMeshRenderers();
+        replenishValue = 75;
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class Bullet : Consumables
         if (other.CompareTag("Player"))
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
-            gameManager.wheelController.CollectBulletAmmo(50);
+            gameManager.wheelController.CollectBulletAmmo(replenishValue);
             DeactivateConsumable();
         }
 

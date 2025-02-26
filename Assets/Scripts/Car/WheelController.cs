@@ -254,20 +254,20 @@ public class WheelController : MonoBehaviour
     public void SpendSlugAmmo(int amount)
     {
         slugAmmo -= amount;
-        slugAmmo = Mathf.Clamp(slugAmmo, 0, 500);
+        slugAmmo = Mathf.Clamp(slugAmmo, 0, 5000);
         gameManager.uiManager.SetSlugAmmoText();
     }
 
     public void SpendBulletAmmo(int amount)
     {
         bulletAmmo -= amount;
-        bulletAmmo = Mathf.Clamp(bulletAmmo, 0, 500);
+        bulletAmmo = Mathf.Clamp(bulletAmmo, 0, 5000);
         gameManager.uiManager.SetBulletAmmoText();
     }
     public void SpendEnergyAmmo(int amount)
     {
         energyAmmo -= amount;
-        energyAmmo = Mathf.Clamp(energyAmmo, 0, 500);
+        energyAmmo = Mathf.Clamp(energyAmmo, 0, 5000);
         gameManager.uiManager.SetEnergyAmmoText();
     }
 
