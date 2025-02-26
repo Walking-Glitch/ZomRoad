@@ -9,6 +9,7 @@ public class MedKit : Consumables
     protected override void Start()
     {
         base.Start();
+        replenishValue = 50;
     }
 
     // Update is called once per frame
@@ -31,7 +32,7 @@ public class MedKit : Consumables
         if ((other.CompareTag("Player") && gameManager.wheelController.health < gameManager.wheelController.maxHealth))
         {
             gameManager.consumablesManager.PlayHealthRefillSFX();
-            gameManager.wheelController.Heal(35);
+            gameManager.wheelController.Heal(replenishValue);
             DeactivateConsumable();
         }
 

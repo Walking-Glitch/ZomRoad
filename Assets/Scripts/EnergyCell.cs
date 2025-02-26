@@ -8,6 +8,7 @@ public class EnergyCell : Consumables
     protected override void Start()
     {
         base.Start();
+        replenishValue = 5;
     }
 
     // Update is called once per frame
@@ -30,7 +31,7 @@ public class EnergyCell : Consumables
         if (other.CompareTag("Player"))
         {
             gameManager.consumablesManager.PlayAmmoRefillSFX();
-            gameManager.wheelController.CollectEnergyAmmo(3);
+            gameManager.wheelController.CollectEnergyAmmo(replenishValue);
             DeactivateConsumable();
         }
 
